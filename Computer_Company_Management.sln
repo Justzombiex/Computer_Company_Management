@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.Domain", "Computer_Company_Management\CCM.Domain.csproj", "{DAA29AE3-59AA-459A-91C2-FA8C2D5B66EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BAB007F5-738B-4F62-8B4E-48F3C945DBF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.DataAccess", "DataAccess\CCM.DataAccess.csproj", "{BAB007F5-738B-4F62-8B4E-48F3C945DBF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
