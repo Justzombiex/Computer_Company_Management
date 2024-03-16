@@ -22,7 +22,6 @@ namespace CCM.DataAccess.Repositories
         /// Contexto mediante el cual se establece conexión a BD.
         /// </summary>
         protected ApplicationContext? _context;
-       
         public bool IsInTransaction => _context is not null;
         /// <summary>
         /// Inicializa un objeto AplicationRepository

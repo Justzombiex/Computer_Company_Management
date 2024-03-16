@@ -64,10 +64,10 @@ namespace CCM.Domain.Entities.Computers
         /// <summary>
         /// Inicializa un objeto <see cref="PC"/>
         /// </summary>
-        /// <param name="rAM"></param>
-        /// <param name="motherBoard"></param>
-        /// <param name="hardDrive"></param>
-        /// <param name="microprocesor"></param>
+        /// <param name="rAMId">Id de la RAM de la PC</param>
+        /// <param name="motherBoardId">Id de la motherboard de la PC </param>
+        /// <param name="hardDriveId">Id del dsico duro de la PC</param>
+        /// <param name="microprocesorId">Id del microprocesador de la PC</param>
         public PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId)
         {
             HardDriveId = hardDriveId;
