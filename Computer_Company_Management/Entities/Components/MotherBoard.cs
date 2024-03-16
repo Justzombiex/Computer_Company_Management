@@ -46,7 +46,7 @@ namespace CCM.Domain.Entities.Components
         /// <param name="model"></param>
         /// <param name="brand"></param>
         /// <param name="connectionType"></param>
-        MotherBoard(string model, string brand, ConnectionType connectionType) 
+        public MotherBoard(string model, string brand, ConnectionType connectionType) 
         { 
             Model = model; 
             Brand = brand;

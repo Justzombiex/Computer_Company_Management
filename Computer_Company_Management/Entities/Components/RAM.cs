@@ -47,7 +47,7 @@ namespace CCM.Domain.Entities.Components
         /// <param name="memorySize"></param>
         /// <param name="brand"></param>
         /// <param name="memoryType"></param>
-        RAM(int memorySize, string brand, MemoryType memoryType)           
+        public RAM(int memorySize, string brand, MemoryType memoryType)           
         {
             MemorySize = memorySize;
             Brand = brand;
