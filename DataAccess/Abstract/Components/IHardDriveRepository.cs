@@ -16,27 +16,27 @@ namespace CCM.DataAccess.Abstract.Components
         /// <summary>
         /// Crea un disco duro en BD.
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="brand"></param>
-        /// <param name="storage"></param>
-        /// <param name="connectionHardDriveType"></param>
+        /// <param name="model">Modelo del disco duro</param>
+        /// <param name="brand">Marca del disco duro</param>
+        /// <param name="storage">Capacidad de almacenamiento del disco duro</param>
+        /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
         /// <returns></returns>
         HardDrive Create(string model, string brand, float storage, ConnectionHardDriveType connectionHardDriveType);
         /// <summary>
         /// Obtiene un disco duro de BD.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Id del disco duro</param>
         /// <returns></returns>
         HardDrive? Get(int id);
         /// <summary>
         /// Actualiza el valor de un disco duro en BD.
         /// </summary>
-        /// <param name="hardDrive"></param>
+        /// <param name="hardDrive">Disco duro</param>
         void Update(HardDrive hardDrive);
         /// <summary>
         /// Elimina un disco duro de BD
         /// </summary>
-        /// <param name="hardDrive"></param>
+        /// <param name="hardDrive">Disco duro</param>
         void Delete(HardDrive hardDrive);
     }
 }

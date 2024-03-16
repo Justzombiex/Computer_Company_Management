@@ -16,26 +16,26 @@ namespace CCM.DataAccess.Abstract.Components
         /// <summary>
         /// Crea una RAM en BD
         /// </summary>
-        /// <param name="memorySize"></param>
-        /// <param name="brand"></param>
-        /// <param name="memoryType"></param>
+        /// <param name="memorySize">Tamaño de memoria de la RAM</param>
+        /// <param name="brand">Marca de la RAM</param>
+        /// <param name="memoryType">Tipo de memoria RAM</param>
         /// <returns></returns>
         RAM Create(int memorySize, string brand, MemoryType memoryType);
         /// <summary>
         /// Obtiene una RAM de BD
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Id de la RAM</param>
         /// <returns></returns>
         RAM? Get(int id);
         /// <summary>
         /// Actualiza el valor de una RAM en BD
         /// </summary>
-        /// <param name="rAM"></param>
+        /// <param name="rAM">Una RAM</param>
         void Update(RAM rAM);
         /// <summary>
         /// Elimina una RAM de BD
         /// </summary>
-        /// <param name="rAM"></param>
+        /// <param name="rAM">Una RAM</param>
         void Delete(RAM rAM);
 
     }

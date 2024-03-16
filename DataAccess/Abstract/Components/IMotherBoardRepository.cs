@@ -16,26 +16,26 @@ namespace CCM.DataAccess.Abstract.Components
         /// <summary>
         /// Crea una motherboard en BD
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="brand"></param>
-        /// <param name="connectionType"></param>
+        /// <param name="model">Modelo de la motherboard</param>
+        /// <param name="brand">Marca de la motherboard</param>
+        /// <param name="connectionType">Tipo de conexión de la motherboard</param>
         /// <returns></returns>
         MotherBoard Create(string model, string brand, ConnectionType connectionType);
         /// <summary>
         /// Obtiene una motherboard de BD
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Id de la motherboard</param>
         /// <returns></returns>
         MotherBoard? Get(int id);
         /// <summary>
         /// Actualiza el valor de la motherboard en BD
         /// </summary>
-        /// <param name="motherBoard"></param>
+        /// <param name="motherBoard">Una motherboard</param>
         void Update(MotherBoard motherBoard);
         /// <summary>
         /// Elimina una motherboard de BD
         /// </summary>
-        /// <param name="motherBoard"></param>
+        /// <param name="motherBoard">Una motherboard</param>
         void Delete(MotherBoard motherBoard);
     }
 }
