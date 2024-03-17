@@ -10,7 +10,7 @@ namespace CCM.DataAccess.Abstract.Computers
     /// <summary>
     /// Define las operaciones a realizar en BD con PC
     /// </summary>
-    public interface IPCRepository
+    public interface IPCRepository : IRepository
     {
         /// <summary>
         /// Crea una PC en BD
@@ -21,6 +21,8 @@ namespace CCM.DataAccess.Abstract.Computers
         /// <param name="motherBoardId">Id de la motherboard de la PC</param>
         /// <returns></returns>
         PC Create(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId);
+        void BeginTransaction();
+
         /// <summary>
         /// Obtiene un precio de BD
         /// </summary>
