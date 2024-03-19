@@ -8,14 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abtract\" />
     <Folder Include="Entities\Company\" />
     <Folder Include="Entities\Components\" />
     <Folder Include="Entities\Computers\" />
     <Folder Include="Entities\Orders\" />
-    <Folder Include="Entities\Persons\" />
     <Folder Include="Entities\Shop\" />
-    <Folder Include="Entities\Types\" />
     <Folder Include="Entities\Common\" />
     <Folder Include="Utilities\" />
   </ItemGroup>
