@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Company
 {
-    internal class Company
+    public class Company
     {
+        #region Properties
+        public string CompanyName { get; }   
+        public List<Shop> Shops { get; set; }
 
+        #endregion
     }
 }
