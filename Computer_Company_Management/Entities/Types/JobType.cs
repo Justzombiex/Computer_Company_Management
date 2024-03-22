@@ -9,16 +9,20 @@ namespace CCM.Domain.Entities.Types
     public enum JobType
     {
         /// <summary>
-        /// CEO of the Company
+        /// Encargado de la limpeza
         /// </summary>
-        CEO,
+        CLEANING,
         /// <summary>
-        /// Manager of the Store
+        /// Administrador de la tienda
         /// </summary>
         MANAGER,
         /// <summary>
-        /// Regular Store Clerk
+        /// Trabajador regular de la tienda
         /// </summary>
-        STORECLERK
+        STORECLERK,
+        /// <summary>
+        /// Encargado de reparaciones de equipos
+        /// </summary>
+        TECHNICIAN
     }
 }

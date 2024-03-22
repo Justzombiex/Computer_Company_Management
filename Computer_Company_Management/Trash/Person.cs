@@ -9,6 +9,9 @@ namespace CCM.Domain.Entities.Persons
     public abstract class Person
     {
         #region Properties
+        /// <summary>
+        /// Nombre de la persona
+        /// </summary>
         public string Name { get; set; }
         /// <summary>
         /// Carnet de Identidad
@@ -27,7 +30,7 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// Inicializa un objeto <see cref="Person"/>
         /// </summary>
-        /// <param name="cI">Carnet de Idad</param>
+        /// <param name="cI">Carnet de Identidad</param>
         /// <param name="name">Nombre de la persona</param>
         public Person(string cI, string name)
         {
