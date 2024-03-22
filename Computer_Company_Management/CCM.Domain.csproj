@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Abtract\" />
+    <Folder Include="Concrete\" />
     <Folder Include="Entities\Company\" />
     <Folder Include="Entities\Components\" />
     <Folder Include="Entities\Computers\" />
@@ -16,7 +17,14 @@
     <Folder Include="Entities\Persons\" />
     <Folder Include="Entities\Shop\" />
     <Folder Include="Entities\Common\" />
-    <Folder Include="Utilities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.27">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
