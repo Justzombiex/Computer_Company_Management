@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Orders
 {
-    internal class BuyOrder
+    public class BuyOrder
     {
+        #region Properties
+        string ClientName { get; set; }
+        string ClientId { get; set; }
+        #endregion
     }
 }
