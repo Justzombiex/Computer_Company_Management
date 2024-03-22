@@ -8,16 +8,7 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Persons
 {
-    public class Client : Person, Entity
+    public class Client 
     {
-        #region Properties
-        public List<PC> Shoppingcart { get; }
-        //shopping cart should be able to have a list or different components
-        #endregion
-
-        public Client(string cI, string name) : base(cI, name)
-        {
-            Shoppingcart = new List<PC>();
-        }
     }
 }
