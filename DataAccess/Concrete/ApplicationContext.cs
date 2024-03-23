@@ -1,5 +1,8 @@
-﻿using CCM.Domain.Entities.Components;
+﻿using CCM.Domain.Entities.Company;
+using CCM.Domain.Entities.Components;
 using CCM.Domain.Entities.Computers;
+using CCM.Domain.Entities.Persons;
+using CCM.Domain.Entities.Shops;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +18,8 @@ namespace CCM.DataAccess.Concrete
     public class ApplicationContext : DbContext
     {
         #region Tables
+
+        #region Computadoras
         /// <summary>
         /// Tabla de los PC
         /// </summary>
@@ -31,6 +36,24 @@ namespace CCM.DataAccess.Concrete
         /// Tabla de las memorias RAm
         /// </summary>
         public DbSet<RAM> RAM { get; set; }
+        #endregion
+
+        #region Trabajadores, Tienda y Compañia
+        /// <summary>
+        /// Tabla de trabajadores
+        /// </summary>
+        public DbSet<Worker> Workers { get; set; }
+        /// <summary>
+        /// Tabla de Tiendas
+        /// </summary>
+        public DbSet<Shop> Shops { get; set; }
+        /// <summary>
+        /// Tabla de la Compañia
+        /// </summary>
+        public DbSet<Company> Companies { get; set; } 
+
+        #endregion
+
         #endregion
 
         #region Constructors
@@ -82,6 +105,8 @@ namespace CCM.DataAccess.Concrete
             modelBuilder.Entity<RAM>().ToTable("RAM");
 
             modelBuilder.Entity<Microprocesor>().ToTable("Microprocesor");
+
+            modelBuilder.Entity<Worker>().ToTable("Workers");
             #endregion
         }
 

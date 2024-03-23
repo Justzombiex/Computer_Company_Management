@@ -52,6 +52,10 @@ namespace CCM.Domain.Entities.Computers
         /// Id de la RAM
         /// </summary>
         public int RAMId { get; set; }
+        /// <summary>
+        /// ID de la tienda a la que le pertenece
+        /// </summary>
+        public int ShopID { get; set; }
 
         #endregion 
 

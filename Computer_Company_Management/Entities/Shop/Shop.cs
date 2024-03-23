@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Shops
 {
-    public class Shop
+    /// <summary>
+    /// Modela una Tienda
+    /// </summary>
+    public class Shop : Entity
     {
         #region Properties
         /// <summary>
@@ -24,13 +27,36 @@ namespace CCM.Domain.Entities.Shops
         /// <summary>
         /// Lista de productos en la tienda
         /// </summary>
+        [NotMapped]
         public List <PC> Products { get; set; }
         /// <summary>
         /// Trabajadores en la Tienda
         /// </summary>
+        [NotMapped]
         public List <Worker> Workers { get; set; }
         #endregion
 
+        #region IDs
+        /// <summary>
+        /// El ID del nombre de la tienda
+        /// </summary>
+        public int ShopNameID { get; set; } 
+        /// <summary>
+        /// ID de la direccion de la tienda
+        /// </summary>
+        public int ShopAddressID { get; set; }
+        /// <summary>
+        /// ID de la compannia a la que pertenece la tienda
+        /// </summary>
+        public int CompanyID { get; set; } 
+
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Para Migraciones
+        /// </summary>
+        protected Shop () {}
         /// <summary>
         /// Crea una tienda  <see cref="Shop"/>
         /// </summary>
@@ -42,7 +68,8 @@ namespace CCM.Domain.Entities.Shops
             ShopAddress = address;
             Products = new List<PC> ();
         }
+        #endregion
 
-   
+
     }
 }

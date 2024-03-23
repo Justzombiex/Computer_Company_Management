@@ -9,21 +9,31 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Company
 {
-    public class Company
+    /// <summary>
+    /// Modela una Compañia
+    /// </summary>
+    public class Company : Entity
     {
         #region Properties
+        public string CompanyName { get; set; }
         /// <summary>
         /// Arreglo de Tiendas que tiene la compañia
         /// </summary>
         public List <Shop> Shops{ get; set; }
+        /// <summary>
+        /// Para migraciones
+        /// </summary>
+        public int CompanyID { get; set; } 
         #endregion
 
         #region Constructors
+        protected Company () {}
         /// <summary>
         /// Crea una compañia <see cref="Company"/>
         /// </summary>
-        protected Company()
+        public Company(string name)
         {
+            CompanyName = name;
             Shops = new List<Shop>();
         }
        #endregion
