@@ -2,6 +2,7 @@
 using CCM.Domain.Entities.Shops;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace CCM.Domain.Entities.Company
         /// <summary>
         /// Arreglo de Tiendas que tiene la compañia
         /// </summary>
+        [NotMapped]
         public List <Shop> Shops{ get; set; }
         /// <summary>
         /// Para migraciones
