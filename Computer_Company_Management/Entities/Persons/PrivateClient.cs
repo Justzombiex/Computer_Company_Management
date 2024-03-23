@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Persons
 {
-    internal class PrivateClient
+    internal class PrivateClient : Client
     {
     }
 }
