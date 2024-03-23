@@ -1,4 +1,5 @@
-﻿using CCM.Domain.Entities.Components;
+﻿using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Components;
 using CCM.Domain.Entities.Computers;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -31,6 +32,10 @@ namespace CCM.DataAccess.Concrete
         /// Tabla de las memorias RAm
         /// </summary>
         public DbSet<RAM> RAM { get; set; }
+        /// <summary>
+        /// Tabla de los precios
+        /// </summary>
+        public DbSet<Price> Price { get; set; }
         #endregion
 
         #region Constructors
@@ -82,6 +87,8 @@ namespace CCM.DataAccess.Concrete
             modelBuilder.Entity<RAM>().ToTable("RAM");
 
             modelBuilder.Entity<Microprocesor>().ToTable("Microprocesor");
+
+            modelBuilder.Entity<Price>().ToTable("Price");
             #endregion
         }
 

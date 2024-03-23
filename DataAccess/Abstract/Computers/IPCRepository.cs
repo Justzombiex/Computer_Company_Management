@@ -1,4 +1,6 @@
-﻿using CCM.Domain.Entities.Computers;
+﻿using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Computers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,20 +17,23 @@ namespace CCM.DataAccess.Abstract.Computers
         /// <summary>
         /// Crea una PC en BD
         /// </summary>
-        /// <param name="hardDriveId">Id del Disco duro de la PC</param>
-        /// <param name="microprocesorId">Id del Microprocesador de la PC</param>
-        /// <param name="rAMId">Id de la RAM de la PC</param>
-        /// <param name="motherBoardId">Id de la motherboard de la PC</param>
+        /// <param name="hardDrive">Disco duro de la PC</param>
+        /// <param name="microprocesor">Microprocesador de la PC</param>
+        /// <param name="rAM">RAM de la PC</param>
+        /// <param name="motherBoard">Motherboard de la PC</param>
         /// <returns></returns>
-        PC Create(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId);
-        void BeginTransaction();
-
+        PC Create(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price);
         /// <summary>
-        /// Obtiene un precio de BD
+        /// Obtiene una PC de BD
         /// </summary>
         /// <param name="id">Id de la PC</param>
         /// <returns></returns>
         PC? Get(int id);
+        /// <summary>
+        /// Obtiene todas las PC de BD.
+        /// </summary>
+        /// <returns>PC en BD.</returns>
+        IEnumerable<PC> GetAllPC();
         /// <summary>
         /// Actualiza el valor de PC en BD
         /// </summary>

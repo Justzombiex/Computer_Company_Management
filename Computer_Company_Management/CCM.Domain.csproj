@@ -1,15 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Concrete\**" />
+    <EmbeddedResource Remove="Concrete\**" />
+    <None Remove="Concrete\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Abtract\" />
-    <Folder Include="Concrete\" />
     <Folder Include="Entities\Company\" />
     <Folder Include="Entities\Components\" />
     <Folder Include="Entities\Computers\" />

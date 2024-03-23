@@ -35,6 +35,11 @@ namespace CCM.Domain.Entities.Computers
         /// </summary>
         [NotMapped]
         public RAM RAM { get; set; }
+        /// <summary>
+        /// Precio de la PC.
+        /// </summary>
+        [NotMapped]
+        public Price Price { get; set; }
 
         /// <summary>
         /// Id del disco duro
@@ -52,6 +57,10 @@ namespace CCM.Domain.Entities.Computers
         /// Id de la RAM
         /// </summary>
         public int RAMId { get; set; }
+        /// <summary>
+        /// Id del precio
+        /// </summary>
+        public int PriceId { get; set; }
 
         #endregion 
 
@@ -64,16 +73,22 @@ namespace CCM.Domain.Entities.Computers
         /// <summary>
         /// Inicializa un objeto <see cref="PC"/>
         /// </summary>
-        /// <param name="rAMId">Id de la RAM de la PC</param>
-        /// <param name="motherBoardId">Id de la motherboard de la PC </param>
-        /// <param name="hardDriveId">Id del dsico duro de la PC</param>
-        /// <param name="microprocesorId">Id del microprocesador de la PC</param>
-        public PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId)
+        /// <param name="rAM">Id de la RAM de la PC</param>
+        /// <param name="motherBoard">Id de la motherboard de la PC </param>
+        /// <param name="hardDrive">Id del dsico duro de la PC</param>
+        /// <param name="microprocesor">Id del microprocesador de la PC</param>
+        public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
         {
-            HardDriveId = hardDriveId;
-            MicroprocesorId = microprocesorId;
-            MotherBoardId = motherBoardId;
-            RAMId = rAMId;
+            HardDrive = hardDrive;
+            Microprocesors = microprocesor;
+            RAM = rAM;
+            MotherBoard = motherBoard;
+            Price = price;
+            HardDriveId = hardDrive.Id;
+            MicroprocesorId = microprocesor.Id;
+            MotherBoardId = motherBoard.Id;
+            RAMId = rAM.Id;
+            PriceId = price.Id;
         }
         
         #endregion
