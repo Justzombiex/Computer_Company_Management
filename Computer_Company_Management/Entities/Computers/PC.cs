@@ -96,10 +96,6 @@ namespace CCM.Domain.Entities.Computers
             MotherBoardId = motherBoard.Id;
             RAMId = rAM.Id;
             PriceId = price.Id;
-            HardDriveId = hardDriveId;
-            MicroprocesorId = microprocesorId;
-            MotherBoardId = motherBoardId;
-            RAMId = rAMId;
             ShopID = shop.Id;
         }
         
