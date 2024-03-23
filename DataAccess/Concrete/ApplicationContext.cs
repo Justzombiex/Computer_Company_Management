@@ -107,6 +107,10 @@ namespace CCM.DataAccess.Concrete
             modelBuilder.Entity<Microprocesor>().ToTable("Microprocesor");
 
             modelBuilder.Entity<Worker>().ToTable("Workers");
+
+            modelBuilder.Entity<Shop>().ToTable("Shops");
+
+            modelBuilder.Entity<Company>().ToTable("Company");
             #endregion
         }
 
