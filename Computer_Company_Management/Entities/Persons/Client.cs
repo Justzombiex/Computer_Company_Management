@@ -8,7 +8,15 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Persons
 {
-    public class Client 
+    /// <summary>
+    /// Modela un Cliente
+    /// </summary>
+    public abstract class Client : Entity
     {
+        /// <summary>
+        /// Para migraciones
+        /// </summary>
+        protected Client() { }
+
     }
 }

@@ -110,7 +110,7 @@ namespace CCM.DataAccess.Concrete
 
             modelBuilder.Entity<Shop>().ToTable("Shops");
 
-            modelBuilder.Entity<Company>().ToTable("Company");
+            modelBuilder.Entity<Company>().ToTable("Companies");
             #endregion
         }
 
