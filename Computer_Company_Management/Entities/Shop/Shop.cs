@@ -36,7 +36,7 @@ namespace CCM.Domain.Entities.Shops
         [NotMapped]
         public List <Worker> Workers { get; set; }
         /// <summary>
-        /// Compannia a la que pertenece la tienda
+        /// Compañía a la que pertenece la tienda
         /// </summary>
         [NotMapped]
         public Company company { get; set; }

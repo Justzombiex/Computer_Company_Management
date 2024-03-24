@@ -21,13 +21,13 @@ namespace CCM.DataAccess.Abstract.Computers
         /// <param name="microprocesor">Microprocesador de la PC</param>
         /// <param name="rAM">RAM de la PC</param>
         /// <param name="motherBoard">Motherboard de la PC</param>
-        /// <returns></returns>
+        /// <returns>PC creada en BD</returns>
         PC Create(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price);
         /// <summary>
         /// Obtiene una PC de BD
         /// </summary>
         /// <param name="id">Id de la PC</param>
-        /// <returns></returns>
+        /// <returns>PC solicitada de existir en BD, de lo contrario <see langword="null"/></returns>
         PC? Get(int id);
         /// <summary>
         /// Obtiene todas las PC de BD.

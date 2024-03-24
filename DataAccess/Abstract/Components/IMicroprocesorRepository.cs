@@ -20,13 +20,13 @@ namespace CCM.DataAccess.Abstract.Components
         /// <param name="processorSpeed">Velocidad del microprocesador</param>
         /// <param name="brand">Marca del microprocesador</param>
         /// <param name="connectionType">Tipo de conexión del microprocesador</param>
-        /// <returns></returns>
+        /// <returns>Microprocesador creado en BD</returns>
         Microprocesor Create(string model, int processorSpeed, string brand, ConnectionType connectionType);
         /// <summary>
         /// Obtiene un microprocesador de BD
         /// </summary>
         /// <param name="id">Id del microprocesador</param>
-        /// <returns></returns>
+        /// <returns>Microprocesador solicitado de existir en BD, de lo contrario <see langword="null"/></returns>
         Microprocesor? Get(int id);
         /// <summary>
         /// Actualiza el valor de un microprocesador en BD

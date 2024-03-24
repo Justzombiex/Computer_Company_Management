@@ -19,13 +19,13 @@ namespace CCM.DataAccess.Abstract.Components
         /// <param name="memorySize">Tamaño de memoria de la RAM</param>
         /// <param name="brand">Marca de la RAM</param>
         /// <param name="memoryType">Tipo de memoria RAM</param>
-        /// <returns></returns>
+        /// <returns>RAM creada en BD</returns>
         RAM Create(int memorySize, string brand, MemoryType memoryType);
         /// <summary>
         /// Obtiene una RAM de BD
         /// </summary>
         /// <param name="id">Id de la RAM</param>
-        /// <returns></returns>
+        /// <returns>RAM solicitada de existir en BD, de lo contrario <see langword="null"/> </returns>
         RAM? Get(int id);
         /// <summary>
         /// Actualiza el valor de una RAM en BD

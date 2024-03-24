@@ -19,19 +19,19 @@ namespace CCM.DataAccess.Repositories
             return buyOrder;
         }
 
-        public BuyOrder Delete(BuyOrder buyOrder)
+        public void Delete(BuyOrder buyOrder)
         {
             _context.Remove(buyOrder);
         }
 
-        public BuyOrder Update(BuyOrder buyOrder)
+        public void Update(BuyOrder buyOrder)
         {
             _context.Update(buyOrder);
         }
 
         BuyOrder? IBuyOrderRepository.Get(int id)
         {
-            return _context.Set<BuyOrder>.Find(id);
+            return _context.Set<BuyOrder>().Find(id);
         }
     }
 }

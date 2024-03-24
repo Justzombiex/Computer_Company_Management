@@ -41,10 +41,13 @@ namespace CCM.Domain.Entities.Computers
         /// </summary>
         [NotMapped]
         public Price Price { get; set; }
-        /// Tienda a la que pertenece la tienda
+        
+        /// <summary>
+        /// Tienda a la que pertenece la PC
         /// </summary>
         [NotMapped]
-        public Shop shop { get; set; } 
+        public Shop shop { get; set; }
+
         /// <summary>
         /// Id del disco duro
         /// </summary>
@@ -80,10 +83,11 @@ namespace CCM.Domain.Entities.Computers
         /// <summary>
         /// Inicializa un objeto <see cref="PC"/>
         /// </summary>
-        /// <param name="rAM">Id de la RAM de la PC</param>
-        /// <param name="motherBoard">Id de la motherboard de la PC </param>
-        /// <param name="hardDrive">Id del dsico duro de la PC</param>
-        /// <param name="microprocesor">Id del microprocesador de la PC</param>
+        /// <param name="rAM">RAM de la PC</param>
+        /// <param name="motherBoard">Microprocesador de la PC</param>
+        /// <param name="hardDrive">Disco duro de la PC</param>
+        /// <param name="microprocesor">Microprocesador de la PC</param>
+        /// <param name="price">Precio de la PC</param>
         public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
         {
             HardDrive = hardDrive;
