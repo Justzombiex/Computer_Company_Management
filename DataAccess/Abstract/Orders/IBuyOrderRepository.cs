@@ -33,12 +33,12 @@ namespace CCM.DataAccess.Abstract.Orders
         /// </summary>
         /// <param name="buyOrder">Orden de Compra</param>
         /// <returns></returns>
-        BuyOrder Update(BuyOrder buyOrder);
+        void Update(BuyOrder buyOrder);
         /// <summary>
         /// Elimina una Orden de Compra de una BD
         /// </summary>
         /// <param name="buyOrder">Orden de Compra</param>
         /// <returns></returns>
-        BuyOrder Delete(BuyOrder buyOrder);
+        void Delete(BuyOrder buyOrder);
     }
 }

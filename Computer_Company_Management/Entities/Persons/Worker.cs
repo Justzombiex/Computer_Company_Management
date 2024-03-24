@@ -19,15 +19,15 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// ID del trabajador
         /// </summary>
-        string _WorkerID { get; }
+        public string _WorkerID { get; }
         /// <summary>
         /// Ocupacion que esta cubriendo el trabajador
         /// </summary>
-        JobType Job { get; set; }
+        public JobType Job { get; set; }
         /// <summary>
         /// Salario que se le entrega al trabajador
         /// </summary>
-        double Salary { get; set; }
+        public double Salary { get; set; }
         [NotMapped]
         public Shop shop { get; protected set; }
         #endregion
