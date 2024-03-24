@@ -18,7 +18,7 @@ namespace CCM.Domain.Entities.Common
         #region Properties
 
         /// <summary>
-        /// Divisa a en la que se expresa el valor de la PC.
+        /// Divisa en la que se expresa el valor de la PC.
         /// </summary>
         public MoneyType Currency { get; set; }
 

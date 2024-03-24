@@ -15,24 +15,24 @@ namespace CCM.DataAccess.Abstract.Companies
         /// <summary>
         /// Crea una Compañía en la BD
         /// </summary>
-        /// <param name="name">Nombre de la Compannia</param>
-        /// <returns></returns>
+        /// <param name="name">Nombre de la Compañía</param>
+        /// <returns>Compañía creada en BD</returns>
         Company Create(string name);
         /// <summary>
         /// Obtiene una Compañía de la BD
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id de la compañía en BD</param>
+        /// <returns>Compañía solicitada de existir en BD, de lo contrario <see langword="null"/>.</returns>
         Company? Get(int id);
         /// <summary>
         /// Atualiza una Compañía de la BD
         /// </summary>
-        /// <param name="company"></param>
+        /// <param name="company">Compañía</param>
         void Update(Company company);   
         /// <summary>
-        /// Borra la informacion Compañía de la BD
+        /// Borra la información Compañía de la BD
         /// </summary>
-        /// <param name="company"></param>
+        /// <param name="company">Compañía</param>
         void Delete(Company company);    
         
     }

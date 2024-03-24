@@ -25,10 +25,14 @@ namespace CCM.Domain.Entities.Companies
         #endregion
 
         #region Constructors
-        protected Company () {}
         /// <summary>
-        /// Crea una compañia <see cref="Company"/>
+        /// Requerido por EntityFrameworkRequerido por EntityFrameworkCore para migraciones.
         /// </summary>
+        protected Company () {}
+       /// <summary>
+       /// Crea una compañía
+       /// </summary>
+       /// <param name="name">Nombre de la compañía</param>
         public Company(string name)
         {
             CompanyName = name;

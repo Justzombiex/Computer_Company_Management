@@ -19,13 +19,13 @@ namespace CCM.DataAccess.Abstract.Components
         /// <param name="model">Modelo de la motherboard</param>
         /// <param name="brand">Marca de la motherboard</param>
         /// <param name="connectionType">Tipo de conexión de la motherboard</param>
-        /// <returns></returns>
+        /// <returns>Motherboard creada en BD</returns>
         MotherBoard Create(string model, string brand, ConnectionType connectionType);
         /// <summary>
         /// Obtiene una motherboard de BD
         /// </summary>
         /// <param name="id">Id de la motherboard</param>
-        /// <returns></returns>
+        /// <returns>Motherboard solicitada de existir en BD, de lo contrario <see langword="null"/></returns>
         MotherBoard? Get(int id);
         /// <summary>
         /// Actualiza el valor de la motherboard en BD
