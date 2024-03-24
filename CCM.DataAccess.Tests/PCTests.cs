@@ -102,7 +102,7 @@ namespace CCM.DataAccess.Tests
         [DataRow(2)]
         [DataRow(0)]
         [TestMethod]
-        public void Can_Delete_Vehicle(int pos)
+        public void Can_Delete_PC(int pos)
         {
             //Arrange
             _pCRepository.BeginTransaction();
