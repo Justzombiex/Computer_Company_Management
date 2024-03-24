@@ -1,4 +1,5 @@
 ﻿using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Shops;
 using CCM.Domain.Entities.Types;
 using System;
 using System.Collections.Generic;
@@ -22,12 +23,13 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// Ocupacion que esta cubriendo el trabajador
         /// </summary>
-        [NotMapped]
         JobType Job { get; set; }
         /// <summary>
         /// Salario que se le entrega al trabajador
         /// </summary>
         double Salary { get; set; }
+        [NotMapped]
+        public Shop shop { get; protected set; }
         #endregion
 
         #region IDs
@@ -36,15 +38,7 @@ namespace CCM.Domain.Entities.Persons
         /// </summary>
         public int WorkerID { get; set; }   
         /// <summary>
-        /// ID del tipo de trabajo
-        /// </summary>
-        public int JobID { get; set; } 
-        /// <summary>
         /// ID del salario
-        /// </summary>
-        public int SalaryID { get; set; }  
-        /// <summary>
-        /// ID de la tienda a la que pertenece el trabajador
         /// </summary>
         public int ShopID { get; set; }
         #endregion
@@ -65,7 +59,8 @@ namespace CCM.Domain.Entities.Persons
         {
             _WorkerID = workerid;
             Job = job;
-            Salary = salary;
+            Salary = salary;        
+            ShopID = shop.Id;
         }
         #endregion
     }

@@ -56,6 +56,8 @@ namespace CCM.Domain.Entities.Orders
             Client = client;
             pC = pc;
             Units = units;
+            ClientID = client.Id;
+            PCId = pc.Id;
         }
         #endregion
     }

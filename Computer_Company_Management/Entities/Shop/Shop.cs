@@ -1,4 +1,5 @@
 ﻿using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Companies;
 using CCM.Domain.Entities.Computers;
 using CCM.Domain.Entities.Persons;
 using System;
@@ -34,17 +35,14 @@ namespace CCM.Domain.Entities.Shops
         /// </summary>
         [NotMapped]
         public List <Worker> Workers { get; set; }
+        /// <summary>
+        /// Compannia a la que pertenece la tienda
+        /// </summary>
+        [NotMapped]
+        public Company company { get; set; }
         #endregion
 
         #region IDs
-        /// <summary>
-        /// El ID del nombre de la tienda
-        /// </summary>
-        public int ShopNameID { get; set; } 
-        /// <summary>
-        /// ID de la direccion de la tienda
-        /// </summary>
-        public int ShopAddressID { get; set; }
         /// <summary>
         /// ID de la compannia a la que pertenece la tienda
         /// </summary>
@@ -67,6 +65,8 @@ namespace CCM.Domain.Entities.Shops
             ShopName = name;   
             ShopAddress = address;
             Products = new List<PC> ();
+            Workers = new List<Worker> ();
+            CompanyID = company.Id;
         }
         #endregion
 
