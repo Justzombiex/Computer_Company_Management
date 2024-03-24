@@ -22,6 +22,13 @@ namespace CCM.DataAccess.Tests
             _hardDriveRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
+        /// <summary>
+        /// Prueba para  crear un disco duro
+        /// </summary>
+        /// <param name="model">Modelo del disco duro</param>
+        /// <param name="brand">Marca del disco duro</param>
+        /// <param name="storage">Capacidad dealmacenamiento del disco duro</param>
+        /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
         [DataRow("HDD", "Seagate", 2.0, ConnectionHardDriveType.SATA )]
         [DataRow("SSD", "Toshiba", 3.0, ConnectionHardDriveType.SATA2)]
         [TestMethod]
@@ -45,6 +52,10 @@ namespace CCM.DataAccess.Tests
             
         }
 
+        /// <summary>
+        /// Prueba para obtener un disco duro
+        /// </summary>
+        /// <param name="id">Id del disco duro</param>
         [DataRow(1)]
         [DataRow(2)]
         [TestMethod]
@@ -61,6 +72,15 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(_hardDriveRepository);
         }
 
+
+        /// <summary>
+        /// Prueba para actualizar un disco duro
+        /// </summary>
+        /// <param name="id">Id del disco duro</param>
+        /// <param name="model">Modelo del disco duro</param>
+        /// <param name="brand">Marca del disco duro</param>
+        /// <param name="storage">Capacidad de almacenamiento del disco duro</param>
+        /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
         [DataRow(1, "SSD", "Toshiba", 3.0, ConnectionHardDriveType.SATA2)]
         [DataRow(2, "HDD", "Seagate", 2.0, ConnectionHardDriveType.SATA)]
         [TestMethod]

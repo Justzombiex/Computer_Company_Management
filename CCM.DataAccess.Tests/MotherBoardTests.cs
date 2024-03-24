@@ -22,6 +22,12 @@ namespace CCM.DataAccess.Tests
             _motherBoardRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
+        /// <summary>
+        /// Prueba para crear una motherboard
+        /// </summary>
+        /// <param name="model">Moddelo de la motherboard</param>
+        /// <param name="brand">Marca de la motherboard</param>
+        /// <param name="connectionType">Tipo de conexión de la motherboard</param>
         [DataRow("ROG Strix", "ASUS", ConnectionType.PGA)]
         [DataRow("MAG Z790", "MSI", ConnectionType.ZIF)]
         [TestMethod]
@@ -43,6 +49,10 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedMotherBoard.ConnectionType, connectionType);
         }
 
+        /// <summary>
+        /// Prueba para obtener una motherboard
+        /// </summary>
+        /// <param name="id">Id de la motherboard</param>
         [DataRow(1)]
         [DataRow(2)]
         [TestMethod]
@@ -59,6 +69,13 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedMotherBoard);
         }
 
+        /// <summary>
+        /// Prueba para actualizar una motherboard
+        /// </summary>
+        /// <param name="id">Id de la motherboard</param>
+        /// <param name="model">Modelo de la motherboard</param>
+        /// <param name="brand">Marca de la motherboard</param>
+        /// <param name="connectionType">Tipo de conexión de la motherboard</param>
         [DataRow(1, "MAG Z790", "MSI", ConnectionType.ZIF)]
         [DataRow(2, "ROG Strix", "ASUS", ConnectionType.PGA)]
         [TestMethod]

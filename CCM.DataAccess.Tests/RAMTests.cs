@@ -22,6 +22,12 @@ namespace CCM.DataAccess.Tests
             _rAMRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
+        /// <summary>
+        /// Prueba para crear una motherboard
+        /// </summary>
+        /// <param name="memorySize">Capacidad de memoria de la RAM</param>
+        /// <param name="brand">Marca de la RAM</param>
+        /// <param name="memoryType">Tipo de memoria de la RAM</param>
         [DataRow(16, "Kingston", MemoryType.DDR)]
         [DataRow(8, "Corsair", MemoryType.DDR2)]
         [TestMethod]
@@ -43,6 +49,10 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedRAM.MemoryType, memoryType);
         }
 
+        /// <summary>
+        /// Prueba para obtener una RAM
+        /// </summary>
+        /// <param name="id">Id de la RAM</param>
         [DataRow(1)]
         [DataRow(2)]
         [TestMethod]
@@ -59,6 +69,13 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedRAM);
         }
 
+        /// <summary>
+        /// Prueba para  eliminar una RAM
+        /// </summary>
+        /// <param name="id">Id de la RAM</param>
+        /// <param name="memorySize">Capacidad de memoria de la RAM</param>
+        /// <param name="brand">Marca de la RAM</param>
+        /// <param name="memoryType">Tipo de memoria de la RAM</param>
         [DataRow(1, 4.0, "Corsair", MemoryType.DDR2)]
         [DataRow(2, 6.0, "Kingston", MemoryType.DDR )]
         [TestMethod]
