@@ -31,7 +31,7 @@ namespace CCM.DataAccess.Repositories
 
         BuyOrder? IBuyOrderRepository.Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.Set<BuyOrder>().Find(id);
         }
     }
 }

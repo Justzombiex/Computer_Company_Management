@@ -17,7 +17,7 @@ namespace CCM.Domain.Entities.Components
     {
         #region Properties
         /// <summary>
-        /// Tamaño de memoria de la RAM
+        /// Tamaño de memoria de la RAM en Gigabytes
         /// </summary>
         public int MemorySize { get; set; }
         /// <summary>

@@ -20,13 +20,13 @@ namespace CCM.DataAccess.Abstract.Orders
         /// <param name="client">Cliente</param>
         /// <param name="pc">Computadora</param>
         /// <param name="units">Unidades</param>
-        /// <returns></returns>
+        /// <returns>Orden de compra creada en BD</returns>
         BuyOrder Create(Client client, PC pc, int units);
         /// <summary>
         /// Obtiene una orden de compra de una BD
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id de la orden de compra </param>
+        /// <returns>Orden de compra solicitada de existir en BD, de lo contrario <see langword="null"/></returns>
         BuyOrder? Get(int id);
         /// <summary>
         /// Actualiza una Orden de Compra en una BD

@@ -20,7 +20,7 @@ namespace CCM.Domain.Entities.Components
         /// </summary>
         public string Model { get; }
         /// <summary>
-        /// Capacidad de almacenamiento del disco duro
+        /// Capacidad de almacenamiento del disco duro en Terabytes
         /// </summary>
         public float Storage { get; } 
         /// <summary>
@@ -47,10 +47,10 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Inicializa un objeto <see cref="HardDrive"/>.
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="brand"></param>
-        /// <param name="storage"></param>
-        /// <param name="connectionHardDriveType"></param>
+        /// <param name="model">Modelo del disco duro</param>
+        /// <param name="brand">Marca del disco duro</param>
+        /// <param name="storage">Capacidad de almacenamiento del disco duro en TeraBytes</param>
+        /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
         public HardDrive(string model, string brand, float storage, ConnectionHardDriveType connectionHardDriveType ) 
         { 
             Model = model; 

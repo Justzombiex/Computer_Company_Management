@@ -1,4 +1,6 @@
 ﻿using CCM.DataAccess.Abstract.Computers;
+using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Components;
 using CCM.Domain.Entities.Computers;
 using System;
 using System.Collections.Generic;
@@ -10,15 +12,19 @@ namespace CCM.DataAccess.Repositories
 {
     public partial class ApplicationRepository : IPCRepository
     {
-        public PC Create(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId)
+        public PC Create(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
         {
-            PC pC = new PC(hardDriveId, microprocesorId, rAMId, motherBoardId);
+            PC pC = new PC(hardDrive, microprocesor, rAM, motherBoard, price);
             _context.Add(pC);
             return pC;
         }
         public void Delete(PC pc)
         {
             _context.Remove(pc);
+        }
+        public IEnumerable<PC> GetAllPC()
+        {
+            return _context.Set<PC>().ToList();
         }
         public void Update(PC pc)
         {

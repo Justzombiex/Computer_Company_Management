@@ -17,14 +17,17 @@ namespace CCM.DataAccess.Repositories
             _context.Add(microprocesor);
             return microprocesor;
         }
+
         public void Delete(Microprocesor microprocesor)
         {
             _context.Remove(microprocesor);
         }
+
         public void Update(Microprocesor microprocesor)
         {
             _context.Update(microprocesor);
         }
+
         Microprocesor? IMicroprocesorRepository.Get(int id)
         {
             return _context.Set<Microprocesor>().Find(id);
