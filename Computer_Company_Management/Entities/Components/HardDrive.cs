@@ -20,7 +20,7 @@ namespace CCM.Domain.Entities.Components
         /// </summary>
         public string Model { get; }
         /// <summary>
-        /// Capacidad de almacenamiento del disco duro
+        /// Capacidad de almacenamiento del disco duro en Terabytes
         /// </summary>
         public float Storage { get; } 
         /// <summary>

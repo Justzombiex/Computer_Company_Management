@@ -1,4 +1,5 @@
-﻿using CCM.Domain.Entities.Types;
+using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,37 +10,44 @@ using System.Threading.Tasks;
 namespace CCM.Domain.Entities.Common
 {
     /// <summary>
-    /// Modela el precio
+    /// Precio de una entidad del concesionario.
     /// </summary>
-    internal class Price : Entity
+
+    public class Price : Entity
     {
         #region Properties
-        /// <summary>
-        /// Tipo de Moneda
-        /// </summary>
-        public MoneyType Currency { get; set; } 
-        /// <summary>
-        /// Cantidad de dinero
-        /// </summary>
-        public double Quantity { get; set; }
-        #endregion
 
-        #region Constructors
         /// <summary>
-        /// Para migraciones
+        /// Divisa a en la que se expresa el valor de la PC.
         /// </summary>
-        protected Price () {}
+        public MoneyType Currency { get; set; }
+
         /// <summary>
-        /// Crea un objeto de tipo <see cref="Price"/>
+        /// Valor del precio.
         /// </summary>
-        /// <param name="currency">Tipo de moneda</param>
-        /// <param name="quantity"></param>
-        public Price (MoneyType currency, double quantity)
-        {
-            Currency = currency;   
-            Quantity = quantity;
-        }
+        public double Value { get; set; }
+
+        /// <summary>
+        /// Id del precio
+        /// </summary>
+        public int PriceId { get; set; }
+
         #endregion
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected Price() { }
+
+        /// <summary>
+        /// Inicializa un objeto <see cref="Price"/>
+        /// </summary>
+        /// <param name="type">Divisa a en la que se expresa el valor del automóvil.</param>
+        /// <param name="value">Valor del precio.</param>
+        public Price(MoneyType currency, double value)
+        {
+            Currency = currency;
+            Value = value;
+        }
 
     }
 }

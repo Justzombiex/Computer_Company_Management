@@ -1,4 +1,5 @@
-﻿using CCM.Domain.Entities.Companies;
+using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Companies;
 using CCM.Domain.Entities.Components;
 using CCM.Domain.Entities.Computers;
 using CCM.Domain.Entities.Persons;
@@ -36,6 +37,10 @@ namespace CCM.DataAccess.Concrete
         /// Tabla de las memorias RAm
         /// </summary>
         public DbSet<RAM> RAM { get; set; }
+        /// <summary>
+        /// Tabla de los precios
+        /// </summary>
+        public DbSet<Price> Price { get; set; }
         #endregion
 
         #region Trabajadores, Tienda y Compañia
@@ -106,11 +111,14 @@ namespace CCM.DataAccess.Concrete
 
             modelBuilder.Entity<Microprocesor>().ToTable("Microprocesor");
 
+            modelBuilder.Entity<Price>().ToTable("Price");
+
             modelBuilder.Entity<Worker>().ToTable("Workers");
 
             modelBuilder.Entity<Shop>().ToTable("Shops");
 
             modelBuilder.Entity<Company>().ToTable("Companies");
+
             #endregion
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -37,11 +37,14 @@ namespace CCM.Domain.Entities.Computers
         [NotMapped]
         public RAM RAM { get; set; }
         /// <summary>
+        /// Precio de la PC.
+        /// </summary>
+        [NotMapped]
+        public Price Price { get; set; }
         /// Tienda a la que pertenece la tienda
         /// </summary>
         [NotMapped]
         public Shop shop { get; set; } 
-
         /// <summary>
         /// Id del disco duro
         /// </summary>
@@ -59,6 +62,9 @@ namespace CCM.Domain.Entities.Computers
         /// </summary>
         public int RAMId { get; set; }
         /// <summary>
+        /// Id del precio
+        /// </summary>
+        public int PriceId { get; set; }
         /// ID de la tienda a la que le pertenece
         /// </summary>
         public int ShopID { get; set; }
@@ -74,12 +80,22 @@ namespace CCM.Domain.Entities.Computers
         /// <summary>
         /// Inicializa un objeto <see cref="PC"/>
         /// </summary>
-        /// <param name="rAMId">Id de la RAM de la PC</param>
-        /// <param name="motherBoardId">Id de la motherboard de la PC </param>
-        /// <param name="hardDriveId">Id del dsico duro de la PC</param>
-        /// <param name="microprocesorId">Id del microprocesador de la PC</param>
-        public PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId)
+        /// <param name="rAM">Id de la RAM de la PC</param>
+        /// <param name="motherBoard">Id de la motherboard de la PC </param>
+        /// <param name="hardDrive">Id del dsico duro de la PC</param>
+        /// <param name="microprocesor">Id del microprocesador de la PC</param>
+        public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
         {
+            HardDrive = hardDrive;
+            Microprocesors = microprocesor;
+            RAM = rAM;
+            MotherBoard = motherBoard;
+            Price = price;
+            HardDriveId = hardDrive.Id;
+            MicroprocesorId = microprocesor.Id;
+            MotherBoardId = motherBoard.Id;
+            RAMId = rAM.Id;
+            PriceId = price.Id;
             HardDriveId = hardDriveId;
             MicroprocesorId = microprocesorId;
             MotherBoardId = motherBoardId;

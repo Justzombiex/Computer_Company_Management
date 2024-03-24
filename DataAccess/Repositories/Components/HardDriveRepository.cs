@@ -22,10 +22,12 @@ namespace CCM.DataAccess.Repositories
         {
             _context.Remove(hardDrive);
         }
+
         public void Update(HardDrive hardDrive)
         {
             _context.Update(hardDrive); 
         }
+
         HardDrive? IHardDriveRepository.Get(int id)
         {
             return _context.Set<HardDrive>().Find(id);
