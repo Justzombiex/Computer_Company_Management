@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace CCM.Domain.Entities.Company
+namespace CCM.Domain.Entities.Companies
 {
     /// <summary>
     /// Modela una Compañia
@@ -22,10 +22,6 @@ namespace CCM.Domain.Entities.Company
         /// </summary>
         [NotMapped]
         public List <Shop> Shops{ get; set; }
-        /// <summary>
-        /// Para migraciones
-        /// </summary>
-        public int CompanyID { get; set; } 
         #endregion
 
         #region Constructors

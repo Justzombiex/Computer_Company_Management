@@ -1,4 +1,4 @@
-﻿using CCM.Domain.Entities.Company;
+﻿using CCM.Domain.Entities.Companies;
 using CCM.Domain.Entities.Components;
 using CCM.Domain.Entities.Computers;
 using CCM.Domain.Entities.Persons;

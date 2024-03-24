@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Shops;
 
 namespace CCM.Domain.Entities.Computers
 {
@@ -35,6 +36,11 @@ namespace CCM.Domain.Entities.Computers
         /// </summary>
         [NotMapped]
         public RAM RAM { get; set; }
+        /// <summary>
+        /// Tienda a la que pertenece la tienda
+        /// </summary>
+        [NotMapped]
+        public Shop shop { get; set; } 
 
         /// <summary>
         /// Id del disco duro
@@ -78,6 +84,7 @@ namespace CCM.Domain.Entities.Computers
             MicroprocesorId = microprocesorId;
             MotherBoardId = motherBoardId;
             RAMId = rAMId;
+            ShopID = shop.Id;
         }
         
         #endregion
