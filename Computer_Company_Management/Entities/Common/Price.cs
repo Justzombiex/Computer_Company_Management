@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace CCM.Domain.Entities.Common
 {
     /// <summary>
-    /// Precio de una pc.
+    /// Precio de una entidad del concesionario.
     /// </summary>
     public class Price
     {
         #region Properties
 
         /// <summary>
-        /// Divisa a en la que se expresa el valor de la pc.
+        /// Divisa a en la que se expresa el valor del automóvil.
         /// </summary>
         public MoneyType Currency { get; }
 

@@ -1,44 +1,49 @@
 ﻿using CCM.Domain.Abstract;
 using CCM.Domain.Entities.Persons;
-using ComputerCompany.Domain.Entities.People;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CCM.Domain.Entities.Common;
 
 namespace CCM.Domain.Entities.Persons
 {
     /// <summary>
     /// Modela un cliente empresarial.
     /// </summary>
-    public class EnterpriseClient
+    public class EnterpriseClient : Client, IBrand
     {
         #region Properties
+        public string Brand { get; set; }
+
         public PhysicalLocation location;
 
         /// <summary>
         /// Ubicación geográfica de la sede de la empresa cliente.
         /// </summary>
-        public PhysicalLocation Location { get => location; set => location = value; }
+        public PhysicalLocation Location { get; set; }
 
         #endregion
 
-        #region Inicializacion
+        #region Constructor
         /// <summary>
-        /// Inicializa un objeto <see cref="EnterpriseClient"/>.
+        /// Requerido por EntityFrameworkCore para migraciones.
         /// </summary>
+        protected EnterpriseClient() { }
+
+        /// <summary>
+        /// Inicializa una empresa cliente <see cref="EnterpriseClient"/>.
+        /// </summary>
+        /// <param name="brand">Marca de la empresa.</param>
         /// <param name="location">Ubicación geográfica de la empresa.</param>
-        public EnterpriseClient(PhysicalLocation location) => Location = location;
-        #endregion
-
-        #region Constructor por defecto
-        /// <summary>
-        /// Constructor por defecto
-        /// </summary>
-        public EnterpriseClient()
+        public EnterpriseClient(string brand, PhysicalLocation location)
         {
+            Brand = brand;
+            Location = location;
         }
         #endregion
+
+
     }
 }

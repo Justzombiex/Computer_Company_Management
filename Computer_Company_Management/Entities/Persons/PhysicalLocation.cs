@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CCM.Domain.Entities.Common;
 
-namespace ComputerCompany.Domain.Entities.People
+namespace CCM.Domain.Entities.Persons
 {
     /// <summary>
     /// Modela la ubicación geográfica de una entidad.
     /// </summary>
-    public class PhysicalLocation
+    public class PhysicalLocation : Entity
     {
 
         #region Properties
@@ -31,6 +32,12 @@ namespace ComputerCompany.Domain.Entities.People
 
         #endregion
 
+        #region Constructor
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected PhysicalLocation() { }
+
         /// <summary>
         /// Inicializa un objeto <see cref="PhysicalLocation"/>.
         /// </summary>
@@ -43,6 +50,7 @@ namespace ComputerCompany.Domain.Entities.People
             City = city;
             Address = address;
         }
+        #endregion
 
         public override string ToString()
         {
