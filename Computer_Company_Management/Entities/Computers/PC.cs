@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Shops;
 
 namespace CCM.Domain.Entities.Computers
 {
@@ -40,7 +41,10 @@ namespace CCM.Domain.Entities.Computers
         /// </summary>
         [NotMapped]
         public Price Price { get; set; }
-
+        /// Tienda a la que pertenece la tienda
+        /// </summary>
+        [NotMapped]
+        public Shop shop { get; set; } 
         /// <summary>
         /// Id del disco duro
         /// </summary>
@@ -61,6 +65,9 @@ namespace CCM.Domain.Entities.Computers
         /// Id del precio
         /// </summary>
         public int PriceId { get; set; }
+        /// ID de la tienda a la que le pertenece
+        /// </summary>
+        public int ShopID { get; set; }
 
         #endregion 
 
@@ -89,6 +96,11 @@ namespace CCM.Domain.Entities.Computers
             MotherBoardId = motherBoard.Id;
             RAMId = rAM.Id;
             PriceId = price.Id;
+            HardDriveId = hardDriveId;
+            MicroprocesorId = microprocesorId;
+            MotherBoardId = motherBoardId;
+            RAMId = rAMId;
+            ShopID = shop.Id;
         }
         
         #endregion

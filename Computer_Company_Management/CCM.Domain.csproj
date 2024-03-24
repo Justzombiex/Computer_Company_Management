@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Folder Include="Abtract\" />
-    <Folder Include="Entities\Company\" />
+    <Folder Include="Entities\Companies\" />
     <Folder Include="Entities\Components\" />
     <Folder Include="Entities\Computers\" />
     <Folder Include="Entities\Orders\" />

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.DataAccess", "DataAcces
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.DataAccess.Tests", "CCM.DataAccess.Tests\CCM.DataAccess.Tests.csproj", "{7BEEC6A9-9EE1-4049-9AC0-B25CF7806C33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCM.ConsoleApp", "CCM.ConsoleApp\CCM.ConsoleApp.csproj", "{98AD60D8-63EE-4528-A3EB-BCDE931A1250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.ConsoleApp", "CCM.ConsoleApp\CCM.ConsoleApp.csproj", "{98AD60D8-63EE-4528-A3EB-BCDE931A1250}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

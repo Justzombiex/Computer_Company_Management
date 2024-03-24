@@ -1,4 +1,5 @@
 ﻿using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Companies;
 using CCM.Domain.Entities.Computers;
 using CCM.Domain.Entities.Persons;
 using System;
@@ -10,7 +11,10 @@ using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Shops
 {
-    public class Shop
+    /// <summary>
+    /// Modela una Tienda
+    /// </summary>
+    public class Shop : Entity
     {
         #region Properties
         /// <summary>
@@ -24,13 +28,33 @@ namespace CCM.Domain.Entities.Shops
         /// <summary>
         /// Lista de productos en la tienda
         /// </summary>
+        [NotMapped]
         public List <PC> Products { get; set; }
         /// <summary>
         /// Trabajadores en la Tienda
         /// </summary>
+        [NotMapped]
         public List <Worker> Workers { get; set; }
+        /// <summary>
+        /// Compannia a la que pertenece la tienda
+        /// </summary>
+        [NotMapped]
+        public Company company { get; set; }
         #endregion
 
+        #region IDs
+        /// <summary>
+        /// ID de la compannia a la que pertenece la tienda
+        /// </summary>
+        public int CompanyID { get; set; } 
+
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Para Migraciones
+        /// </summary>
+        protected Shop () {}
         /// <summary>
         /// Crea una tienda  <see cref="Shop"/>
         /// </summary>
@@ -41,8 +65,11 @@ namespace CCM.Domain.Entities.Shops
             ShopName = name;   
             ShopAddress = address;
             Products = new List<PC> ();
+            Workers = new List<Worker> ();
+            CompanyID = company.Id;
         }
+        #endregion
 
-   
+
     }
 }

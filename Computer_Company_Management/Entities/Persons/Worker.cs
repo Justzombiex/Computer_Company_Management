@@ -1,14 +1,19 @@
 ﻿using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Shops;
 using CCM.Domain.Entities.Types;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Persons
 {
-    public class Worker
+    /// <summary>
+    /// Modela un Trabajador 
+    /// </summary>
+    public class Worker : Entity
     {
         #region Properties
         /// <summary>
@@ -23,9 +28,27 @@ namespace CCM.Domain.Entities.Persons
         /// Salario que se le entrega al trabajador
         /// </summary>
         double Salary { get; set; }
+        [NotMapped]
+        public Shop shop { get; protected set; }
+        #endregion
+
+        #region IDs
+        /// <summary>
+        /// ID del Trabajador
+        /// </summary>
+        public int WorkerID { get; set; }   
+        /// <summary>
+        /// ID del salario
+        /// </summary>
+        public int ShopID { get; set; }
         #endregion
 
         #region Constructors
+
+        /// <summary>
+        /// Para Migraciones
+        /// </summary>
+        protected Worker () {}
         /// <summary>
         /// Crea un objeto del tipo trabajador <see cref="Worker"/>
         /// </summary>
@@ -36,7 +59,8 @@ namespace CCM.Domain.Entities.Persons
         {
             _WorkerID = workerid;
             Job = job;
-            Salary = salary;
+            Salary = salary;        
+            ShopID = shop.Id;
         }
         #endregion
     }
