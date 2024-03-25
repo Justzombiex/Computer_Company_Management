@@ -26,6 +26,14 @@ namespace CCM.DataAccess.Tests
             _pCRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
+        /// <summary>
+        /// Prueba para crear una PC
+        /// </summary>
+        /// <param name="hardDriveId">Id del disco duro</param>
+        /// <param name="microprocesorId">Id del microprocesador</param>
+        /// <param name="rAMId">Id de la RAM</param>
+        /// <param name="motherBoardId">Id de la motherboard</param>
+        /// <param name="priceId">Id del precio</param>
         [DataRow(1,1,1,1,1)]
         [DataRow(2,2,2,2,2)]
         [TestMethod]
@@ -59,6 +67,10 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedPC.MotherBoardId, motherBoardId);
         }
 
+        /// <summary>
+        /// Prueba para obtener una PC
+        /// </summary>
+        /// <param name="id">Id de la PC</param>
         [DataRow(1)]
         [DataRow(2)]
         [TestMethod]
@@ -75,6 +87,11 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedPC);
         }
 
+        /// <summary>
+        /// Prueba para actualizar una PC
+        /// </summary>
+        /// <param name="pos">posición de la PC en BD</param>
+        /// <param name="memorySize">Capacidad de memoria de la RAM de la PC</param>
         [DataRow(1,3.0)]
         [DataRow(2,4.0)]
         [TestMethod]
@@ -95,10 +112,13 @@ namespace CCM.DataAccess.Tests
             //Assert
             var updatedPC = _pCRepository.Get(pC.Id);
             Assert.IsNotNull(updatedPC);
-            Assert.AreEqual(pC.RAMId, updatedPC.RAMId);
-            Assert.AreEqual(pC.MotherBoardId, updatedPC.MotherBoardId);
+            Assert.AreEqual(pC.RAM.MemorySize, updatedPC.RAM.MemorySize);
         }
 
+        /// <summary>
+        /// Prueba para eliminar una PC
+        /// </summary>
+        /// <param name="pos">Posición de la PC en BD</param>
         [DataRow(2)]
         [DataRow(0)]
         [TestMethod]
