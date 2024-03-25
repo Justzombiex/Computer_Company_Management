@@ -13,10 +13,12 @@ namespace CCM.Domain.Entities.Persons
     /// </summary>
     public abstract class Client : Entity
     {
+        #region Constructor
         /// <summary>
-        /// Para migraciones
+        /// Requerido por EntityFrameworkCore para migraciones.
         /// </summary>
         protected Client() { }
+        #endregion
 
     }
 }

@@ -19,7 +19,6 @@
     <Folder Include="Entities\Components\" />
     <Folder Include="Entities\Computers\" />
     <Folder Include="Entities\Orders\" />
-    <Folder Include="Entities\Persons\" />
     <Folder Include="Entities\Shop\" />
     <Folder Include="Entities\Common\" />
   </ItemGroup>
