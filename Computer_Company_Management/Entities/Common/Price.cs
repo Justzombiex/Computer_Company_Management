@@ -10,14 +10,14 @@ namespace CCM.Domain.Entities.Common
     /// <summary>
     /// Precio de una entidad de la tienda de computadoras.
     /// </summary>
-    public class Price
+    public class Price : Entity
     {
         #region Properties
 
         /// <summary>
         /// Divisa a en la que se expresa el valor del automóvil.
         /// </summary>
-        public MoneyType Currency { get; }
+        public MoneyType Currency { get; set; }
 
         /// <summary>
         /// Valor del precio.
@@ -29,11 +29,11 @@ namespace CCM.Domain.Entities.Common
         /// <summary>
         /// Inicializa un objeto <see cref="Price"/>
         /// </summary>
-        /// <param name="moneyType">Divisa a en la que se expresa el valor del automóvil.</param>
+        /// <param name="moneyType">Divisa a en la que se expresa el valor de lla PC.</param>
         /// <param name="value">Valor del precio.</param>
         public Price(MoneyType moneyType, double value)
         {
-            MoneyType = moneyType;
+            Currency = moneyType;
             Value = value;
         }
     }
