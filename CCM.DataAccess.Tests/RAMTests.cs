@@ -76,8 +76,8 @@ namespace CCM.DataAccess.Tests
         /// <param name="memorySize">Capacidad de memoria de la RAM</param>
         /// <param name="brand">Marca de la RAM</param>
         /// <param name="memoryType">Tipo de memoria de la RAM</param>
-        [DataRow(1, 4.0, "Corsair", MemoryType.DDR2)]
-        [DataRow(2, 6.0, "Kingston", MemoryType.DDR )]
+        [DataRow(1, 4, "Corsair", MemoryType.DDR2)]
+        [DataRow(2, 6, "Kingston", MemoryType.DDR )]
         [TestMethod]
         public void Can_Update_RAM(int id, int memorySize, string brand, MemoryType memoryType)
         {

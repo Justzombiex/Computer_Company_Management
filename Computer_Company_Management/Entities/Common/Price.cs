@@ -25,6 +25,10 @@ namespace CCM.Domain.Entities.Common
         public double Value { get; set; }
 
         #endregion
+        /// <summary>
+        /// Requerido por EntityFrameworkRequerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected Price() { }
 
         /// <summary>
         /// Inicializa un objeto <see cref="Price"/>
