@@ -5,6 +5,7 @@ using CCM.Domain.Entities.Computers;
 using CCM.Domain.Entities.Orders;
 using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Shops;
+using CCM.DataAccess.FluentConfigurations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -65,13 +66,16 @@ namespace CCM.DataAccess.Concrete
         #endregion
 
         #region Clientes
+        
         /// <summary>
         /// Tabla de los clientes
         /// </summary>
-        //public DbSet<Client> Clients { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
         #endregion
 
+   
+  
         #region Constructors
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.
@@ -136,7 +140,7 @@ namespace CCM.DataAccess.Concrete
 
             modelBuilder.Entity<Worker>().ToTable("Workers");
 
-            //modelBuilder.Entity<Client>().ToTable("Clients");
+            modelBuilder.Entity<Client>().ToTable("Clients");
 
             modelBuilder.Entity<Shop>().ToTable("Shops");
 
@@ -144,9 +148,16 @@ namespace CCM.DataAccess.Concrete
 
             modelBuilder.Entity<BuyOrder>().ToTable("BuyOrders");
 
+            modelBuilder.ApplyConfiguration(new PrivateClientFluentConfiguration());
+            
+            modelBuilder.ApplyConfiguration(new EnterpriseClientFluentConfiguration());
+
             #endregion
         }
+         
         
+            
+            
         #region Helpers
         private static DbContextOptions GetOptions(string connectionString)
         {

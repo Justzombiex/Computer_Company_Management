@@ -65,8 +65,8 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedShop);
         }
 
-        [DataRow(3, "TiendaC")]
-        [DataRow(4, "TiendaD")]
+        [DataRow(1, "TiendaC")]
+        [DataRow(2, "TiendaD")]
         [TestMethod]
         public void Can_Update_Shop(int id, string name)
         {
@@ -86,7 +86,7 @@ namespace CCM.DataAccess.Tests
 
         }
 
-        [DataRow(6)]
+        [DataRow(3)]
         [TestMethod]
         public void Can_Delete_Shop(int id)
         {

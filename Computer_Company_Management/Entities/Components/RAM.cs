@@ -31,7 +31,7 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
 
         #endregion
 

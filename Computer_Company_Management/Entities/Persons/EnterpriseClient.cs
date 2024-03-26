@@ -17,8 +17,6 @@ namespace CCM.Domain.Entities.Persons
         #region Properties
         public string Brand { get; set; }
 
-        public PhysicalLocation location;
-
         /// <summary>
         /// Ubicación geográfica de la sede de la empresa cliente.
         /// </summary>

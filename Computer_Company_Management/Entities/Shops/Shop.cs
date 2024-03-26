@@ -51,11 +51,11 @@ namespace CCM.Domain.Entities.Shops
         /// <summary>
         /// Id de la localización
         /// </summary>
-        public int PhysicalLocationId { get; set; }
+        public int PhysicalLocationId { get; protected set; }
         /// <summary>
         /// ID de la compañía a la que pertenece la tienda
         /// </summary>
-        public int CompanyId { get; set; } 
+        public int CompanyId { get; protected set; } 
 
         #endregion
 
@@ -68,7 +68,7 @@ namespace CCM.Domain.Entities.Shops
         /// <summary>
         /// Crea una tienda  <see cref="Shop"/>
         /// </summary>
-        /// <param name="name">nombre de la tienda</param>
+        /// <param name="name">Nombre de la tienda</param>
         /// <param name="location">Ubicación geográfica de la tienda.</param>
         public Shop (string name, PhysicalLocation location)
         {
