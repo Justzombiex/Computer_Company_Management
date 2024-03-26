@@ -22,6 +22,13 @@ namespace CCM.DataAccess.Tests
             _microprocesorRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
+        /// <summary>
+        /// Prueba para crear un microprocesador
+        /// </summary>
+        /// <param name="model">Modelo del microprocesador</param>
+        /// <param name="processorSpeed">Velocidad de procesamiento del microprocesador</param>
+        /// <param name="brand">Marca del microprocesador</param>
+        /// <param name="connectionType">Tipo de conexión del microprocesador</param>
         [DataRow("Core i3", 2.0, "Intel", ConnectionType.PGA )]
         [DataRow("Core i7", 2.5, "Intel", ConnectionType.ZIF)]
         [TestMethod]
@@ -46,6 +53,10 @@ namespace CCM.DataAccess.Tests
 
         }
 
+        /// <summary>
+        /// Prueba para obtener un microprocesador
+        /// </summary>
+        /// <param name="id">Id del microprocesador</param>
         [DataRow(1)]
         [DataRow(2)]
         [TestMethod]
@@ -59,9 +70,17 @@ namespace CCM.DataAccess.Tests
             _microprocesorRepository.CommitTransaction();
 
             //Assert
-            Assert.IsNotNull(_microprocesorRepository);
+            Assert.IsNotNull(loadedMicroprocesor);
         }
 
+        /// <summary>
+        /// Prueba para actualizar un microprocesador
+        /// </summary>
+        /// <param name="id">Id del microprocesador</param>
+        /// <param name="model">Modelo del microprocesador</param>
+        /// <param name="processorSpeed">Velocidad de procesamiento del microprocesador</param>
+        /// <param name="brand">Marca del microprocesador</param>
+        /// <param name="connectionType">Tipo de conexión del microprocesador</param>
         [DataRow(1, "Core i7", 2.5, "Intel", ConnectionType.ZIF)]
         [DataRow(2, "Core i3", 2.0, "Intel", ConnectionType.PGA)]
         [TestMethod]

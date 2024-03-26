@@ -18,6 +18,7 @@ namespace CCM.DataAccess.Repositories
         /// Cadena de conexión para generar la conexión a BD.
         /// </summary>
         protected string _connectionString;
+
         /// <summary>
         /// Contexto mediante el cual se establece conexión a BD.
         /// </summary>

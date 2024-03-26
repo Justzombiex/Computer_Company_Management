@@ -22,6 +22,11 @@ namespace CCM.DataAccess.Tests
             _priceRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
+        /// <summary>
+        /// Prueba para crear un precio
+        /// </summary>
+        /// <param name="moneyType">Tipo de moneda del precio</param>
+        /// <param name="value">Valor del precio</param>
         [DataRow(MoneyType.MN, 50000)]
         [DataRow(MoneyType.Euro, 6000)]
         [TestMethod]
@@ -42,6 +47,10 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedPrice.Value, value);
         }
 
+        /// <summary>
+        /// Prueba para para obtener un precio
+        /// </summary>
+        /// <param name="id">Id del precio</param>
         [DataRow(1)]
         [DataRow(2)]
         [TestMethod]
@@ -58,6 +67,12 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedPrice);
         }
 
+        /// <summary>
+        /// Prueba paraactualizar un precio
+        /// </summary>
+        /// <param name="id">Id del precio</param>
+        /// <param name="moneyType">Tipo de moneda</param>
+        /// <param name="value">Valor del precio</param>
         [DataRow(1, MoneyType.USD, 6200)]
         [DataRow(2, MoneyType.MLC, 8000)]
         [TestMethod]
@@ -81,6 +96,10 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(modifyedPrice.Value, value);
         }
 
+        /// <summary>
+        /// Prueba para borrar el precio
+        /// </summary>
+        /// <param name="id">Id del precio</param>
         [DataRow(1)]
         [TestMethod]
         public void Can_Delete_Price(int id)
