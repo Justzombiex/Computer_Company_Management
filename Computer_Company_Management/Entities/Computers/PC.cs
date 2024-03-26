@@ -88,7 +88,7 @@ namespace CCM.Domain.Entities.Computers
         /// <param name="hardDrive">Disco duro de la PC</param>
         /// <param name="microprocesor">Microprocesador de la PC</param>
         /// <param name="price">Precio de la PC</param>
-        public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price, Shop shop)
+        public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
         {
             HardDrive = hardDrive;
             Microprocesors = microprocesor;
@@ -100,7 +100,7 @@ namespace CCM.Domain.Entities.Computers
             MotherBoardId = motherBoard.Id;
             RAMId = rAM.Id;
             PriceId = price.Id;
-            ShopID = shop.Id;
+            
         }
         
         #endregion

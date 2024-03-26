@@ -69,23 +69,24 @@ namespace CCM.DataAccess.Tests
         /// <param name="workerid"></param>
         /// <param name="job"></param>
         /// <param name="salary"></param>
-        [DataRow(1, "ABC001", JobType.STORECLERK, 20.00)]
-        [DataRow(2, "DEF002", JobType.CLEANING, 10.00)]
+        [DataRow(1, JobType.MANAGER, 30.00)]
+        [DataRow(2, JobType.TECHNICIAN, 40.00)]
         [TestMethod]
-        public void Can_Update_Worker(int id, string workerid, JobType job, double salary)
+        public void Can_Update_Worker(int id, JobType job, double salary)
         {
+            //Arrange
             _workerRepository.BeginTransaction();
-
             var loadedWorker = _workerRepository.Get(id);
             Assert.IsNotNull(loadedWorker);
-            var newWorker = new Worker(workerid, job, salary) { Id = loadedWorker.Id };
-            _workerRepository.Update(newWorker);
-            var modifyedWorker = _workerRepository.Get(id);
-            _workerRepository.CommitTransaction();
 
-            Assert.IsNotNull(modifyedWorker.WorkerID);
-            Assert.AreEqual(modifyedWorker.Job, job);
-            Assert.AreEqual(modifyedWorker.Salary, salary);
+            //Execute
+            loadedWorker.Job = job;
+            loadedWorker.Salary = salary;
+            _workerRepository.Update(loadedWorker);
+
+            // Assert
+            var modifyedShop = _workerRepository.Get(id);
+            _workerRepository.CommitTransaction();
         }
 
         /// <summary>

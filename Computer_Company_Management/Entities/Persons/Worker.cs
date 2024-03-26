@@ -60,7 +60,6 @@ namespace CCM.Domain.Entities.Persons
             _WorkerID = workerid;
             Job = job;
             Salary = salary;        
-            ShopID = shop.Id;
         }
         #endregion
     }

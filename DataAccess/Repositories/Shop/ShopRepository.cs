@@ -13,9 +13,9 @@ namespace CCM.DataAccess.Repositories
 {
     public partial class ApplicationRepository : IShopsRepository
     {
-        public Shop Create(string name, PhysicalLocation address, Company company, PC pC, Worker worker)
+        public Shop Create(string name, PhysicalLocation location)
         {
-            Shop shop = new Shop(name, address, company, pC, worker);
+            Shop shop = new Shop(name, location);
             _context.Add(shop);
             return shop;
         }

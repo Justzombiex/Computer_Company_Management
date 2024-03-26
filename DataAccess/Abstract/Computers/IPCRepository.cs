@@ -23,7 +23,7 @@ namespace CCM.DataAccess.Abstract.Computers
         /// <param name="rAM">RAM de la PC</param>
         /// <param name="motherBoard">Motherboard de la PC</param>
         /// <returns>PC creada en BD</returns>
-        PC Create(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price, Shop shop );
+        PC Create(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price);
         /// <summary>
         /// Obtiene una PC de BD
         /// </summary>
