@@ -69,6 +69,8 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedPC.MicroprocesorId, microprocesorId);
             Assert.AreEqual(loadedPC.RAMId, rAMId);
             Assert.AreEqual(loadedPC.MotherBoardId, motherBoardId);
+            Assert.AreEqual(loadedPC.PriceId, priceId);
+            Assert.AreEqual(loadedPC.ShopID, shopId);
         }
 
         /// <summary>

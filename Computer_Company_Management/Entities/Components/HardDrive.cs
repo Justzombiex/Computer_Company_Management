@@ -18,19 +18,19 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Modelo del disco duro
         /// </summary>
-        public string Model { get; set; }
+        public string Model { get; init; }
         /// <summary>
         /// Capacidad de almacenamiento del disco duro en Terabytes
         /// </summary>
-        public double Storage { get; set; } 
+        public double Storage { get; private set; } 
         /// <summary>
         /// Tipo de conexión del disco duro
         /// </summary>
-        public ConnectionHardDriveType ConnectionHardDriveType { get; set; }
+        public ConnectionHardDriveType ConnectionHardDriveType { get; init; }
         /// <summary>
         /// Marca del disco duro
         /// </summary>
-        public string Brand { get; set; }
+        public string Brand { get; private set; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>

@@ -12,6 +12,6 @@ namespace CCM.DataAccess.Abstract.Persons
     /// </summary>
     public interface IClientRepository : IRepository
     {
-        Client Create() 
+        
     }
 }

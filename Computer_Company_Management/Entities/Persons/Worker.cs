@@ -55,9 +55,9 @@ namespace CCM.Domain.Entities.Persons
         /// <param name="workerid">ID del Trabajador</param>
         /// <param name="job">Ocupacion de la persona</param>
         /// <param name="salary">Salario que se le paga</param>
-        public Worker(int workerid, JobType job, double salary)
+        public Worker(string workerid, JobType job, double salary)
         {
-            WorkerID = worker.id;
+            _WorkerID = workerid;
             Job = job;
             Salary = salary;        
             ShopID = shop.Id;
