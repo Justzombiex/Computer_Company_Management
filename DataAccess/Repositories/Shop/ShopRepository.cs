@@ -1,4 +1,7 @@
 ﻿using CCM.DataAccess.Abstract.Shops;
+using CCM.Domain.Entities.Companies;
+using CCM.Domain.Entities.Computers;
+using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Shops;
 using System;
 using System.Collections.Generic;
@@ -10,9 +13,9 @@ namespace CCM.DataAccess.Repositories
 {
     public partial class ApplicationRepository : IShopsRepository
     {
-        public Shop Create(string name, string address)
+        public Shop Create(string name, PhysicalLocation address, Company company, PC pC, Worker worker)
         {
-            Shop shop = new Shop(name, address);
+            Shop shop = new Shop(name, address, company, pC, worker);
             _context.Add(shop);
             return shop;
         }

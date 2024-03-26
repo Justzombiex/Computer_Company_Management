@@ -100,6 +100,7 @@ namespace CCM.DataAccess.Concrete
             : base(options)  {}
         #endregion
 
+        #endregion
 
         /// <summary>
         /// Sobrescribimos la función OnConfiguring

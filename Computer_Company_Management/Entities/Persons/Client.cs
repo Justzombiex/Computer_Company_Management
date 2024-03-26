@@ -39,7 +39,7 @@ namespace CCM.Domain.Entities.Persons
         /// </summary>
         protected Client() { }
 
-        public Client()
+        
         #endregion
 
     }

@@ -20,9 +20,7 @@ namespace CCM.Domain.Entities.Shops
         /// <summary>
         /// Nombre de la tienda
         /// </summary>
-        public string ShopName { get; }
-
-        public PhysicalLocation location;
+        public string ShopName { get; private set; }
 
         /// <summary>
         /// Ubicación geográfica de la tienda.
@@ -46,26 +44,18 @@ namespace CCM.Domain.Entities.Shops
         /// </summary>
         [NotMapped]
         public Company company { get; set; }
-
-        ///A Partir de aquí agregué lo necesario para las relaciones de mis clases
-        [NotMapped]
-        /// <summary>
-        /// Lista de clientes de la tienda
-        /// </summary>
-        public List<Client> Clients { get; set; }
         #endregion
 
         #region IDs
-
+        
         /// <summary>
-        /// Identificador de la tienda
+        /// Id de la localización
         /// </summary>
-        public int ShopId;
-
+        public int PhysicalLocationId { get; set; }
         /// <summary>
         /// ID de la compañía a la que pertenece la tienda
         /// </summary>
-        public int CompanyID { get; set; } 
+        public int CompanyId { get; set; } 
 
         #endregion
 
@@ -80,15 +70,15 @@ namespace CCM.Domain.Entities.Shops
         /// </summary>
         /// <param name="name">nombre de la tienda</param>
         /// <param name="location">Ubicación geográfica de la tienda.</param>
-        public Shop (string name, PhysicalLocation location)
+        public Shop (string name, PhysicalLocation location, Company company, PC pC, Worker worker)
         {
             ShopName = name;
             Location = location;
-            ShopId = shop.Id;
-            CompanyID = company.Id;
-            Products = new List<PC> ();
-            Workers = new List<Worker> ();
-            Clients = new List<Client> ();
+            CompanyId = company.Id;
+            PhysicalLocationId = location.Id;
+            Products.Add(pC);
+            Workers.Add(worker);
+            
         }
         #endregion
 
