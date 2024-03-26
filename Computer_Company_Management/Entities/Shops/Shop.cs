@@ -21,30 +21,49 @@ namespace CCM.Domain.Entities.Shops
         /// Nombre de la tienda
         /// </summary>
         public string ShopName { get; }
+
+        public PhysicalLocation location;
+
         /// <summary>
-        /// Localizacion de la tienda
+        /// Ubicación geográfica de la tienda.
         /// </summary>
-        public string ShopAddress { get; } 
+        public PhysicalLocation Location { get; set; }
+
         /// <summary>
         /// Lista de productos en la tienda
         /// </summary>
         [NotMapped]
-        public List <PC> Products { get; set; }
+        public List<PC> Products { get; set; }
+
         /// <summary>
         /// Trabajadores en la Tienda
         /// </summary>
         [NotMapped]
-        public List <Worker> Workers { get; set; }
+        public List<Worker> Workers { get; set; }
+
         /// <summary>
         /// Compañía a la que pertenece la tienda
         /// </summary>
         [NotMapped]
         public Company company { get; set; }
+
+        ///A Partir de aquí agregué lo necesario para las relaciones de mis clases
+        [NotMapped]
+        /// <summary>
+        /// Lista de clientes de la tienda
+        /// </summary>
+        public List<Client> Clients { get; set; }
         #endregion
 
         #region IDs
+
         /// <summary>
-        /// ID de la compannia a la que pertenece la tienda
+        /// Identificador de la tienda
+        /// </summary>
+        public int ShopId;
+
+        /// <summary>
+        /// ID de la compañía a la que pertenece la tienda
         /// </summary>
         public int CompanyID { get; set; } 
 
@@ -55,18 +74,21 @@ namespace CCM.Domain.Entities.Shops
         /// Para Migraciones
         /// </summary>
         protected Shop () {}
+
         /// <summary>
         /// Crea una tienda  <see cref="Shop"/>
         /// </summary>
         /// <param name="name">nombre de la tienda</param>
-        /// <param name="address">Localizacion de la tienda</param>
-        public Shop (string name, string address)
+        /// <param name="location">Ubicación geográfica de la tienda.</param>
+        public Shop (string name, PhysicalLocation location)
         {
-            ShopName = name;   
-            ShopAddress = address;
+            ShopName = name;
+            Location = location;
+            ShopId = shop.Id;
+            CompanyID = company.Id;
             Products = new List<PC> ();
             Workers = new List<Worker> ();
-            CompanyID = company.Id;
+            Clients = new List<Client> ();
         }
         #endregion
 
