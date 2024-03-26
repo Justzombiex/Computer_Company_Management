@@ -70,7 +70,7 @@ namespace CCM.DataAccess.Tests
             _microprocesorRepository.CommitTransaction();
 
             //Assert
-            Assert.IsNotNull(_microprocesorRepository);
+            Assert.IsNotNull(loadedMicroprocesor);
         }
 
         /// <summary>

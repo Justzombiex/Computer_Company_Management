@@ -25,23 +25,23 @@ namespace CCM.DataAccess.Concrete
         /// <summary>
         /// Tabla de los PC
         /// </summary>
-        public DbSet<PC> PC { get; set; }
+        public DbSet<PC> PCs { get; set; }
         /// <summary>
         /// Tabla de los discos duros
         /// </summary>
-        public DbSet<HardDrive> HardDrive { get; set; }
+        public DbSet<HardDrive> HardDrives { get; set; }
         /// <summary>
         /// Tabla de las Motherboards
         /// </summary>
-        public DbSet<MotherBoard> MotherBoard { get; set; }
+        public DbSet<MotherBoard> MotherBoards { get; set; }
         /// <summary>
         /// Tabla de las memorias RAm
         /// </summary>
-        public DbSet<RAM> RAM { get; set; }
+        public DbSet<RAM> RAMs { get; set; }
         /// <summary>
         /// Tabla de los precios
         /// </summary>
-        public DbSet<Price> Price { get; set; }
+        public DbSet<Price> Prices { get; set; }
         #endregion
 
         #region Trabajadores, Tienda, Compañia y Orden de compra
@@ -94,6 +94,7 @@ namespace CCM.DataAccess.Concrete
             : base(options)  {}
         #endregion
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -106,17 +107,17 @@ namespace CCM.DataAccess.Concrete
 
             #region Base classes mapping
 
-            modelBuilder.Entity<PC>().ToTable("PC");
+            modelBuilder.Entity<PC>().ToTable("PCs");
 
-            modelBuilder.Entity<HardDrive>().ToTable("HardDrive");
+            modelBuilder.Entity<HardDrive>().ToTable("HardDrives");
 
-            modelBuilder.Entity<MotherBoard>().ToTable("MotherBoard");
+            modelBuilder.Entity<MotherBoard>().ToTable("MotherBoards");
 
-            modelBuilder.Entity<RAM>().ToTable("RAM");
+            modelBuilder.Entity<RAM>().ToTable("RAMs");
 
-            modelBuilder.Entity<Microprocesor>().ToTable("Microprocesor");
+            modelBuilder.Entity<Microprocesor>().ToTable("Microprocesors");
 
-            modelBuilder.Entity<Price>().ToTable("Price");
+            modelBuilder.Entity<Price>().ToTable("Prices");
 
             modelBuilder.Entity<Worker>().ToTable("Workers");
 

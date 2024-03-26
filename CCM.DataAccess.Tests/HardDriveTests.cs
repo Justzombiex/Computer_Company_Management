@@ -29,8 +29,8 @@ namespace CCM.DataAccess.Tests
         /// <param name="brand">Marca del disco duro</param>
         /// <param name="storage">Capacidad dealmacenamiento del disco duro</param>
         /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
-        [DataRow("HDD", "Seagate", 2.0, ConnectionHardDriveType.SATA )]
-        [DataRow("SSD", "Toshiba", 3.0, ConnectionHardDriveType.SATA2)]
+        [DataRow("HDD", "Seagate", 2, ConnectionHardDriveType.SATA )]
+        [DataRow("SSD", "Toshiba", 3, ConnectionHardDriveType.SATA2)]
         [TestMethod]
         public void Can_Create_HardDrive(string model, string brand, float storage, ConnectionHardDriveType connectionHardDriveType)
         {
@@ -69,7 +69,7 @@ namespace CCM.DataAccess.Tests
             _hardDriveRepository.CommitTransaction();
 
             //Assert
-            Assert.IsNotNull(_hardDriveRepository);
+            Assert.IsNotNull(loadedHardDrive);
         }
 
 
