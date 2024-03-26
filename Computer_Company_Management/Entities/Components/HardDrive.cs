@@ -18,19 +18,19 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Modelo del disco duro
         /// </summary>
-        public string Model { get; }
+        public string Model { get; set; }
         /// <summary>
         /// Capacidad de almacenamiento del disco duro en Terabytes
         /// </summary>
-        public float Storage { get; } 
+        public double Storage { get; set; } 
         /// <summary>
         /// Tipo de conexión del disco duro
         /// </summary>
-        public ConnectionHardDriveType ConnectionHardDriveType { get; }
+        public ConnectionHardDriveType ConnectionHardDriveType { get; set; }
         /// <summary>
         /// Marca del disco duro
         /// </summary>
-        public string Brand { get; }
+        public string Brand { get; set; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
@@ -51,7 +51,7 @@ namespace CCM.Domain.Entities.Components
         /// <param name="brand">Marca del disco duro</param>
         /// <param name="storage">Capacidad de almacenamiento del disco duro en TeraBytes</param>
         /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
-        public HardDrive(string model, string brand, float storage, ConnectionHardDriveType connectionHardDriveType ) 
+        public HardDrive(string model, string brand, double storage, ConnectionHardDriveType connectionHardDriveType ) 
         { 
             Model = model; 
             Brand = brand; 

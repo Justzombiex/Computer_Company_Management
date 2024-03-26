@@ -11,8 +11,9 @@ namespace CCM.DataAccess.Repositories
 {
     public partial class ApplicationRepository : IHardDriveRepository
     {
-        public HardDrive Create(string model, string brand, float storage, ConnectionHardDriveType connectionHardDriveType)
+        public HardDrive Create(string model, string brand, double storage, ConnectionHardDriveType connectionHardDriveType)
         {
+            Console.WriteLine(connectionHardDriveType);
             HardDrive hardDrive = new HardDrive(model, brand, storage, connectionHardDriveType);
             _context.Add(hardDrive);
             return hardDrive;
@@ -21,11 +22,6 @@ namespace CCM.DataAccess.Repositories
         public void Delete(HardDrive hardDrive)
         {
             _context.Remove(hardDrive);
-        }
-
-        public void Update(HardDrive hardDrive)
-        {
-            _context.Update(hardDrive); 
         }
 
         HardDrive? IHardDriveRepository.Get(int id)

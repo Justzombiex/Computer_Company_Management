@@ -23,11 +23,6 @@ namespace CCM.DataAccess.Repositories
             _context.Remove(microprocesor);
         }
 
-        public void Update(Microprocesor microprocesor)
-        {
-            _context.Update(microprocesor);
-        }
-
         Microprocesor? IMicroprocesorRepository.Get(int id)
         {
             return _context.Set<Microprocesor>().Find(id);

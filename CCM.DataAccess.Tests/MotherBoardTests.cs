@@ -70,32 +70,25 @@ namespace CCM.DataAccess.Tests
         }
 
         /// <summary>
-        /// Prueba para actualizar una motherboard
+        /// Elimina una motherboard de BD
         /// </summary>
-        /// <param name="id">Id de la motherboard</param>
-        /// <param name="model">Modelo de la motherboard</param>
-        /// <param name="brand">Marca de la motherboard</param>
-        /// <param name="connectionType">Tipo de conexión de la motherboard</param>
-        [DataRow(1, "MAG Z790", "MSI", ConnectionType.ZIF)]
-        [DataRow(2, "ROG Strix", "ASUS", ConnectionType.PGA)]
-        [TestMethod]
-        public void Can_Update_MotherBoard(int id, string model, string brand, ConnectionType connectionType)
+        /// <param name="id">Identificador de la motherboard en BD</param>
+        [DataRow(1)]
+        public void Can_Delete_MotherBoard(int id)
         {
-            //Arrange
+            // Arrange
             _motherBoardRepository.BeginTransaction();
 
-            //Execute
-            var loadedMicroprocesor = _motherBoardRepository.Get(id);
-            Assert.IsNotNull(loadedMicroprocesor);
-            var newMotherBoard = new MotherBoard(model, brand, connectionType) { Id = loadedMicroprocesor.Id };
-            _motherBoardRepository.Update(newMotherBoard);
-            var modifyedMotherBoard = _motherBoardRepository.Get(id);
+            // Execute
+            var loadedMotherBoard = _motherBoardRepository.Get(id);
+            Assert.IsNotNull(loadedMotherBoard);
+            _motherBoardRepository.Delete(loadedMotherBoard);
+            _motherBoardRepository.PartialCommit();
+            loadedMotherBoard = _motherBoardRepository.Get(id);
             _motherBoardRepository.CommitTransaction();
 
-            //Assert
-            Assert.AreEqual(modifyedMotherBoard.Model, model);
-            Assert.AreEqual(modifyedMotherBoard.Brand, brand);
-            Assert.AreEqual(modifyedMotherBoard.ConnectionType, connectionType);
+            // Assert
+            Assert.IsNull(loadedMotherBoard);
         }
     }
 }

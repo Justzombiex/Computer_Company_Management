@@ -28,11 +28,6 @@ namespace CCM.DataAccess.Abstract.Components
         /// <returns>Motherboard solicitada de existir en BD, de lo contrario <see langword="null"/></returns>
         MotherBoard? Get(int id);
         /// <summary>
-        /// Actualiza el valor de la motherboard en BD
-        /// </summary>
-        /// <param name="motherBoard">Una motherboard</param>
-        void Update(MotherBoard motherBoard);
-        /// <summary>
         /// Elimina una motherboard de BD
         /// </summary>
         /// <param name="motherBoard">Una motherboard</param>
