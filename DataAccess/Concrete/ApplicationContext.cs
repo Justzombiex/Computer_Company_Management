@@ -64,6 +64,12 @@ namespace CCM.DataAccess.Concrete
 
         #endregion
 
+        #region Clientes
+        /// <summary>
+        /// Tabla de los clientes
+        /// </summary>
+        public DbSet<Client> Clients { get; set; }
+
         #endregion
 
         #region Constructors
@@ -94,12 +100,20 @@ namespace CCM.DataAccess.Concrete
             : base(options)  {}
         #endregion
 
+        /// <summary>
+        /// Sobrescribimos la función OnConfiguring
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite();
         }
-        
+
+        /// <summary>
+        /// Sobrescribimos la función OnModelCreating
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -120,6 +134,8 @@ namespace CCM.DataAccess.Concrete
 
             modelBuilder.Entity<Worker>().ToTable("Workers");
 
+            modelBuilder.Entity<Client>().ToTable("Clients");
+
             modelBuilder.Entity<Shop>().ToTable("Shops");
 
             modelBuilder.Entity<Company>().ToTable("Companies");
@@ -128,7 +144,7 @@ namespace CCM.DataAccess.Concrete
 
             #endregion
         }
-
+        
         #region Helpers
         private static DbContextOptions GetOptions(string connectionString)
         {

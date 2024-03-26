@@ -20,7 +20,7 @@ namespace CCM.DataAccess.Abstract.Persons
         /// <param name="job">Ocupacion del trabajador</param>
         /// <param name="salary">Salario</param>
         /// <returns>Trabajador creado en BD</returns>
-        Worker Create(string workerid, JobType job, double salary);
+        Worker Create(int workerid, JobType job, double salary);
         /// <summary>
         /// Obtiene un trabajador de la BD
         /// </summary>
