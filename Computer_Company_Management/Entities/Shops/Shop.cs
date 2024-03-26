@@ -47,13 +47,7 @@ namespace CCM.Domain.Entities.Shops
         [NotMapped]
         public Company company { get; set; }
 
-        ///A Partir de aquí agregué lo necesario para las relaciones de mis clases
-        [NotMapped]
-        /// <summary>
-        /// Lista de clientes de la tienda
-        /// </summary>
-        public List<Client> Clients { get; set; }
-        #endregion
+       #endregion
 
         #region IDs
 
@@ -84,11 +78,10 @@ namespace CCM.Domain.Entities.Shops
         {
             ShopName = name;
             Location = location;
-            ShopId = shop.Id;
             CompanyID = company.Id;
             Products = new List<PC> ();
             Workers = new List<Worker> ();
-            Clients = new List<Client> ();
+            
         }
         #endregion
 
