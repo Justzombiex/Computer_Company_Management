@@ -21,6 +21,7 @@ namespace CCM.ConsoleApp
                 // Migrando base de datos. Este paso genera la BD con las tablas configuradas en su migración.
                 appContext.Database.Migrate();
             }
+          /*
             //Create PC
             HardDrive hardDrive = new HardDrive("HDD", "Seagate", 2 , ConnectionHardDriveType.SATA);
             appContext.Set<HardDrive>().Add(hardDrive);
@@ -46,7 +47,7 @@ namespace CCM.ConsoleApp
             appContext.Set<PC>().Add(pC);
             appContext.SaveChanges();
 
-
+            */
         }
     }
 }

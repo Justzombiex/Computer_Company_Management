@@ -29,11 +29,6 @@ namespace CCM.DataAccess.Abstract.Components
         /// <returns>Microprocesador solicitado de existir en BD, de lo contrario <see langword="null"/></returns>
         Microprocesor? Get(int id);
         /// <summary>
-        /// Actualiza el valor de un microprocesador en BD
-        /// </summary>
-        /// <param name="microprocesor">Un microprocesador</param>
-        void Update(Microprocesor microprocesor);
-        /// <summary>
         /// Elimina un microprocesador de BD
         /// </summary>
         /// <param name="microprocesor">Un microprocesador</param>

@@ -88,7 +88,7 @@ namespace CCM.Domain.Entities.Computers
         /// <param name="hardDrive">Disco duro de la PC</param>
         /// <param name="microprocesor">Microprocesador de la PC</param>
         /// <param name="price">Precio de la PC</param>
-        public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
+        public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price, Shop shop)
         {
             HardDrive = hardDrive;
             Microprocesors = microprocesor;

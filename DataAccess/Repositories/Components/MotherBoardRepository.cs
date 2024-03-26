@@ -24,11 +24,6 @@ namespace CCM.DataAccess.Repositories
             _context.Remove(motherBoard);
         }
 
-        public void Update(MotherBoard motherBoard)
-        {
-            _context.Update(motherBoard);
-        }
-
         MotherBoard? IMotherBoardRepository.Get(int id)
         {
             return _context.Set<MotherBoard>().Find(id);

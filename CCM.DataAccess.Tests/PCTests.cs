@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CCM.DataAccess.Abstract;
 using CCM.DataAccess.Abstract.Components;
+using CCM.DataAccess.Abstract.Shops;
+using CCM.Domain.Entities.Shops;
 
 namespace CCM.DataAccess.Tests
 {
@@ -34,10 +36,9 @@ namespace CCM.DataAccess.Tests
         /// <param name="rAMId">Id de la RAM</param>
         /// <param name="motherBoardId">Id de la motherboard</param>
         /// <param name="priceId">Id del precio</param>
-        [DataRow(1,1,1,1,1)]
-        [DataRow(2,2,2,2,2)]
+        [DataRow(1,1,1,1,1,1)]
         [TestMethod]
-        public  void Can_Create_PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId, int priceId)
+        public  void Can_Create_PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId, int priceId, int shopId)
         {
             //Arrange
             _pCRepository.BeginTransaction();
@@ -51,10 +52,13 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(motherBoard);
             Price price = ((IPriceRepository)_pCRepository).Get(priceId);
             Assert.IsNotNull(price);
+            Shop shop = ((IShopsRepository)_pCRepository).Get(shopId);
+            Assert.IsNotNull(shop);
+
 
 
             //Execute
-            PC newPC = _pCRepository.Create(hardDrive, microprocesor, rAM, motherBoard, price);
+            PC newPC = _pCRepository.Create(hardDrive, microprocesor, rAM, motherBoard, price, shop);
             _pCRepository.PartialCommit(); // Generando el id del nuevo elemento.
             PC? loadedPC = _pCRepository.Get(newPC.Id);
             _pCRepository.CommitTransaction();
@@ -85,34 +89,6 @@ namespace CCM.DataAccess.Tests
 
             //Assert
             Assert.IsNotNull(loadedPC);
-        }
-
-        /// <summary>
-        /// Prueba para actualizar una PC
-        /// </summary>
-        /// <param name="pos">posición de la PC en BD</param>
-        /// <param name="memorySize">Capacidad de memoria de la RAM de la PC</param>
-        [DataRow(1,3.0)]
-        [DataRow(2,4.0)]
-        [TestMethod]
-        public void Can_Update_PC(int pos, int memorySize )
-        {
-            //arrange
-            _pCRepository.BeginTransaction();
-            var pCs = _pCRepository.GetAllPC().ToList();
-            Assert.IsNotNull(pCs);
-            var pC = pCs.ElementAt(pos);
-            Assert.IsNotNull(pC);
-
-            //Execute
-            pC.RAM.MemorySize = memorySize;
-            _pCRepository.Update(pC);
-            _pCRepository.PartialCommit();
-
-            //Assert
-            var updatedPC = _pCRepository.Get(pC.Id);
-            Assert.IsNotNull(updatedPC);
-            Assert.AreEqual(pC.RAM.MemorySize, updatedPC.RAM.MemorySize);
         }
 
         /// <summary>

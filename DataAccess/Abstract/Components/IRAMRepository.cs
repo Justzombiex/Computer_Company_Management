@@ -28,11 +28,6 @@ namespace CCM.DataAccess.Abstract.Components
         /// <returns>RAM solicitada de existir en BD, de lo contrario <see langword="null"/> </returns>
         RAM? Get(int id);
         /// <summary>
-        /// Actualiza el valor de una RAM en BD
-        /// </summary>
-        /// <param name="rAM">Una RAM</param>
-        void Update(RAM rAM);
-        /// <summary>
         /// Elimina una RAM de BD
         /// </summary>
         /// <param name="rAM">Una RAM</param>

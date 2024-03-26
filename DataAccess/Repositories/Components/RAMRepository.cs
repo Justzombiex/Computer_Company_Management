@@ -23,11 +23,6 @@ namespace CCM.DataAccess.Repositories
             _context.Remove(rAM);
         }
 
-        public void Update(RAM rAM)
-        {
-            _context.Update(rAM);
-        }
-
         RAM? IRAMRepository.Get(int id)
         {
             return _context.Set<RAM>().Find(id);
