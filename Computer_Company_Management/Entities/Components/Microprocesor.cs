@@ -18,23 +18,23 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Modelo del microprocesador
         /// </summary>
-        public string Model { get; set; }
+        public string Model { get; init; }
         /// <summary>
         /// Velocidad del microprocesador en Gigahertz
         /// </summary>
-        public double ProcessorSpeed { get; set; }
+        public double ProcessorSpeed { get; init; }
         /// <summary>
         /// Tipo de conexión del microprocesador
         /// </summary>
-        public ConnectionType ConnectionType { get; set; }
+        public ConnectionType ConnectionType { get; init; }
         /// <summary>
         /// Marca del microprocesador
         /// </summary>
-        public string Brand { get; set; }
+        public string Brand { get; init; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
 
         #endregion
 

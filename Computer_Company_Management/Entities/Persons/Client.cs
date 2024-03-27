@@ -23,14 +23,14 @@ namespace CCM.Domain.Entities.Persons
 
         [NotMapped]
         /// <sumary>
-        /// tienda donde compra el cliente
+        /// Tienda donde compra el cliente
         /// <sumary>
         public Shop Shop { get; set; } 
 
         /// <summary>
-        /// ID de la tienda donde compra
+        /// ID de la tienda donde compra el cliente
         /// </summary>
-        public int ShopId { get; set; }
+        public int ShopId { get; protected set; }
         #endregion
 
         #region Constructor

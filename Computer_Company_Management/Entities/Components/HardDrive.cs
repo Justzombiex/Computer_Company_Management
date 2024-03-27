@@ -22,7 +22,7 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Capacidad de almacenamiento del disco duro en Terabytes
         /// </summary>
-        public double Storage { get; private set; } 
+        public double Storage { get; init; } 
         /// <summary>
         /// Tipo de conexión del disco duro
         /// </summary>
@@ -30,11 +30,11 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Marca del disco duro
         /// </summary>
-        public string Brand { get; private set; }
+        public string Brand { get; init; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
         
         #endregion
 

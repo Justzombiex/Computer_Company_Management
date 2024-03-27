@@ -33,11 +33,11 @@ namespace CCM.Domain.Entities.Orders
         /// <summary>
         /// ID del cliente para la base de datos
         /// </summary>
-        public int ClientID { get; set; }
+        public int ClientID { get; protected set; }
         /// <summary>
         /// ID de la PC que se va a comprar
         /// </summary>
-        public int PCId { get; set; }   
+        public int PCId { get; protected set; }   
         #endregion
 
         #region Constructors

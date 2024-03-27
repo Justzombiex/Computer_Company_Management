@@ -48,31 +48,34 @@ namespace CCM.Domain.Entities.Computers
         [NotMapped]
         public Shop shop { get; set; }
 
+        #endregion
+
+        #region ID
         /// <summary>
         /// Id del disco duro
         /// </summary>
-        public int HardDriveId { get; set; }
+        public int HardDriveId { get; protected set; }
         /// <summary>
         /// Id del disco duro
         /// </summary>
-        public int MicroprocesorId { get; set; }
+        public int MicroprocesorId { get; protected set; }
         /// <summary>
         /// Id de la Motherboard
         /// </summary>
-        public int MotherBoardId { get; set; }
+        public int MotherBoardId { get; protected set; }
         /// <summary>
         /// Id de la RAM
         /// </summary>
-        public int RAMId { get; set; }
+        public int RAMId { get; protected set; }
         /// <summary>
         /// Id del precio
         /// </summary>
-        public int PriceId { get; set; }
+        public int PriceId { get; protected set; }
         /// ID de la tienda a la que le pertenece
         /// </summary>
-        public int ShopID { get; set; }
+        public int ShopID { get; protected set; }
 
-        #endregion 
+        #endregion
 
         #region Constructors
         /// <summary>

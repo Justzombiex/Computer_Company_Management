@@ -36,7 +36,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="rAMId">Id de la RAM</param>
         /// <param name="motherBoardId">Id de la motherboard</param>
         /// <param name="priceId">Id del precio</param>
-        [DataRow(1,1,1,1,1)]
+        [DataRow(2,2,2,2,2)]
         [TestMethod]
         public  void Can_Create_PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId, int priceId)
         {
