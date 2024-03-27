@@ -74,7 +74,7 @@ namespace CCM.DataAccess.Tests
         /// Prueba para obtener una PC
         /// </summary>
         /// <param name="id">Id de la PC</param>
-        [DataRow(1)]
+        [DataRow(2)]
         [TestMethod]
         public void Can_Get_PC(int id)
         {

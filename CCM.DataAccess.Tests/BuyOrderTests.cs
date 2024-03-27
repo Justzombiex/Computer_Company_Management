@@ -31,13 +31,15 @@ namespace CCM.DataAccess.Tests
         /// <param name="clientId">ID del Cliente</param>
         /// <param name="pcId">ID de la PC</param>
         /// <param name="units">Unidades</param>
-        [DataRow(2,1,2)]
+        [DataRow(2,2,2)]
+        [DataRow(3,2,2)]
         [TestMethod]
         public void Can_Create_BuyOrder(int clientId, int pcId, int units)
         {
+            //Arrange
             _buyOrderRepository.BeginTransaction();
-
-            EnterpriseClient client = ((IClientRepository)_buyOrderRepository).GetClient<EnterpriseClient>(clientId);
+            
+            var client = ((IClientRepository)_buyOrderRepository).GetAll().ElementAtOrDefault(clientId);
             Assert.IsNotNull(client);
             PC pc = ((IPCRepository)_buyOrderRepository).Get(pcId);
             Assert.IsNotNull(pc);
@@ -95,7 +97,7 @@ namespace CCM.DataAccess.Tests
         /// <summary>
         /// Prueba para borrar una orden de compra
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Id de la orden de compra a eliminar</param>
         [DataRow(1)]
         [TestMethod]
         public void Can_Delete_BuyOrder (int id)

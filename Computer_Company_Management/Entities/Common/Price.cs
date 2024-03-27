@@ -15,7 +15,7 @@ namespace CCM.Domain.Entities.Common
         #region Properties
 
         /// <summary>
-        /// Divisa a en la que se expresa el valor del automóvil.
+        /// Divisa a en la que se expresa el valor de la PC
         /// </summary>
         public MoneyType Currency { get; set; }
 
@@ -33,7 +33,7 @@ namespace CCM.Domain.Entities.Common
         /// <summary>
         /// Inicializa un objeto <see cref="Price"/>
         /// </summary>
-        /// <param name="moneyType">Divisa a en la que se expresa el valor de lla PC.</param>
+        /// <param name="moneyType">Divisa a en la que se expresa el valor de la PC.</param>
         /// <param name="value">Valor del precio.</param>
         public Price(MoneyType moneyType, double value)
         {

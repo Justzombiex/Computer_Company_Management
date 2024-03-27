@@ -27,8 +27,8 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="moneyType">Tipo de moneda del precio</param>
         /// <param name="value">Valor del precio</param>
-        [DataRow(MoneyType.MN, 50000)]
-        [DataRow(MoneyType.Euro, 6000)]
+        [DataRow(MoneyType.Euro, 500)]
+        [DataRow(MoneyType.MN, 70000)]
         [TestMethod]
         public void Can_Create_Price(MoneyType moneyType, double value)
         {
