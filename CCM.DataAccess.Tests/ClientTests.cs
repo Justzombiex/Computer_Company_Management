@@ -24,7 +24,7 @@ namespace CCM.DataAccess.Tests
             _clientRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
-        [TestMethod]
+        [TestCategory("CreateTests") , TestMethod]
         [DataRow("021027", "Laura", 21)]
         [DataRow("010203", "Jaime", 22)]
         public void Can_Create_PrivateClient(string cI, string name = "", int age = -1)
@@ -49,7 +49,7 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedClient.Age, newClient.Age);
         }
 
-        [TestMethod]
+        [TestCategory("CreateTests2"), TestMethod]
         [DataRow("CEDAI", 1)]
         [DataRow("EMSIFARMA", 2)]
         public void Can_Create_EnterpriseClient(string brand, int physicalLocationId)
@@ -72,25 +72,24 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedClient.Location, physicalLocation);
         }
 
-        [DataRow(1)]
-        [TestMethod]
-        public void Can_Get_Client(int count)
+        [DataRow(4)]
+        [TestCategory("GetTests"), TestMethod]
+        public void Can_Get_Clients(int count)
         {
-
             //Arrange
             _clientRepository.BeginTransaction();
 
             //Execute
-            var loadedClient = _clientRepository.GetClient<EnterpriseClient>(count);
+            var clients = _clientRepository.GetAll();
             _clientRepository.CommitTransaction();
 
-            //Assert
-            Assert.IsNotNull(loadedClient);
+            // Assert
+            Assert.AreEqual(count, clients.Count());
         }
 
-        [DataRow(22, 1)]
-        [DataRow(20, 0)]
-        [TestMethod]
+        [DataRow(22, 0)]
+        [DataRow(20, 1)]
+        [TestCategory("UpdateTests"), TestMethod]
         public void Can_Update_PrivateClient(int age, int pos)
         {
             //Arrange
@@ -114,7 +113,7 @@ namespace CCM.DataAccess.Tests
 
         [DataRow("CUJAE", 0)]
         [DataRow("Facebook", 1)]
-        [TestMethod]
+        [TestCategory("UpdateTests"), TestMethod]
         public void Can_Update_EnterpriseClient(string brand, int pos)
         {
             //Arrange
@@ -138,7 +137,7 @@ namespace CCM.DataAccess.Tests
         }
 
         [DataRow(0)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_Client(int pos)
         {
             //Arrange

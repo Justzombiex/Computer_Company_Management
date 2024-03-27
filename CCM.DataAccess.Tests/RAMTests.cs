@@ -30,7 +30,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="memoryType">Tipo de memoria de la RAM</param>
         [DataRow(16, "Kingston", MemoryType.DDR)]
         [DataRow(8, "Corsair", MemoryType.DDR2)]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_RAM(int memorySize, string brand, MemoryType memoryType)
         {
             //Arrange
@@ -55,7 +55,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id de la RAM</param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_RAM(int id)
         {
             //Arrange
@@ -74,7 +74,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Identificador de la RAM en BD</param>
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_RAM(int id)
         {
             // Arrange

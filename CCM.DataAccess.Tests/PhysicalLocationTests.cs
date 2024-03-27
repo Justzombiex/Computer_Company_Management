@@ -24,7 +24,7 @@ namespace CCM.DataAccess.Tests
 
         [DataRow("Cuba", "Habana", "G e/ 23 y 24 Vedado")]
         [DataRow("Cuba", "Matanzas", "1era Avenida e/ 3 y 4 Varadero ")]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_Physical_Location(string country, string city, string address)
         {
             // Arrange
@@ -45,7 +45,7 @@ namespace CCM.DataAccess.Tests
 
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_Physical_Location_By_Id(int id)
         {
             // Arrange
@@ -60,7 +60,7 @@ namespace CCM.DataAccess.Tests
         }
 
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_Physical_Location(int id)
         {
             // Arrange

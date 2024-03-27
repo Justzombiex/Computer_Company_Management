@@ -37,7 +37,8 @@ namespace CCM.DataAccess.Tests
         /// <param name="motherBoardId">Id de la motherboard</param>
         /// <param name="priceId">Id del precio</param>
         [DataRow(2,2,2,2,2)]
-        [TestMethod]
+        [DataRow(1,1,1,1,1)]
+        [TestCategory("CreateTests2"), TestMethod]
         public  void Can_Create_PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId, int priceId)
         {
             //Arrange
@@ -75,7 +76,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Id de la PC</param>
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_PC(int id)
         {
             //Arrange
@@ -94,7 +95,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="pos">Posición de la PC en BD</param>
         [DataRow(0)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_PC(int pos)
         {
             //Arrange

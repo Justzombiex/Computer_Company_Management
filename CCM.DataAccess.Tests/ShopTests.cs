@@ -30,7 +30,8 @@ namespace CCM.DataAccess.Tests
 
         [DataRow("TiendaA", 1)]
         [DataRow("TiendaB", 2)]
-        [TestMethod]
+
+        [TestCategory("CreateTests2"), TestMethod]
         public void Can_Create_Shop(string name, int physicalLocationId)
         {
            
@@ -54,7 +55,7 @@ namespace CCM.DataAccess.Tests
 
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_Shop(int id)
         {
             _shopsRepository.BeginTransaction();
@@ -65,8 +66,8 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedShop);
         }
 
-        [DataRow(2, "TiendaC")]
-        [TestMethod]
+        [DataRow(1, "TiendaC")]
+        [TestCategory("UpdateTests"), TestMethod]
         public void Can_Update_Shop(int id, string name)
         {
             //Arrange
@@ -85,8 +86,8 @@ namespace CCM.DataAccess.Tests
 
         }
 
-        [DataRow(1)]
-        [TestMethod]
+        [DataRow(2)]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_Shop(int id)
         {
             _shopsRepository.BeginTransaction();

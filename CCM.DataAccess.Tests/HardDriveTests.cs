@@ -31,7 +31,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
         [DataRow("HDD", "Seagate", 2, ConnectionHardDriveType.SATA )]
         [DataRow("SSD", "Toshiba", 3, ConnectionHardDriveType.SATA2)]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_HardDrive(string model, string brand, double storage, ConnectionHardDriveType connectionHardDriveType)
         {
             //Arrange
@@ -58,7 +58,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id del disco duro</param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_HardDrive(int id)
         {
             //Arrange
@@ -77,7 +77,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Identificador del disco duro en BD</param>
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_HardDrive(int id)
         {
             // Arrange

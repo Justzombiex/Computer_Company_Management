@@ -31,7 +31,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="connectionType">Tipo de conexión del microprocesador</param>
         [DataRow("Core i3", 2, "Intel", ConnectionType.PGA )]
         [DataRow("Core i7", 2, "Intel", ConnectionType.ZIF)]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_Microprocesor(string model, int processorSpeed, string brand, ConnectionType connectionType)
         {
             //Arrange
@@ -59,7 +59,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id del microprocesador</param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"),TestMethod]
         public void Can_Get_Microprocesor(int id)
         {
             //Arrange
@@ -78,7 +78,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Identificador del microprocesador a eliminar</param>
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_Microprocesor(int id)
         {
             // Arrange

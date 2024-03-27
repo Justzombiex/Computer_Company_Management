@@ -29,7 +29,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="value">Valor del precio</param>
         [DataRow(MoneyType.Euro, 500)]
         [DataRow(MoneyType.MN, 70000)]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_Price(MoneyType moneyType, double value)
         {
             // Arrange
@@ -53,7 +53,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id del precio</param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_Price(int id)
         {
             // Arrange
@@ -75,7 +75,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="value">Valor del precio</param>
         [DataRow(1, MoneyType.USD, 6200)]
         [DataRow(2, MoneyType.MLC, 8000)]
-        [TestMethod]
+        [TestCategory("UpdateTests"), TestMethod]
         public void Can_Update_Price(int id, MoneyType moneyType, double value)
         {
             // Arrange
@@ -101,7 +101,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Id del precio</param>
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_Price(int id)
         {
             // Arrange

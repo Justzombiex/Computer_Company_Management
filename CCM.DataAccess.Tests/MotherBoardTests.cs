@@ -30,7 +30,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="connectionType">Tipo de conexión de la motherboard</param>
         [DataRow("ROG Strix", "ASUS", ConnectionType.PGA)]
         [DataRow("MAG Z790", "MSI", ConnectionType.ZIF)]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_MotherBoard(string model, string brand, ConnectionType connectionType)
         {
             //Arrange
@@ -55,7 +55,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id de la motherboard</param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_MotherBoard(int id)
         {
             //Arrange
@@ -74,7 +74,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Identificador de la motherboard en BD</param>
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_MotherBoard(int id)
         {
             // Arrange

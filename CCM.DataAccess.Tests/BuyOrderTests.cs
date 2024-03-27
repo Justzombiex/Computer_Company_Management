@@ -31,9 +31,9 @@ namespace CCM.DataAccess.Tests
         /// <param name="clientId">ID del Cliente</param>
         /// <param name="pcId">ID de la PC</param>
         /// <param name="units">Unidades</param>
+        [DataRow(1,1,1)]
         [DataRow(2,2,2)]
-        [DataRow(3,2,2)]
-        [TestMethod]
+        [TestCategory("CreateTests3"),TestMethod]
         public void Can_Create_BuyOrder(int clientId, int pcId, int units)
         {
             //Arrange
@@ -59,7 +59,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Id de la orden solicitada</param>
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_BuyOrder (int id)
         {
             _buyOrderRepository.BeginTransaction();
@@ -76,7 +76,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id de la Orden</param>
         /// <param name="units">Cantidad de unidades a actualizar</param>
         [DataRow(1, 10)]
-        [TestMethod]
+        [TestCategory("UpdateTests"), TestMethod]
         public void Can_Update_BuyOrder (int id, int units)
         {
             // Arrange
@@ -98,8 +98,8 @@ namespace CCM.DataAccess.Tests
         /// Prueba para borrar una orden de compra
         /// </summary>
         /// <param name="id">Id de la orden de compra a eliminar</param>
-        [DataRow(1)]
-        [TestMethod]
+        [DataRow(2)]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_BuyOrder (int id)
         {
             _buyOrderRepository.BeginTransaction ();
