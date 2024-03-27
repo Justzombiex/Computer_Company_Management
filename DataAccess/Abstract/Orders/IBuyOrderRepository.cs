@@ -35,12 +35,6 @@ namespace CCM.DataAccess.Abstract.Orders
         /// <returns></returns>
         void Update(BuyOrder buyOrder);
         /// <summary>
-        /// Obtiene todas las ordenes de compra asociadas a un cliente en BD.
-        /// </summary>
-        /// <param name="client">Cliente asociado a las ordenes.</param>
-        /// <returns>Colección de ordenes asociadas al cliente suministrado.</returns>
-        IEnumerable<BuyOrder> GetByClient(Client client);
-        /// <summary>
         /// Elimina una Orden de Compra de una BD
         /// </summary>
         /// <param name="buyOrder">Orden de Compra</param>
