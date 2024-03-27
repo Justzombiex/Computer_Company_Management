@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CCM.Domain.Entities.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CCM.Domain.Entities.Persons
 {
@@ -15,6 +16,10 @@ namespace CCM.Domain.Entities.Persons
     public class EnterpriseClient : Client, IBrand
     {
         #region Properties
+
+        /// <summary>
+        /// Marca de la empresa cliente
+        /// </summary>
         public string Brand { get; set; }
 
         public PhysicalLocation location;
@@ -22,7 +27,17 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// Ubicación geográfica de la sede de la empresa cliente.
         /// </summary>
+        [NotMapped]
         public PhysicalLocation Location { get; set; }
+
+        #endregion
+
+        #region ID
+
+        /// <summary>
+        /// Identificador de la ubicación geográfica asociada.
+        /// </summary>
+        public int LocationId { get; protected set; }
 
         #endregion
 
@@ -41,6 +56,7 @@ namespace CCM.Domain.Entities.Persons
         {
             Brand = brand;
             Location = location;
+            LocationId = location.Id;
         }
         #endregion
 

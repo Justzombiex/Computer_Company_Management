@@ -57,7 +57,6 @@ namespace CCM.Domain.Entities.Persons
         /// <param name="salary">Salario que se le paga</param>
         public Worker(int workerid, JobType job, double salary)
         {
-            WorkerID = worker.id;
             Job = job;
             Salary = salary;        
             ShopID = shop.Id;

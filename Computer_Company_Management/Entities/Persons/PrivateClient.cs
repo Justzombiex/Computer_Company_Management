@@ -14,34 +14,41 @@ namespace CCM.Domain.Entities.Persons
     public class PrivateClient : Client
     {
         #region Properties
+
         /// <summary>
         /// Nombre y apellidos de la persona
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; protected set; }
+
         /// <summary>
-        /// Carnet de Identidad
+        /// Carnet de Identidad de la persona
         /// </summary>
-        public string CI { get; }
+        public string CI { get; protected set; }
+
         /// <summary>
         /// Edad de la persona
         /// </summary>
-        public int Age { get; set; }
+        public int Age { get; protected set; }
         #endregion
 
         #region Constructor
+
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.
         /// </summary>
         protected PrivateClient() { }
 
         /// <summary>
-        /// Inicializa un cliente regular de la tienda de computadoras
+        /// Inicializa un cliente regular de la tienda de computadoras <see cref="PrivateClient"/>.
         /// </summary>
         /// <param name="cI"></param>
         /// <param name="name"></param>
         /// <param name="age"></param>
         public PrivateClient(string cI, string name = "", int age = -1)
         {
+            Name = name;
+            Age = age;
+            CI = cI;
         }
         #endregion
     }
