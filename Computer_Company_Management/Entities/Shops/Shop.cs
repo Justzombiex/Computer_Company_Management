@@ -20,12 +20,12 @@ namespace CCM.Domain.Entities.Shops
         /// <summary>
         /// Nombre de la tienda
         /// </summary>
-        public string ShopName { get; private set; }
+        public string ShopName { get; set; }
 
         /// <summary>
         /// Ubicación geográfica de la tienda.
         /// </summary>
-        public PhysicalLocation Location { get; set; }
+        public PhysicalLocation Location { get; init; }
 
         /// <summary>
         /// Lista de productos en la tienda
@@ -70,14 +70,11 @@ namespace CCM.Domain.Entities.Shops
         /// </summary>
         /// <param name="name">nombre de la tienda</param>
         /// <param name="location">Ubicación geográfica de la tienda.</param>
-        public Shop (string name, PhysicalLocation location, Company company, PC pC, Worker worker)
+        public Shop (string name, PhysicalLocation location)
         {
             ShopName = name;
             Location = location;
-            CompanyId = company.Id;
             PhysicalLocationId = location.Id;
-            Products.Add(pC);
-            Workers.Add(worker);
             
         }
         #endregion

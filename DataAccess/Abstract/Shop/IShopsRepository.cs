@@ -21,7 +21,7 @@ namespace CCM.DataAccess.Abstract.Shops
         /// <param name="name">Nombre de la tienda</param>
         /// <param name="address">Direccion de la tienda</param>
         /// <returns></returns>
-        Shop Create(string name, PhysicalLocation physicalLocation, Company company, PC pC,  Worker worker);
+        Shop Create(string name, PhysicalLocation physicalLocation);
         /// <summary>
         /// Obtiene una Tienda de la BD]]]]]
         /// </summary>

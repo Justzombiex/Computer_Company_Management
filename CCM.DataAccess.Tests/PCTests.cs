@@ -36,9 +36,9 @@ namespace CCM.DataAccess.Tests
         /// <param name="rAMId">Id de la RAM</param>
         /// <param name="motherBoardId">Id de la motherboard</param>
         /// <param name="priceId">Id del precio</param>
-        [DataRow(1,1,1,1,1,1)]
+        [DataRow(1,1,1,1,1)]
         [TestMethod]
-        public  void Can_Create_PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId, int priceId, int shopId)
+        public  void Can_Create_PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId, int priceId)
         {
             //Arrange
             _pCRepository.BeginTransaction();
@@ -52,13 +52,11 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(motherBoard);
             Price price = ((IPriceRepository)_pCRepository).Get(priceId);
             Assert.IsNotNull(price);
-            Shop shop = ((IShopsRepository)_pCRepository).Get(shopId);
-            Assert.IsNotNull(shop);
 
 
 
             //Execute
-            PC newPC = _pCRepository.Create(hardDrive, microprocesor, rAM, motherBoard, price, shop);
+            PC newPC = _pCRepository.Create(hardDrive, microprocesor, rAM, motherBoard, price);
             _pCRepository.PartialCommit(); // Generando el id del nuevo elemento.
             PC? loadedPC = _pCRepository.Get(newPC.Id);
             _pCRepository.CommitTransaction();
@@ -70,7 +68,6 @@ namespace CCM.DataAccess.Tests
             Assert.AreEqual(loadedPC.RAMId, rAMId);
             Assert.AreEqual(loadedPC.MotherBoardId, motherBoardId);
             Assert.AreEqual(loadedPC.PriceId, priceId);
-            Assert.AreEqual(loadedPC.ShopID, shopId);
         }
 
         /// <summary>
@@ -78,7 +75,6 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Id de la PC</param>
         [DataRow(1)]
-        [DataRow(2)]
         [TestMethod]
         public void Can_Get_PC(int id)
         {
@@ -97,7 +93,6 @@ namespace CCM.DataAccess.Tests
         /// Prueba para eliminar una PC
         /// </summary>
         /// <param name="pos">Posición de la PC en BD</param>
-        [DataRow(2)]
         [DataRow(0)]
         [TestMethod]
         public void Can_Delete_PC(int pos)

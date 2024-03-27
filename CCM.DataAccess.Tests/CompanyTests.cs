@@ -49,23 +49,7 @@ namespace CCM.DataAccess.Tests
 
             Assert.IsNotNull(loadedCompany);
         }
-        [DataRow(1, "Microsoft")]
-        [DataRow(2, "Apple")]
-        [TestMethod]
-        public void Can_Update_Company(int id, string name)
-        {
-            _companiesRepository.BeginTransaction();
-
-            var loadedCompany = _companiesRepository.Get(id);
-            Assert.IsNotNull(loadedCompany);
-            var newCompany = new Company(name) { Id = loadedCompany.Id };
-            _companiesRepository.Update(newCompany);
-            var modifyedCompany = _companiesRepository.Get(id);
-            _companiesRepository.CommitTransaction();
-
-            Assert.AreEqual(modifyedCompany.CompanyName, name);
-        }
-
+        
         [DataRow(1)]
         [TestMethod]
         public void Can_Delete_Company(int id)

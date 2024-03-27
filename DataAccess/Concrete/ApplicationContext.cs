@@ -68,7 +68,7 @@ namespace CCM.DataAccess.Concrete
         /// <summary>
         /// Tabla de los clientes
         /// </summary>
-        public DbSet<Client> Clients { get; set; }
+        //public DbSet<Client> Clients { get; set; }
 
         #endregion
 
@@ -136,7 +136,7 @@ namespace CCM.DataAccess.Concrete
 
             modelBuilder.Entity<Worker>().ToTable("Workers");
 
-            modelBuilder.Entity<Client>().ToTable("Clients");
+            //modelBuilder.Entity<Client>().ToTable("Clients");
 
             modelBuilder.Entity<Shop>().ToTable("Shops");
 

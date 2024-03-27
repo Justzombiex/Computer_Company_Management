@@ -13,9 +13,9 @@ namespace CCM.DataAccess.Repositories
 {
     public partial class ApplicationRepository : IPCRepository
     {
-        public PC Create(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price, Shop shop)
+        public PC Create(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
         {
-            PC pC = new PC(hardDrive, microprocesor, rAM, motherBoard, price, shop);
+            PC pC = new PC(hardDrive, microprocesor, rAM, motherBoard, price);
             _context.Add(pC);
             return pC;
         }

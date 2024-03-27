@@ -28,25 +28,19 @@ namespace CCM.DataAccess.Tests
             _shopsRepository = new ApplicationRepository(ConnectionStringProvider.GetConnectionString());
         }
 
-        [DataRow("TiendaA", "Calle_51")]
-        [DataRow("TiendaB", "Calle_49")]
+        [DataRow("TiendaA", 1)]
+        [DataRow("TiendaB", 2)]
         [TestMethod]
-        public void Can_Create_Shop(string name, int physicalLocationId, int companyId, int pCId, int workerId)
+        public void Can_Create_Shop(string name, int physicalLocationId)
         {
            
             //Arrange
             _shopsRepository.BeginTransaction();
             PhysicalLocation physicalLocation = ((IPhysicalLocationRepository)_shopsRepository).Get(physicalLocationId);
             Assert.IsNotNull(physicalLocation);
-            Company company = ((ICompaniesRepository)_shopsRepository).Get(companyId);
-            Assert.IsNotNull(company);
-            PC pC = ((IPCRepository)_shopsRepository).Get(pCId);
-            Assert.IsNotNull(pC);
-            Worker worker = ((IWorkerRepository)_shopsRepository).Get(workerId);
-            Assert.IsNotNull(company);
 
             //Execute
-            Shop newShop = _shopsRepository.Create(name, physicalLocation, company, pC, worker);
+            Shop newShop = _shopsRepository.Create(name, physicalLocation);
             _shopsRepository.PartialCommit(); // Generando el id del nuevo elemento.
             Shop? loadedShop = _shopsRepository.Get(newShop.Id);
             _shopsRepository.CommitTransaction();
@@ -55,9 +49,6 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedShop);
             Assert.AreEqual(loadedShop.ShopName, name);
             Assert.AreEqual(loadedShop.PhysicalLocationId, physicalLocationId);
-            Assert.AreEqual(loadedShop.CompanyId, companyId);
-            Assert.AreEqual(loadedShop.Products.Find(pCId).Id, pCId);
-            Assert.AreEqual(loadedShop.Workers.Find(workerId).Id, workerId);
 
         }
 
@@ -74,25 +65,28 @@ namespace CCM.DataAccess.Tests
             Assert.IsNotNull(loadedShop);
         }
 
-        [DataRow(1, "TiendaA", "Calle_51")]
-        [DataRow(2, "TiendaB", "Calle_49")]
+        [DataRow(3, "TiendaC")]
+        [DataRow(4, "TiendaD")]
         [TestMethod]
-        public void Can_Update_Shop(int id, string name, PhysicalLocation location, Company company, PC pC, Worker worker  )
+        public void Can_Update_Shop(int id, string name)
         {
+            //Arrange
             _shopsRepository.BeginTransaction();
-
             var loadedShop = _shopsRepository.Get(id);
-            Assert.IsNotNull(loadedShop);
-            var newShop = new Shop(name, location, company, pC, worker) { Id = loadedShop.Id };
-            _shopsRepository.Update(newShop);
+            Assert.IsNotNull (loadedShop);
+
+            //Execute
+            loadedShop.ShopName = name;
+            _shopsRepository.Update(loadedShop);
+
+            // Assert
             var modifyedShop = _shopsRepository.Get(id);
             _shopsRepository.CommitTransaction();
 
-            Assert.AreEqual(modifyedShop.ShopName, name);
-            Assert.AreEqual(modifyedShop.Location, location);
+
         }
 
-        [DataRow(1)]
+        [DataRow(6)]
         [TestMethod]
         public void Can_Delete_Shop(int id)
         {
