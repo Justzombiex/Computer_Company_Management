@@ -22,9 +22,8 @@ namespace CCM.DataAccess.Tests
         }
 
 
-        [DataRow("Cuba", "Habana", "M e/ 17 y 19 Vedado")]
-        [DataRow("España", "Barcelona", "15 e/ 20 y 21 Miraflores")]
-        [DataRow("Cuba", "Habana", "42 e/ 3ra y 5ta Playa")]
+        [DataRow("Cuba", "Habana", "G e/ 23 y 24 Vedado")]
+        [DataRow("Cuba", "Matanzas", "1era Avenida e/ 3 y 4 Varadero ")]
         [TestMethod]
         public void Can_Create_Physical_Location(string country, string city, string address)
         {

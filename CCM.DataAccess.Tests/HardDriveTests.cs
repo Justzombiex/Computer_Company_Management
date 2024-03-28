@@ -77,6 +77,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Identificador del disco duro en BD</param>
         [DataRow(1)]
+        [TestMethod]
         public void Can_Delete_HardDrive(int id)
         {
             // Arrange

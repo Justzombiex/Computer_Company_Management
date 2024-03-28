@@ -74,6 +74,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Identificador de la RAM en BD</param>
         [DataRow(1)]
+        [TestMethod]
         public void Can_Delete_RAM(int id)
         {
             // Arrange

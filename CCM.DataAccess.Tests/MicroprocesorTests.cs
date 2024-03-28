@@ -78,6 +78,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id">Identificador del microprocesador a eliminar</param>
         [DataRow(1)]
+        [TestMethod]
         public void Can_Delete_Microprocesor(int id)
         {
             // Arrange

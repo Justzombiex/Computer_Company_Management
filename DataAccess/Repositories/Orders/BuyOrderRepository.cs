@@ -29,6 +29,11 @@ namespace CCM.DataAccess.Repositories
             _context.Update(buyOrder);
         }
 
+        public IEnumerable<BuyOrder> GetByClient(Client client)
+        {
+            return _context.Set<BuyOrder>().Where(x => x.ClientID == client.Id).ToList();
+        }
+
         BuyOrder? IBuyOrderRepository.Get(int id)
         {
             return _context.Set<BuyOrder>().Find(id);
