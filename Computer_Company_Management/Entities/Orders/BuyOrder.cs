@@ -28,29 +28,7 @@ namespace CCM.Domain.Entities.Orders
         /// <summary>
         /// Unidades que va a comprar el cliente
         /// </summary>
-        public int Units { get; set; }
-
-        /// <summary>
-        /// Fecha de creación de la orden.
-        /// </summary>
-        public DateTime CreationDate { get; set; }
-
-        /// <summary>
-        /// Fecha en la que se ejecuta el pago.
-        /// </summary>
-        public DateTime? PaymentDay { get; set; }
-
-        /// <summary>
-        /// Indica si la orden de compra ya fue pagada;
-        /// </summary>
-        [NotMapped]
-        public bool IsPayed => PaymentDay is not null;
-
-        /// <summary>
-        /// Precio total a pagar por la orden.
-        /// </summary>
-        [NotMapped]
-        public Price TotalPrice => new Price(pC.Price.Currency, pC.Price.Value * Units);
+        public int Units { get; set; }  
         #endregion
 
         #region IDs
@@ -59,12 +37,10 @@ namespace CCM.Domain.Entities.Orders
         /// ID del cliente para la base de datos
         /// </summary>
         public int ClientID { get; protected set; }
-
         /// <summary>
         /// ID de la PC que se va a comprar
         /// </summary>
-        public int PCId { get; set; } 
-        
+        public int PCId { get; protected set; }   
         #endregion
 
         #region Constructors
@@ -79,7 +55,7 @@ namespace CCM.Domain.Entities.Orders
         /// <param name="client">Cliente que realiza la compra</param>
         /// <param name="pc">PC a vender</param>
         /// <param name="units">Cantidad de unidades vendidas</param>
-        public BuyOrder (Client client, PC pc, int units = 1)
+        public BuyOrder (Client client, PC pc, int units)
         {
             Client = client;
             pC = pc;

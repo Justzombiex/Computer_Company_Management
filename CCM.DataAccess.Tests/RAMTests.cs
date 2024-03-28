@@ -30,8 +30,8 @@ namespace CCM.DataAccess.Tests
         /// <param name="memoryType">Tipo de memoria de la RAM</param>
         [DataRow(16, "Kingston", MemoryType.DDR)]
         [DataRow(8, "Corsair", MemoryType.DDR2)]
-        [TestMethod]
-        public void Can_Create_MotherBoard(int memorySize, string brand, MemoryType memoryType)
+        [TestCategory("CreateTests"), TestMethod]
+        public void Can_Create_RAM(int memorySize, string brand, MemoryType memoryType)
         {
             //Arrange
             _rAMRepository.BeginTransaction();
@@ -55,7 +55,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id de la RAM</param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_RAM(int id)
         {
             //Arrange
@@ -70,33 +70,26 @@ namespace CCM.DataAccess.Tests
         }
 
         /// <summary>
-        /// Prueba para  eliminar una RAM
+        /// Elimina una RAM de BD
         /// </summary>
-        /// <param name="id">Id de la RAM</param>
-        /// <param name="memorySize">Capacidad de memoria de la RAM</param>
-        /// <param name="brand">Marca de la RAM</param>
-        /// <param name="memoryType">Tipo de memoria de la RAM</param>
-        [DataRow(1, 4, "Corsair", MemoryType.DDR2)]
-        [DataRow(2, 6, "Kingston", MemoryType.DDR )]
-        [TestMethod]
-        public void Can_Update_RAM(int id, int memorySize, string brand, MemoryType memoryType)
+        /// <param name="id">Identificador de la RAM en BD</param>
+        [DataRow(1)]
+        [TestCategory("WipeTests"), TestMethod]
+        public void Can_Delete_RAM(int id)
         {
-            //Arrange
+            // Arrange
             _rAMRepository.BeginTransaction();
 
-            //Execute
+            // Execute
             var loadedRAM = _rAMRepository.Get(id);
             Assert.IsNotNull(loadedRAM);
-            var newRAM = new RAM(memorySize, brand, memoryType) { Id = loadedRAM.Id };
-            _rAMRepository.Update(newRAM);
-            var modifyedRAM = _rAMRepository.Get(id);
+            _rAMRepository.Delete(loadedRAM);
+            _rAMRepository.PartialCommit();
+            loadedRAM = _rAMRepository.Get(id);
             _rAMRepository.CommitTransaction();
 
-            //Assert
-            Assert.AreEqual(modifyedRAM.Brand, brand);
-            Assert.AreEqual(modifyedRAM.MemorySize, memorySize);
-            Assert.AreEqual(modifyedRAM.MemoryType, memoryType);
-            
+            // Assert
+            Assert.IsNull(loadedRAM);
         }
     }
 }

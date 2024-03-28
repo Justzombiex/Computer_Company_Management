@@ -29,9 +29,9 @@ namespace CCM.DataAccess.Tests
         /// <param name="processorSpeed">Velocidad de procesamiento del microprocesador</param>
         /// <param name="brand">Marca del microprocesador</param>
         /// <param name="connectionType">Tipo de conexión del microprocesador</param>
-        [DataRow("Core i3", 2.0, "Intel", ConnectionType.PGA )]
-        [DataRow("Core i7", 2.5, "Intel", ConnectionType.ZIF)]
-        [TestMethod]
+        [DataRow("Core i3", 2, "Intel", ConnectionType.PGA )]
+        [DataRow("Core i7", 2, "Intel", ConnectionType.ZIF)]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_Microprocesor(string model, int processorSpeed, string brand, ConnectionType connectionType)
         {
             //Arrange
@@ -59,7 +59,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id">Id del microprocesador</param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"),TestMethod]
         public void Can_Get_Microprocesor(int id)
         {
             //Arrange
@@ -74,35 +74,26 @@ namespace CCM.DataAccess.Tests
         }
 
         /// <summary>
-        /// Prueba para actualizar un microprocesador
+        /// Elimina un microprocesador de BD
         /// </summary>
-        /// <param name="id">Id del microprocesador</param>
-        /// <param name="model">Modelo del microprocesador</param>
-        /// <param name="processorSpeed">Velocidad de procesamiento del microprocesador</param>
-        /// <param name="brand">Marca del microprocesador</param>
-        /// <param name="connectionType">Tipo de conexión del microprocesador</param>
-        [DataRow(1, "Core i7", 2.5, "Intel", ConnectionType.ZIF)]
-        [DataRow(2, "Core i3", 2.0, "Intel", ConnectionType.PGA)]
-        [TestMethod]
-        public void Can_Update_Microprocesor(int id, string model, int processorSpeed, string brand, ConnectionType connectionType)
+        /// <param name="id">Identificador del microprocesador a eliminar</param>
+        [DataRow(1)]
+        [TestCategory("WipeTests"), TestMethod]
+        public void Can_Delete_Microprocesor(int id)
         {
-            //Arrange
+            // Arrange
             _microprocesorRepository.BeginTransaction();
 
-            //Execute
+            // Execute
             var loadedMicroprocesor = _microprocesorRepository.Get(id);
             Assert.IsNotNull(loadedMicroprocesor);
-            var newMicroprocesor = new Microprocesor(model, processorSpeed, brand, connectionType) { Id = loadedMicroprocesor.Id };
-            _microprocesorRepository.Update(newMicroprocesor);
-            var modifyedMicroprocesor = _microprocesorRepository.Get(id);
+            _microprocesorRepository.Delete(loadedMicroprocesor);
+            _microprocesorRepository.PartialCommit();
+            loadedMicroprocesor = _microprocesorRepository.Get(id);
             _microprocesorRepository.CommitTransaction();
 
-            //Assert
-            Assert.AreEqual(modifyedMicroprocesor.Model, model);
-            Assert.AreEqual(modifyedMicroprocesor.ProcessorSpeed, processorSpeed);
-            Assert.AreEqual(modifyedMicroprocesor.Brand, brand);
-            Assert.AreEqual(modifyedMicroprocesor.ConnectionType, connectionType);
-            
+            // Assert
+            Assert.IsNull(loadedMicroprocesor);
         }
     }
 }

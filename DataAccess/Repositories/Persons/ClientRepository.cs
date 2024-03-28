@@ -1,4 +1,6 @@
-﻿using CCM.DataAccess.Abstract.Persons;
+﻿using CCM.DataAccess.Abstract.Clients;
+using CCM.DataAccess.Abstract;
+using CCM.DataAccess.Concrete;
 using CCM.Domain.Entities.Persons;
 using System;
 using System.Collections.Generic;
@@ -17,9 +19,9 @@ namespace CCM.DataAccess.Repositories
             return enterpriseClient;
         }
 
-        public PrivateClient CreatePrivateClient(string cI, string name = "", int age = -1)
+        public PrivateClient CreatePrivateClient(string idNumber, string name = "", int age = -1)
         {
-            PrivateClient privateClient = new PrivateClient(cI, name, age);
+            PrivateClient privateClient = new PrivateClient(idNumber, name, age);
             _context.Add(privateClient);
             return privateClient;
         }

@@ -22,7 +22,7 @@ namespace CCM.DataAccess.Repositories
             _context.Remove(physicalLocation);
         }
 
-        PhysicalLocation? IPhysicalLocationRepository.Get(int id)
+         PhysicalLocation? IPhysicalLocationRepository.Get(int id)
         {
             return _context.Set<PhysicalLocation>().Find(id);
         }

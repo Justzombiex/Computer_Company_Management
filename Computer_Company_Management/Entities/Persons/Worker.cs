@@ -29,18 +29,18 @@ namespace CCM.Domain.Entities.Persons
         /// </summary>
         public double Salary { get; set; }
         [NotMapped]
-        public Shop shop { get; protected set; }
+        public Shop shop { get; set; }
         #endregion
 
         #region IDs
         /// <summary>
         /// ID del Trabajador
         /// </summary>
-        public int WorkerID { get; set; }   
+        public int WorkerID { get; protected set; }   
         /// <summary>
         /// ID del salario
         /// </summary>
-        public int ShopID { get; set; }
+        public int ShopID { get; protected set; }
         #endregion
 
         #region Constructors
@@ -55,11 +55,11 @@ namespace CCM.Domain.Entities.Persons
         /// <param name="workerid">ID del Trabajador</param>
         /// <param name="job">Ocupacion de la persona</param>
         /// <param name="salary">Salario que se le paga</param>
-        public Worker(int workerid, JobType job, double salary)
+        public Worker(string workerid, JobType job, double salary)
         {
+            _WorkerID = workerid;
             Job = job;
             Salary = salary;        
-            ShopID = shop.Id;
         }
         #endregion
     }

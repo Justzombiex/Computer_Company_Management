@@ -26,14 +26,14 @@ namespace CCM.Domain.Entities.Persons
 
         [NotMapped]
         /// <sumary>
-        /// Orden de compra del cliente
+        /// Tienda donde compra el cliente
         /// <sumary>
         public BuyOrder buyOrder { get; set; } 
 
         /// <summary>
-        /// ID de la orden de compra
+        /// ID de la tienda donde compra el cliente
         /// </summary>
-        public int BuyOrderId { get; set; }
+        public int ShopId { get; protected set; }
         #endregion
 
         #region Constructor
@@ -42,16 +42,7 @@ namespace CCM.Domain.Entities.Persons
         /// </summary>
         protected Client() { }
 
-        /// <summary>
-        /// Inicializando el cliente
-        /// </summary>
-        /// <param name="buy_Order"></param>
-        public Client(BuyOrder buy_Order)
-        {
-            buyOrder = buy_Order;
-            BuyOrderId = buy_Order.Id;
-
-        }
+        
         #endregion
 
     }

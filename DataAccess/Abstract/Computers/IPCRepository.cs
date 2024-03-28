@@ -1,6 +1,7 @@
 ﻿using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Components;
 using CCM.Domain.Entities.Computers;
+using CCM.Domain.Entities.Shops;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +35,6 @@ namespace CCM.DataAccess.Abstract.Computers
         /// </summary>
         /// <returns>PC en BD.</returns>
         IEnumerable<PC> GetAllPC();
-        /// <summary>
-        /// Actualiza el valor de PC en BD
-        /// </summary>
-        /// <param name="pC">Una PC</param>
-        void Update(PC pC);
         /// <summary>
         /// Elimina una PC de BD
         /// </summary>

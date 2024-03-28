@@ -18,23 +18,23 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Modelo del microprocesador
         /// </summary>
-        public string Model { get; }
+        public string Model { get; init; }
         /// <summary>
-        /// Velocidad del microprocesador
+        /// Velocidad del microprocesador en Gigahertz
         /// </summary>
-        public int ProcessorSpeed { get; }
+        public double ProcessorSpeed { get; init; }
         /// <summary>
         /// Tipo de conexión del microprocesador
         /// </summary>
-        public ConnectionType ConnectionType { get; }
+        public ConnectionType ConnectionType { get; init; }
         /// <summary>
         /// Marca del microprocesador
         /// </summary>
-        public string Brand { get; }
+        public string Brand { get; init; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
 
         #endregion
 
@@ -47,11 +47,11 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Inicializa un objeto <see cref="Microprocesor"/>
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="processorSpeed"></param>
-        /// <param name="brand"></param>
-        /// <param name="connectionType"></param>
-        public Microprocesor(string model, int processorSpeed, string brand, ConnectionType connectionType)
+        /// <param name="model">Modelo del microprocesador</param>
+        /// <param name="processorSpeed">Velocidad del microprcoesador en gigahertz</param>
+        /// <param name="brand">Marca del microprocesador</param>
+        /// <param name="connectionType">Tipo de conexión del microprcoesador</param>
+        public Microprocesor(string model, double processorSpeed, string brand, ConnectionType connectionType)
         {
             Model = model;
             ProcessorSpeed = processorSpeed;

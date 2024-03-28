@@ -18,17 +18,17 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// País.
         /// </summary>
-        public string Country { get; }
+        public string Country { get; init; }
 
         /// <summary>
         /// Ciudad.
         /// </summary>
-        public string City { get; }
+        public string City { get; init; }
 
         /// <summary>
         /// Dirección local.
         /// </summary>
-        public string Address { get; }
+        public string Address { get; init; }
         #endregion
 
         #region Constructor

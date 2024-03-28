@@ -23,7 +23,7 @@ namespace CCM.DataAccess.Tests
 
         [DataRow("Microsoft")]
         [DataRow("Apple")]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_Company(string name)
         {
             _companiesRepository.BeginTransaction();
@@ -39,7 +39,7 @@ namespace CCM.DataAccess.Tests
 
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_Company(int id)
         {
             _companiesRepository.BeginTransaction();
@@ -49,25 +49,9 @@ namespace CCM.DataAccess.Tests
 
             Assert.IsNotNull(loadedCompany);
         }
-        [DataRow(1, "Microsoft")]
-        [DataRow(2, "Apple")]
-        [TestMethod]
-        public void Can_Update_Company(int id, string name)
-        {
-            _companiesRepository.BeginTransaction();
-
-            var loadedCompany = _companiesRepository.Get(id);
-            Assert.IsNotNull(loadedCompany);
-            var newCompany = new Company(name) { Id = loadedCompany.Id };
-            _companiesRepository.Update(newCompany);
-            var modifyedCompany = _companiesRepository.Get(id);
-            _companiesRepository.CommitTransaction();
-
-            Assert.AreEqual(modifyedCompany.CompanyName, name);
-        }
-
-        [DataRow(1)]
-        [TestMethod]
+        
+        [DataRow(2)]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_Company(int id)
         {
             _companiesRepository.BeginTransaction();

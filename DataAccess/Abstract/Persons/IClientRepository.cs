@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CCM.DataAccess.Abstract;
 using CCM.Domain.Entities.Persons;
 
-namespace CCM.DataAccess.Abstract.Persons
+namespace CCM.DataAccess.Abstract.Clients
 {
     /// <summary>
     /// Define las operaciones a realizar en BD para un cliente.
     /// </summary>
     public interface IClientRepository : IRepository
     {
-        #region Constructor en BD
         /// <summary>
         /// Crea un cliente privado en BD.
         /// </summary>
-        /// <param name="cI">Identificador del cliente.</param>
+        /// <param name="idNumber">Identificador del cliente.</param>
         /// <param name="name">Nombre del cliente.</param>
         /// <param name="age">Edad del cliente.</param>
         /// <returns></returns>
-        PrivateClient CreatePrivateClient(string cI, string name = "", int age = -1);
+        PrivateClient CreatePrivateClient(string idNumber, string name = "", int age = -1);
 
         /// <summary>
         /// Crea una empresa cliente en BD.
@@ -30,9 +30,6 @@ namespace CCM.DataAccess.Abstract.Persons
         /// <returns></returns>
         EnterpriseClient CreateEnterpriseClient(string brand, PhysicalLocation location);
 
-        #endregion
-
-        #region Operaciones
         /// <summary>
         /// Obtiene un cliente de BD.
         /// </summary>
@@ -58,8 +55,6 @@ namespace CCM.DataAccess.Abstract.Persons
         /// </summary>
         /// <param name="client">Cliente a eliminar.</param>
         void Delete(Client client);
-
-        #endregion
 
     }
 }

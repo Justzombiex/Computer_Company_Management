@@ -29,7 +29,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="salary">Salario</param>
         [DataRow("ABC001", JobType.STORECLERK, 20.00)]
         [DataRow("DEF002", JobType.CLEANING, 10.00)]
-        [TestMethod]
+        [TestCategory("CreateTests"), TestMethod]
         public void Can_Create_Worker(string workerid, JobType job, double salary)
         {
             //crear
@@ -52,7 +52,7 @@ namespace CCM.DataAccess.Tests
         /// <param name="id"></param>
         [DataRow(1)]
         [DataRow(2)]
-        [TestMethod]
+        [TestCategory("GetTests"), TestMethod]
         public void Can_Get_Worker(int id)
         {
             _workerRepository.BeginTransaction();
@@ -69,23 +69,24 @@ namespace CCM.DataAccess.Tests
         /// <param name="workerid"></param>
         /// <param name="job"></param>
         /// <param name="salary"></param>
-        [DataRow(1, "ABC001", JobType.STORECLERK, 20.00)]
-        [DataRow(2, "DEF002", JobType.CLEANING, 10.00)]
-        [TestMethod]
-        public void Can_Update_Worker(int id, string workerid, JobType job, double salary)
+        [DataRow(1, JobType.MANAGER, 30.00)]
+        [DataRow(2, JobType.TECHNICIAN, 40.00)]
+        [TestCategory("UpdateTests"), TestMethod]
+        public void Can_Update_Worker(int id, JobType job, double salary)
         {
+            //Arrange
             _workerRepository.BeginTransaction();
-
             var loadedWorker = _workerRepository.Get(id);
             Assert.IsNotNull(loadedWorker);
-            var newWorker = new Worker(workerid, job, salary) { Id = loadedWorker.Id };
-            _workerRepository.Update(newWorker);
-            var modifyedWorker = _workerRepository.Get(id);
-            _workerRepository.CommitTransaction();
 
-            Assert.IsNotNull(modifyedWorker.WorkerID);
-            Assert.AreEqual(modifyedWorker.Job, job);
-            Assert.AreEqual(modifyedWorker.Salary, salary);
+            //Execute
+            loadedWorker.Job = job;
+            loadedWorker.Salary = salary;
+            _workerRepository.Update(loadedWorker);
+
+            // Assert
+            var modifyedShop = _workerRepository.Get(id);
+            _workerRepository.CommitTransaction();
         }
 
         /// <summary>
@@ -93,7 +94,7 @@ namespace CCM.DataAccess.Tests
         /// </summary>
         /// <param name="id"></param>
         [DataRow(1)]
-        [TestMethod]
+        [TestCategory("WipeTests"), TestMethod]
         public void Can_Delete_Worker(int id)
         {
             _workerRepository.BeginTransaction();

@@ -22,3 +22,4 @@ namespace CCM.DataAccess.FluentConfigurations
     }
 
 }
+
