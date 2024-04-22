@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "CCM.Services";
+
+package GrpcProtos;
+
+message GetRequest{
+	int32 id = 1;
+}
