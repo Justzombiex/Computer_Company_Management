@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "CCM.Services";
+option csharp_namespace = "CCM.GrpcProtos";
 
 package GrpcProtos;
 

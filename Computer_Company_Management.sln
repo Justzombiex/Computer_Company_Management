@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.DataAccess.Tests", "CCM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.ConsoleApp", "CCM.ConsoleApp\CCM.ConsoleApp.csproj", "{98AD60D8-63EE-4528-A3EB-BCDE931A1250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCM.Services", "CCM.Services\CCM.Services.csproj", "{E8CA132C-4EF3-4CEC-9C66-DDE416E86DC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.Services", "CCM.Services\CCM.Services.csproj", "{E8CA132C-4EF3-4CEC-9C66-DDE416E86DC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCM.GrpcProtos", "CCM.Grpc.Protos\CCM.GrpcProtos.csproj", "{A982B596-C003-4D86-8F8C-8049FFCA2505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCM.GrpcProtos", "CCM.Grpc.Protos\CCM.GrpcProtos.csproj", "{A982B596-C003-4D86-8F8C-8049FFCA2505}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

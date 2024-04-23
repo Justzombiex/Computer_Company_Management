@@ -1,6 +1,5 @@
 using AutoMapper;
 using CCM.DataAccess.Abstract.Common;
-using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Types;
 using CCM.GrpcProtos;
 using Google.Protobuf.WellKnownTypes;
