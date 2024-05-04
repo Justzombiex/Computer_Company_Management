@@ -81,6 +81,48 @@ namespace   CCM.ConsoleApp
                 Console.WriteLine($"Eliminación exitosa.");
             }
 
+            var clients = new CCM.GrpcProtos.HardDrive.HardDriveClient(channel);
+
+            Console.WriteLine("Presione una tecla para crear un disco duro");
+            Console.ReadKey();
+            var createResponses = clients.CreateHardDrive(new CreateHardDriveRequest() { Brand = "Seagate", Model = "Sinple", Storage = 2, ConnectionHardDrivesType = ConnectionHardDrivesTypes.Sata});
+            if (createResponses is null)
+            {
+                Console.WriteLine("Cannot create hardDrive");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Creación exitosa.");
+            }
+
+            Console.WriteLine("Presione una tecla para obtener el disco duro");
+            Console.ReadKey();
+            var getResponses = clients.GetHardDrive(new GetRequest() { Id = 1 });
+            if (getResponses.Harddrive is null)
+            {
+                Console.WriteLine("Cannot get HardDrive");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Obtención exitosa {getResponses.Harddrive.Brand}  {getResponses.Harddrive.Model} {getResponses.Harddrive.Storage} {getResponses.Harddrive.ConnectionHardDrivesType.ToString() }");
+
+            }
+
+ 
+
+            Console.WriteLine("Presione una tecla para eliminar el HardDrive");
+            Console.ReadKey();
+
+            clients.DeleteHardDrive(createResponses);
+            var deletedGetResponses = clients.GetHardDrive(new GetRequest() { Id = createResponses.Id });
+            if (deletedGetResponses is null || deletedGetResponses.KindCase != NullableHardDriveDTO.KindOneofCase.Harddrive)
+            {
+                Console.WriteLine($"Eliminación exitosa.");
+            }
 
             channel.Dispose();
 

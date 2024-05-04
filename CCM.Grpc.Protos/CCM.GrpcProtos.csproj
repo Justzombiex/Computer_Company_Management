@@ -20,6 +20,7 @@
 		<Protobuf Include="*.proto" GrpcServices="Both" />
 	</ItemGroup>
 
+
   <ItemGroup>
     <ProjectReference Include="..\Computer_Company_Management\CCM.Domain.csproj" />
     <ProjectReference Include="..\DataAccess\CCM.DataAccess.csproj" />
