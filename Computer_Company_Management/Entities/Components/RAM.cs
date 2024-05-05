@@ -23,15 +23,15 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Marca de la memoria RAM
         /// </summary>
-        public string Brand { get; }
+        public string Brand { get; set; }
         /// <summary>
         /// Tipo de memoria RAM 
         /// </summary>
-        public MemoryType MemoryType { get; }
+        public MemoryType MemoryType { get; set; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
 
         #endregion
 

@@ -2,6 +2,7 @@
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Components;
 using CCM.Domain.Entities.Computers;
+using CCM.Domain.Entities.Shops;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,6 @@ namespace CCM.DataAccess.Repositories
         public IEnumerable<PC> GetAllPC()
         {
             return _context.Set<PC>().ToList();
-        }
-        public void Update(PC pc)
-        {
-            _context.Update(pc);
         }
         PC? IPCRepository.Get(int id)
         {

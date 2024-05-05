@@ -5,48 +5,128 @@ using CCM.Domain.Entities.Computers;
 using CCM.Domain.Entities.Types;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
+using CCM.GrpcProtos;
+using Grpc.Net.Client;
 
-namespace CCM.ConsoleApp
+namespace   CCM.ConsoleApp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
 
-            // Creando un contexto para interactuar con la Base de datos.
-            ApplicationContext appContext = new ApplicationContext("Data Source=CCMDB.sqlite");
-            // Verificando si la BD no existe
-            if (!appContext.Database.CanConnect())
+            Console.WriteLine("Presione una tecla para conectar");
+            Console.ReadKey();
+
+            Console.WriteLine("Creating channel and client");
+            var httpHandler = new HttpClientHandler();
+            httpHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+            var channel = GrpcChannel.ForAddress("http://localhost:5051", new GrpcChannelOptions { HttpHandler = httpHandler });
+            if (channel is null)
             {
-                // Migrando base de datos. Este paso genera la BD con las tablas configuradas en su migración.
-                appContext.Database.Migrate();
+                Console.WriteLine("Cannot connect");
+                channel.Dispose();
+                return;
             }
-            //Create PC
-            HardDrive hardDrive = new HardDrive("HDD", "Seagate", 2 , ConnectionHardDriveType.SATA);
-            appContext.Set<HardDrive>().Add(hardDrive);
-            appContext.SaveChanges();
 
-            Microprocesor microprocesor = new Microprocesor("Core i3", 2, "Intel", ConnectionType.PGA);
-            appContext.Set<Microprocesor>().Add(microprocesor);
-            appContext.SaveChanges();
+            var client = new CCM.GrpcProtos.Price.PriceClient(channel);
 
-            MotherBoard motherBoard = new MotherBoard("ROG Strix", "ASUS", ConnectionType.PGA);
-            appContext.Set<MotherBoard>().Add(motherBoard);
-            appContext.SaveChanges();
+            Console.WriteLine("Presione una tecla para crear un precio");
+            Console.ReadKey();
+            var createResponse = client.CreatePrice(new CreatePriceRequest() { Value = 5, MoneyType = MoneyTypes.Mlc });
+            if (createResponse is null)
+            {
+                Console.WriteLine("Cannot create price");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Creación exitosa.");
+            }
 
-            RAM rAM = new RAM(16, "Kingston", MemoryType.DDR);
-            appContext.Set<RAM>().Add(rAM);
-            appContext.SaveChanges();
+            Console.WriteLine("Presione una tecla para obtener el precio");
+            Console.ReadKey();
+            var getResponse = client.GetPrice(new GetRequest() { Id = 1 });
+            if (getResponse.Price is null)
+            {
+                Console.WriteLine("Cannot get price");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Obtención exitosa {getResponse.Price.Value} {getResponse.Price.MoneyType.ToString() }");
 
-            Price price = new Price(MoneyType.USD, 6200);
-            appContext.Set<Microprocesor>().Add(microprocesor);
-            appContext.SaveChanges();
+            }
 
-            PC pC = new PC(hardDrive, microprocesor, rAM, motherBoard, price);
-            appContext.Set<PC>().Add(pC);
-            appContext.SaveChanges();
+            Console.WriteLine("Presione una tecla para modificar el precio");
+            Console.ReadKey();
+            createResponse.Value = 20;
+            client.UpdatePrice(createResponse);
 
+            var updatedGetResponse = client.GetPrice(new GetRequest() { Id = createResponse.Id });
+            if (updatedGetResponse is not null && updatedGetResponse.KindCase == NullablePriceDTO.KindOneofCase.Price && updatedGetResponse.Price.Value == 20)
+            {
+                Console.WriteLine($"Modificación exitosa.");
+            }
+
+            Console.WriteLine("Presione una tecla para eliminar el precio");
+            Console.ReadKey();
+
+            client.DeletePrice(createResponse);
+            var deletedGetResponse = client.GetPrice(new GetRequest() { Id = createResponse.Id });
+            if (deletedGetResponse is null || deletedGetResponse.KindCase != NullablePriceDTO.KindOneofCase.Price)
+            {
+                Console.WriteLine($"Eliminación exitosa.");
+            }
+
+            var clients = new CCM.GrpcProtos.HardDrive.HardDriveClient(channel);
+
+            Console.WriteLine("Presione una tecla para crear un disco duro");
+            Console.ReadKey();
+            var createResponses = clients.CreateHardDrive(new CreateHardDriveRequest() { Brand = "Seagate", Model = "Sinple", Storage = 2, ConnectionHardDrivesType = ConnectionHardDrivesTypes.Sata});
+            if (createResponses is null)
+            {
+                Console.WriteLine("Cannot create hardDrive");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Creación exitosa.");
+            }
+
+            Console.WriteLine("Presione una tecla para obtener el disco duro");
+            Console.ReadKey();
+            var getResponses = clients.GetHardDrive(new GetRequest() { Id = 1 });
+            if (getResponses.Harddrive is null)
+            {
+                Console.WriteLine("Cannot get HardDrive");
+                channel.Dispose();
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Obtención exitosa {getResponses.Harddrive.Brand}  {getResponses.Harddrive.Model} {getResponses.Harddrive.Storage} {getResponses.Harddrive.ConnectionHardDrivesType.ToString() }");
+
+            }
+
+ 
+
+            Console.WriteLine("Presione una tecla para eliminar el HardDrive");
+            Console.ReadKey();
+
+            clients.DeleteHardDrive(createResponses);
+            var deletedGetResponses = clients.GetHardDrive(new GetRequest() { Id = createResponses.Id });
+            if (deletedGetResponses is null || deletedGetResponses.KindCase != NullableHardDriveDTO.KindOneofCase.Harddrive)
+            {
+                Console.WriteLine($"Eliminación exitosa.");
+            }
+
+            channel.Dispose();
 
         }
+
     }
 }

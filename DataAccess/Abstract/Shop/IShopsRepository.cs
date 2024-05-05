@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CCM.Domain.Entities.Companies;
+using CCM.Domain.Entities.Computers;
+using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Shops;
 
 namespace CCM.DataAccess.Abstract.Shops
@@ -16,9 +19,9 @@ namespace CCM.DataAccess.Abstract.Shops
         /// Crea una tienda en BD
         /// </summary>
         /// <param name="name">Nombre de la tienda</param>
-        /// <param name="address">direccion de la tienda</param>
+        /// <param name="address">Direccion de la tienda</param>
         /// <returns></returns>
-        Shop Create(string name, string address);
+        Shop Create(string name, PhysicalLocation physicalLocation);
         /// <summary>
         /// Obtiene una Tienda de la BD]]]]]
         /// </summary>

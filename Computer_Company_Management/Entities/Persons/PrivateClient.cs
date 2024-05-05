@@ -21,7 +21,7 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// Carnet de Identidad
         /// </summary>
-        public string CI { get; }
+        public string CI { get; init; }
         /// <summary>
         /// Edad de la persona
         /// </summary>
@@ -37,11 +37,14 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// Inicializa un cliente regular de la tienda de computadoras
         /// </summary>
-        /// <param name="cI"></param>
-        /// <param name="name"></param>
-        /// <param name="age"></param>
+        /// <param name="cI">Carnet de identidad del cliente</param>
+        /// <param name="name">Nombre y apellido de la persona</param>
+        /// <param name="age">Edad de la persona</param>
         public PrivateClient(string cI, string name = "", int age = -1)
         {
+            CI = cI;
+            Age = age;
+            Name = name;
         }
         #endregion
     }
