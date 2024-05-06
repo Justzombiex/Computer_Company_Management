@@ -20,6 +20,10 @@
 		<Protobuf Include="*.proto" GrpcServices="Both" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="WorkerService.proto" />
+	</ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\Computer_Company_Management\CCM.Domain.csproj" />
