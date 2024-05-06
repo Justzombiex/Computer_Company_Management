@@ -21,7 +21,7 @@ namespace CCM.DataAccess.Abstract.Components
         /// <param name="brand">Marca del microprocesador</param>
         /// <param name="connectionType">Tipo de conexión del microprocesador</param>
         /// <returns>Microprocesador creado en BD</returns>
-        Microprocesor Create(string model, int processorSpeed, string brand, ConnectionType connectionType);
+        Microprocesor Create(string model, double processorSpeed, string brand, ConnectionType connectionType);
         /// <summary>
         /// Obtiene un microprocesador de BD
         /// </summary>
