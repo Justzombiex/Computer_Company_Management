@@ -1,0 +1,47 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service MotherBoard {
+
+  rpc CreateMotherBoard (CreateMotherBoardRequest) returns (MotherBoardDTO);
+  rpc GetMotherBoard (GetRequest) returns (NullableMotherBoardDTO);
+  rpc DeleteMotherBoard(MotherBoardDTO) returns (google.protobuf.Empty);
+
+}
+
+message MotherBoardDTO{
+    int32 id = 1;
+    string model = 2;
+    string brand = 3;
+    ConnectionTypess connectionType = 4;
+}
+
+message NullableMotherBoardDTO{
+          oneof kind{
+          google.protobuf.NullValue null = 1;
+          MotherBoardDTO motherboard = 2;
+          }
+}
+
+message CreateMotherBoardRequest{
+   string model = 1;
+   string brand = 2;
+   ConnectionTypess connectionType = 3;
+}
+
+
+enum ConnectionTypess{
+   LGA = 0;
+   PGA = 1;
+   ZIF = 2;
+   BGA = 3;
+   DIP = 4;
+}
