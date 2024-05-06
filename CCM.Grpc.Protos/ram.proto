@@ -1,0 +1,44 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service RAM {
+  
+  rpc CreateRAM (CreateRAMRequest) returns (RAMDTO);
+  rpc GetRAM (GetRequest) returns (NullableRAMDTO);
+  rpc DeleteRAM(RAMDTO) returns (google.protobuf.Empty);
+}
+
+
+message RAMDTO{
+    int32 id = 1;
+    double memorySize = 2;
+    string brand = 3;
+    MemoryTypes memoryType = 4;
+}
+
+message NullableRAMDTO{
+      oneof kind{
+      google.protobuf.NullValue null = 1;
+      RAMDTO ram = 2;
+      }
+}
+
+message CreateRAMRequest{
+    double memorySize = 1;
+    string brand = 2;
+    MemoryTypes memoryType =3;
+}
+
+enum MemoryTypes{
+DDR = 0;
+DDR2 = 1;
+DDR3 = 2;
+}
