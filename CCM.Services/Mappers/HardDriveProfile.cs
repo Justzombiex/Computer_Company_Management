@@ -8,14 +8,14 @@ namespace CCM.Services.Mappers
         public HardDriveProfile()
         {
 
-            CreateMap<CCM.Domain.Entities.Components.HardDrive, HardDriveDTO>()
+            CreateMap<CCM.Domain.Entities.Persons.HardDrive, HardDriveDTO>()
                 .ForMember(t => t.Id, o => o.MapFrom(s => s.Id))
                 .ForMember(t => t.Brand, o => o.MapFrom(s => s.Brand))
                 .ForMember(t => t.Model, o => o.MapFrom(s => s.Model))
                 .ForMember(t => t.ConnectionHardDrivesType, o => o.MapFrom(s => s.ConnectionHardDriveType))
                 .ForMember(t => t.Storage, o => o.MapFrom(s => s.Storage));
 
-            CreateMap<HardDriveDTO, CCM.Domain.Entities.Components.HardDrive>()
+            CreateMap<HardDriveDTO, CCM.Domain.Entities.Persons.HardDrive>()
                 .ForMember(t => t.Id, o => o.MapFrom(s => s.Id))
                 .ForMember(t => t.Brand, o => o.MapFrom(s => s.Brand))
                 .ForMember(t => t.Model, o => o.MapFrom(s => s.Model))

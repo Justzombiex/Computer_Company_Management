@@ -42,7 +42,6 @@ namespace CCM.Domain.Entities.Persons
         /// </summary>
         protected Client() { }
 
-        
         #endregion
 
     }
