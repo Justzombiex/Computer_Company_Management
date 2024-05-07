@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CCM.DataAccess.Abstract.Persons;
-using CCM.Domain.Entities.Persons;
 using CCM.GrpcProtos;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
@@ -19,7 +18,7 @@ namespace CCM.Services.Services
             _mapper = mapper;
         }
 
-        public override Task<WorkerDTO> CreateWorker(CreateWorkerRequest request, ServerCallContext context)
+        public override Task<WorkerDTO> CreateWorker (CreateWorkerRequest request, ServerCallContext context)
         {
             _workerRepository.BeginTransaction();
             var worker = _workerRepository.Create(request.Workerid,(Domain.Entities.Types.JobType)request.Job, request.Salary);

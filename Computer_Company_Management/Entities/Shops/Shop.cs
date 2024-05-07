@@ -74,8 +74,7 @@ namespace CCM.Domain.Entities.Shops
         {
             ShopName = name;
             Location = location;
-            PhysicalLocationId = location.Id;
-            
+            PhysicalLocationId = location.Id; 
         }
         #endregion
 

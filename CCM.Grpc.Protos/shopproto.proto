@@ -1,0 +1,35 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Shop{
+  rpc CreateShop(CreateShopRequest)returns(ShopDTO);
+  rpc GetShop (GetRequest) returns (NullableShopDTO);
+  rpc UpdateShop(ShopDTO) returns (google.protobuf.Empty);
+  rpc DeleteShop(ShopDTO) returns (google.protobuf.Empty);
+}
+
+message ShopDTO{
+	int32 id = 1;
+	string name = 2;
+	PhysicalLocation location = 3;
+}
+
+message NullableShopDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		ShopDTO shop = 2;
+	}
+}
+
+message CreateShopRequest{
+	string name =1;
+	PhysicalLocation location = 2;
+}

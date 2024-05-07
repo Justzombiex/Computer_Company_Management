@@ -21,7 +21,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="WorkerService.proto" />
+	  <None Remove="shopproto.proto" />
+	  <None Remove="worker.proto" />
 	</ItemGroup>
 
 
