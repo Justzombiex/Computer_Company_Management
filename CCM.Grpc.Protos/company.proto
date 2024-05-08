@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Company {
+  rpc CreateCompany (CreateCompanyRequest) returns (CompanyDTO);
+  rpc GetCompany (GetRequest) returns (NullableCompanyDTO);
+  rpc UpdateCompany(CompanyDTO) returns (google.protobuf.Empty);
+}
+
+message CompanyDTO{
+	int32  id = 1;
+	string name = 2;
+}
+
+message NullableCompanyDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		CompanyDTO price = 2;
+	}
+}
+
+message CreateCompanyRequest{
+	string name = 1;
+}
