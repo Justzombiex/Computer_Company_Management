@@ -39,9 +39,9 @@ message CreateMotherBoardRequest{
 
 
 enum ConnectionTypess{
-   LGA = 0;
-   PGA = 1;
-   ZIF = 2;
-   BGA = 3;
-   DIP = 4;
+   LGAs = 0;
+   PGAs = 1;
+   ZIFs = 2;
+   BGAs = 3;
+   DIPs = 4;
 }
