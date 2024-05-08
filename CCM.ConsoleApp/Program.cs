@@ -38,8 +38,8 @@ namespace   CCM.ConsoleApp
                 Console.WriteLine("3. Opciones de RAM");
                 Console.WriteLine("4. Opciones de Microprocesor");
                 Console.WriteLine("5. Opciones de MotherBoard");
-                Console.WriteLine("5. Opciones de PC");
-                Console.WriteLine("6. Salir");
+                Console.WriteLine("6. Opciones de PC");
+                Console.WriteLine("7. Salir");
                 Console.WriteLine("Elige una de las opciones");
                 int opcion = Convert.ToInt32(Console.ReadLine());
 
@@ -287,7 +287,84 @@ namespace   CCM.ConsoleApp
                         break;
 
                     #endregion MotherBoard 
+                    #region PC
                     case 6:
+                        Console.WriteLine("Has elegido las opciones de PC");
+                        var pc = new CCM.GrpcProtos.PC.PCClient(channel);
+                        Console.WriteLine("Presione una tecla para crear una PC");
+                        Console.ReadKey();
+                        
+                        var harddrives = new CCM.GrpcProtos.HardDrive.HardDriveClient(channel);
+                        Console.WriteLine("Presione una tecla para crear un disco duro");
+                        Console.ReadKey();
+                        var createHardDrives = harddrives.CreateHardDrive(new CreateHardDriveRequest() { Brand = "Seagate", Model = "Simple", Storage = 2, ConnectionHardDrivesType = ConnectionHardDrivesTypes.Sata });
+
+                        var prices = new CCM.GrpcProtos.Price.PriceClient(channel);
+                        Console.WriteLine("Presiona cualquier tecla para crear un precio");
+                        Console.ReadKey();
+                        var createPrices = prices.CreatePrice(new CreatePriceRequest() { Value = 5, MoneyType = MoneyTypes.Mlc });
+
+                        var rams = new CCM.GrpcProtos.RAM.RAMClient(channel);
+                        Console.WriteLine("Presione una tecla para crear una RAM");
+                        Console.ReadKey();
+                        var createRams = rams.CreateRAM(new CreateRAMRequest() { MemorySize = 2, Brand = "Kingston", MemoryType = MemoryTypes.Ddr });
+
+                        var motherboards = new CCM.GrpcProtos.MotherBoard.MotherBoardClient(channel);
+                        Console.WriteLine("Presione una tecla para crear un Motherboard");
+                        Console.ReadKey();
+                        var createMotherboards = motherboards.CreateMotherBoard(new CreateMotherBoardRequest() { Model = "ROG Strix", Brand = "ASUS", ConnectionType = ConnectionTypess.Pgas });
+
+                        var microprocesors = new CCM.GrpcProtos.Microprocesor.MicroprocesorClient(channel);
+                        Console.WriteLine("Presione una tecla para crear un Microprocesador");
+                        Console.ReadKey();
+                        var createMicroprocesors = microprocesors.CreateMicroprocesor(new CreateMicroprocesorRequest() { Brand = "Corei3", ProcessorSpeed = 2, Model = "Intel", ConnectionType = ConnectionTypes.Pga });
+               
+
+                        
+
+
+                        var createPC = pc.CreatePC(new CreatePCRequest() { Harddrive = createHardDrives, Microprocesor = createMicroprocesors, Motherboard = createMotherboards, Ram = createRams, Price= createPrices });
+                        if (createPC is null)
+                        {
+                            Console.WriteLine("Cannot create PC");
+                            channel.Dispose();
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Creación exitosa.");
+                        }
+
+                        Console.WriteLine("Presione una tecla para obtener la PC");
+                        Console.ReadKey();
+                        var getPC = pc.GetPC(new GetRequest() { Id = 1 });
+                        if (getPC.Pc is null)
+                        {
+                            Console.WriteLine("Cannot get PC");
+                            channel.Dispose();
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Obtención exitosa");
+
+                        }
+
+
+
+                        Console.WriteLine("Presione una tecla para eliminar la PC");
+                        Console.ReadKey();
+
+                        pc.DeletePC(createPC);
+                        var deletedGetPC = pc.GetPC(new GetRequest() { Id = createPC.Id });
+                        if (deletedGetPC is null || deletedGetPC.KindCase != NullablePCDTO.KindOneofCase.Pc)
+                        {
+                            Console.WriteLine($"Eliminación exitosa.");
+                        }
+                        break;
+
+                    #endregion MotherBoard 
+                    case 7:
                         Console.WriteLine("Has elegido salir de la aplicación");
                         salir = true;
                         break;
