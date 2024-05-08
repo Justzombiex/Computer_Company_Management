@@ -1,5 +1,5 @@
 ﻿using CCM.DataAccess.Abstract.Components;
-using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Types;
 using System;
 using System.Collections.Generic;

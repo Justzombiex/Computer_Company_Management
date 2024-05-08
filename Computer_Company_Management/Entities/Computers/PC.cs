@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CCM.Domain.Entities.Common;
-using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Shops;
 
 namespace CCM.Domain.Entities.Computers
