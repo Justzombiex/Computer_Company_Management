@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using CCM.GrpcProtos;
+using CCM.G;
 
 namespace CCM.Services.Mappers
 {
-    public class ClientProfile : Profile
+    public class PrivateClientProfile : Profile
     {
-        public ClientProfile()
+        public PrivateClientProfile()
         {
 
             CreateMap<CCM.Domain.Entities.Persons.PrivateClient, PrivateClientDTO>()
