@@ -269,18 +269,18 @@ namespace   CCM.ConsoleApp
                         }
                         else
                         {
-                            Console.WriteLine($"Obtención exitosa {getMotherboard.Motherboard.Brand}  {getMotherboard.Motherboard.Model} {getMotherboard.Motherboard.ConnectionType.ToString() }");
+                            Console.WriteLine($"Obtención exitosa {getMotherboard.Motherboard.Brand}  {getMotherboard.Motherboard.Model} {getMicroprocesor.Microprocesor.Model} {getMicroprocesor.Microprocesor.ConnectionType.ToString() }");
 
                         }
 
 
 
-                        Console.WriteLine("Presione una tecla para eliminar la motherboard");
+                        Console.WriteLine("Presione una tecla para eliminar el microprocesador");
                         Console.ReadKey();
 
-                        motherboard.DeleteMotherBoard(createMotherboard);
-                        var deletedGetMotherboard = motherboard.GetMotherBoard(new GetRequest() { Id = createMotherboard.Id });
-                        if (deletedGetMotherboard is null || deletedGetMotherboard.KindCase != NullableMotherBoardDTO.KindOneofCase.Motherboard)
+                        microprocesor.DeleteMicroprocesor(createMicroprocesor);
+                        var deletedGetMicroprocesor = microprocesor.GetMicroprocesor(new GetRequest() { Id = createMicroprocesor.Id });
+                        if (deletedGetMicroprocesor is null || deletedGetMicroprocesor.KindCase != NullableMicroprocesorDTO.KindOneofCase.Microprocesor)
                         {
                             Console.WriteLine($"Eliminación exitosa.");
                         }
