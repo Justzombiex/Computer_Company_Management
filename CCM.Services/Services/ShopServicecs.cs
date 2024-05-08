@@ -21,7 +21,7 @@ namespace CCM.Services.Services
             _shopsRepository.BeginTransaction();
             //var shop = _shopsRepository.Create(request.name, request.);//arreglar esto con physical location
             _shopsRepository.CommitTransaction();
-            return Task.FromResult(_mapper.Map<ShopDTO>(price));
+            return Task.FromResult(_mapper.Map<ShopDTO>(shop));
         }
 
         public override Task<ShopDTO> GetShop(GetRequest request, ServerCallContext context)
