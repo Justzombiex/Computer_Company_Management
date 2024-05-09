@@ -18,20 +18,20 @@ service BuyOrder {
 }
 message BuyOrderDTO{
 	int32 id = 1;
-	Client client = 2;
+	EnterpriseClient enterpriseclient = 2;
 	PC pc = 3;
-	int units = 4;
+	int32 units = 4;
 }
 
 message NullableBuyOrderDTO{
 	oneof kind{
 		google.protobuf.NullValue null = 1;
-		 BuyOrderDTO buyorder = 2;
+		BuyOrderDTO buyorder = 2;
 	}
 }
 
 message CreateBuyOrderRequest{
-	Client client = 1;
+	EnterpriseClient enterpriseclient = 1;
 	PC pc = 2;
-	int units = 3;
+	int32 units = 3;
 }

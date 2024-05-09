@@ -23,7 +23,7 @@ namespace CCM.Services.Services
             _buyOrderRepository.BeginTransaction();
             var client = _mapper.Map<CCM.Domain.Entities.Orders.BuyOrder>(request.Client);
             var pc = _mapper.Map<CCM.Domain.Entities.Orders.BuyOrder>(request.PC);
-            var units = _mapper.Map<CCM.Domain.Entities.Orders.BuyOrder>(request.units)
+            var units = _mapper.Map<CCM.Domain.Entities.Orders.BuyOrder>(request.units);
             var buyOrder = _buyOrderRepository.Create(client, pc, units);
             _buyOrderRepository.CommitTransaction();
 

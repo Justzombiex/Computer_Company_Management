@@ -30,6 +30,6 @@ message NullableShopDTO{
 }
 
 message CreateShopRequest{
-	string name =1;
+	string name = 1;
 	PhysicalLocation location = 2;
 }

@@ -9,16 +9,12 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "common.proto";
 
-service Client {
+service PrivateClient {
   
     rpc CreatePrivateClient (CreatePrivateClientRequest) returns (PrivateClientDTO);
-    rpc GetClient (GetRequest) returns (NullableClientDTO);
+    rpc GetPrivateClient (GetRequest) returns (NullablePrivateClientDTO);
     rpc UpdatePrivateClient (UpdatePrivateClientRequest) returns (PrivateClientDTO);
-    rpc DeleteClient(ClientDTO) returns (google.protobuf.Empty);
-}
-
-message ClientDTO{
-	int32 id = 1;
+    rpc DeletePrivateClient(PrivateClientDTO) returns (google.protobuf.Empty);
 }
 
 
@@ -29,10 +25,10 @@ message PrivateClientDTO{
 	int age = 4;
 }
 
-message NullableClientDTO{
+message NullablePrivateClientDTO{
 	oneof kind{
 		google.protobuf.NullValue null = 1;
-		ClientDTO client = 2;
+		PrivateClientDTO privateclient = 2;
 	}
 }
 

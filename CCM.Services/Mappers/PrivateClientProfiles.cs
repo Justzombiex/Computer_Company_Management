@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CCM.G;
+using CCM.GrpcProtos;
 
 namespace CCM.Services.Mappers
 {

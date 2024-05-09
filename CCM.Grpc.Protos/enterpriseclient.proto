@@ -9,17 +9,14 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "common.proto";
 
-service Client {
+service EnterpiseClient {
   
     rpc CreateEnterpriseClient (CreateEnterpriseClientRequest) returns (EnterpriseClientDTO);
-    rpc GetClients (GetRequest) returns (NullableClientsDTO);
+    rpc GetEnterpriseClient (GetRequest) returns (NullableEnterpriseClientDTO);
     rpc UpdateEnterpriseClient (UpdateEnterpriseClientRequest) returns (EnterpriseClientDTO);
-    rpc DeleteClients(ClientsDTO) returns (google.protobuf.Empty);
+    rpc DeleteEnterpriceClient(EnterpriceClientsDTO) returns (google.protobuf.Empty);
 }
 
-message ClientsDTO{
-	int32 id = 1;
-}
 
 message EnterpriseClientDTO{
 	int32 id = 1;
@@ -28,10 +25,10 @@ message EnterpriseClientDTO{
 }
 
 
-message NullableClientsDTO{
+message NullableEnterpriseClientsDTO{
 	oneof kind{
 		google.protobuf.NullValue null = 1;
-		ClientDTO client = 2;
+		EnterpriseClientDTO enterpriseclient = 2;
 	}
 }
 

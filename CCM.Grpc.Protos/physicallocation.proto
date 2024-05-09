@@ -26,11 +26,12 @@ message PhysicalLocationDTO{
 message NullablePhysicalLocationDTO{
 	oneof kind{
 		google.protobuf.NullValue null = 1;
-		PriceDTOPhysicalLocation physicallocation = 2;
+		PhysicalLocationDTO physicallocation = 2;
 	}
 }
 
 message CreatePhysicalLocationRequest{
-	double value = 1;
-	MoneyTypes money_Type = 2;
+	string country = 1;
+	string city = 2;
+	string address = 3;
 }
