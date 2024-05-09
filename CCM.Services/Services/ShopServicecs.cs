@@ -19,7 +19,7 @@ namespace CCM.Services.Services
         public override Task<ShopDTO>CreateShop(CreateShopRequest request, ServerCallContext context)
         {
             _shopsRepository.BeginTransaction();
-            var shop = _shopsRepository.Create(request.name, request.)
+            //var shop = _shopsRepository.Create(request.name, request.)
             _shopsRepository.CommitTransaction();
             return Task.FromResult(_mapper.Map<ShopDTO>(shop));
         }
