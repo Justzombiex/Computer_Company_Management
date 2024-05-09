@@ -1,0 +1,45 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Price {
+
+  rpc CreateWorker (CreateWorkerRequest) returns (WorkerDTO);
+  rpc GetWorker (GetRequest) returns (NullableWorkerDTO);
+  rpc UpdateWorker(WorkerDTO) returns (google.protobuf.Empty);
+  rpc DeleteWorker(WorkerDTO) returns (google.protobuf.Empty);
+}
+
+message WorkerDTO{
+	int32 id = 1;
+	string workerid = 2;
+	JobType job = 3;
+	double salary = 4;
+}
+
+message NullableWorkerDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		WorkerDTO worker = 2;
+	}
+}
+
+message CreateWorkerRequest{
+	string workerid = 1;
+	JobType job = 2;
+	double salary = 3;
+}
+
+enum JobType{
+	CLEANING = 0;
+	MANAGER = 1;
+	STORECLERK = 2;
+	TECHNICIAN = 3;
+}

@@ -1,0 +1,36 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service PhysicalLocation{
+  rpc CreatePhysicalLocation (CreatePriceRequest) returns (PhysicalLocationDTO);
+  rpc GetPhysicalLocation (GetRequest) returns (NullablePhysicalLocationDTO);
+  rpc UpdatePhysicalLocation(PhysicalLocationDTO) returns (google.protobuf.Empty);
+  rpc DeletePhysicalLocation(PhysicalLocationDTO) returns (google.protobuf.Empty);
+}
+
+message PhysicalLocationDTO{
+	int32 id = 1;
+	string country = 2;
+	string city = 3;
+	string address = 4;
+}
+
+message NullablePhysicalLocationDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		PriceDTOPhysicalLocation physicallocation = 2;
+	}
+}
+
+message CreatePhysicalLocationRequest{
+	double value = 1;
+	MoneyTypes money_Type = 2;
+}
