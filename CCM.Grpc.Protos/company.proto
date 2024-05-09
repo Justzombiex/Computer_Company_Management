@@ -23,7 +23,7 @@ message CompanyDTO{
 message NullableCompanyDTO{
 	oneof kind{
 		google.protobuf.NullValue null = 1;
-		CompanyDTO price = 2;
+		CompanyDTO company = 2;
 	}
 }
 

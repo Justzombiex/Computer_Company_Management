@@ -23,5 +23,16 @@ namespace CCM.Services.Services {
             return Task.FromResult(_mapper.Map<CompanyDTO>(company));
         }
 
+        public override Task<Empty> UpdatePrice(PriceDTO request, ServerCallContext context)
+        {
+            var modifiedPrice = _mapper.Map<CCM.Domain.Entities.Common.Price>(request);
+            _priceRepository.BeginTransaction();
+            _priceRepository.Update(modifiedPrice);
+            _priceRepository.CommitTransaction();
+
+            return Task.FromResult(new Empty());
+        }
+
+
     }
 }

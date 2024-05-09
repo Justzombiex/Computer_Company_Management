@@ -20,9 +20,6 @@
 		<Protobuf Include="*.proto" GrpcServices="Both" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="company.proto" />
-	</ItemGroup>
 
 
   <ItemGroup>
