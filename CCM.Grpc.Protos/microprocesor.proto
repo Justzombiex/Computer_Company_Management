@@ -1,0 +1,47 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Microprocesor {
+  
+  rpc CreateMicroprocesor (CreateMicroprocesorRequest) returns (MicroprocesorDTO);
+  rpc GetMicroprocesor (GetRequest) returns (NullableMicroprocesorDTO);
+  rpc DeleteMicroprocesor(MicroprocesorDTO) returns (google.protobuf.Empty);
+}
+
+message MicroprocesorDTO{
+   int32 id = 1;
+   string model =2;
+   double processorSpeed = 3;
+   string brand = 4;
+   ConnectionTypes connectionType = 5;
+}
+
+message NullableMicroprocesorDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		 MicroprocesorDTO microprocesor = 2;
+	}
+}
+
+message CreateMicroprocesorRequest{
+   string model =1;
+   double processorSpeed = 2;
+   string brand = 3;
+   ConnectionTypes connectionType = 4;
+}
+
+enum ConnectionTypes{
+	 LGA = 0;
+     PGA = 1;
+     ZIF = 2;
+	 BGA = 3;
+	 DIP = 4;
+}

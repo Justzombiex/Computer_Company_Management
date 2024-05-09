@@ -1,4 +1,4 @@
-﻿using CCM.Domain.Entities.Components;
+﻿using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Types;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace CCM.DataAccess.Abstract.Components
         /// <param name="brand">Marca de la RAM</param>
         /// <param name="memoryType">Tipo de memoria RAM</param>
         /// <returns>RAM creada en BD</returns>
-        RAM Create(int memorySize, string brand, MemoryType memoryType);
+        RAM Create(double memorySize, string brand, MemoryType memoryType);
         /// <summary>
         /// Obtiene una RAM de BD
         /// </summary>

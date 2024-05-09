@@ -1,0 +1,49 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+import "harddrive.proto";
+import "ram.proto";
+import "motherboard.proto";
+import "microprocesor.proto";
+import "price.proto";
+
+service PC {
+  
+  rpc CreatePC (CreatePCRequest) returns (PCDTO);
+  rpc GetPC (GetRequest) returns (NullablePCDTO);
+  rpc DeletePC(PCDTO) returns (google.protobuf.Empty);
+}
+
+
+message PCDTO{
+    int32 id = 1;
+    RAMDTO ram = 2;
+    HardDriveDTO harddrive = 3;
+    MotherBoardDTO motherboard = 4;
+    MicroprocesorDTO microprocesor = 5;
+    PriceDTO price = 6;
+}
+
+message NullablePCDTO{
+      oneof kind{
+      google.protobuf.NullValue null = 1;
+      PCDTO pc = 2;
+      }
+}
+
+message CreatePCRequest{
+    RAMDTO ram = 1;
+    HardDriveDTO harddrive = 2;
+    MotherBoardDTO motherboard = 3;
+    MicroprocesorDTO microprocesor = 4;
+    PriceDTO price = 6;
+}
+
+

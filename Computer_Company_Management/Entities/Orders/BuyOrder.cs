@@ -18,11 +18,13 @@ namespace CCM.Domain.Entities.Orders
         /// </summary>
         [NotMapped]
         public Client Client { get; set; }
+
         /// <summary>
         /// PC que se va a comprar
         /// </summary>
         [NotMapped]
         public PC pC { get; set; }
+
         /// <summary>
         /// Unidades que va a comprar el cliente
         /// </summary>
@@ -30,6 +32,7 @@ namespace CCM.Domain.Entities.Orders
         #endregion
 
         #region IDs
+
         /// <summary>
         /// ID del cliente para la base de datos
         /// </summary>
@@ -45,6 +48,7 @@ namespace CCM.Domain.Entities.Orders
         /// Para Migraciones
         /// </summary>
         protected BuyOrder () {}
+
         /// <summary>
         /// Crea una orden de compra
         /// </summary>

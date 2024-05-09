@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
-using CCM.Domain.Entities.Shops;
+using CCM.Domain.Entities.Orders;
 
 namespace CCM.Domain.Entities.Persons
 {
@@ -15,7 +15,10 @@ namespace CCM.Domain.Entities.Persons
     /// </summary>
     public abstract class Client : Entity
     {
-        #region ID
+        ///hacer lo necesario para la herencia de cliente empresarial y de cliente privado 
+        ///agragar los id de physicallocation
+
+        #region IDs
         /// <summary>
         /// Identificador del cliente
         /// </summary>
@@ -25,7 +28,7 @@ namespace CCM.Domain.Entities.Persons
         /// <sumary>
         /// Tienda donde compra el cliente
         /// <sumary>
-        public Shop Shop { get; set; } 
+        public BuyOrder buyOrder { get; set; } 
 
         /// <summary>
         /// ID de la tienda donde compra el cliente
@@ -39,7 +42,6 @@ namespace CCM.Domain.Entities.Persons
         /// </summary>
         protected Client() { }
 
-        
         #endregion
 
     }

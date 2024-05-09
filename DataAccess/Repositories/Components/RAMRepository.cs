@@ -1,5 +1,5 @@
 ﻿using CCM.DataAccess.Abstract.Components;
-using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Types;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace CCM.DataAccess.Repositories
 {
     public partial class ApplicationRepository : IRAMRepository
     {
-        public RAM Create(int memorySize, string brand, MemoryType memoryType)
+        public RAM Create(double memorySize, string brand, MemoryType memoryType)
         {
            RAM rAM = new RAM(memorySize, brand, memoryType);
             _context.Add(rAM);
