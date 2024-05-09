@@ -20,6 +20,10 @@
 		<Protobuf Include="*.proto" GrpcServices="Both" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="physicallocation.proto" />
+	</ItemGroup>
+
 
 
   <ItemGroup>

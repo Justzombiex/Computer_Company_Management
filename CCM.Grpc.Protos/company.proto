@@ -13,6 +13,8 @@ service Company {
   rpc CreateCompany (CreateCompanyRequest) returns (CompanyDTO);
   rpc GetCompany (GetRequest) returns (NullableCompanyDTO);
   rpc UpdateCompany(CompanyDTO) returns (google.protobuf.Empty);
+  rpc DeleteCompany(CompanyDTO) returns (google.protobuf.Empty);
+
 }
 
 message CompanyDTO{
