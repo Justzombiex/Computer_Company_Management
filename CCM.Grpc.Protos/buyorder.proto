@@ -1,0 +1,37 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service BuyOrder {
+  
+  rpc CreateBuyOrder (CreateBuyOrderRequest) returns (BuyOrderDTO);
+  rpc GetBuyOrder (GetRequest) returns (NullableBuyOrderDTO);
+  rpc UpdateBuyOrder(BuyOrderDTO) returns (google.protobuf.Empty);
+  rpc DeleteBuyOrder(BuyOrderDTO) returns (google.protobuf.Empty);
+}
+message BuyOrderDTO{
+	int32 id = 1;
+	Client client = 2;
+	PC pc = 3;
+	int units = 4;
+}
+
+message NullableBuyOrderDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		 BuyOrderDTO buyorder = 2;
+	}
+}
+
+message CreateBuyOrderRequest{
+	Client client = 1;
+	PC pc = 2;
+	int units = 3;
+}

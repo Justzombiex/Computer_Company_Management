@@ -21,6 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="buyorder.proto" />
 	  <None Remove="physicallocation.proto" />
 	</ItemGroup>
 
