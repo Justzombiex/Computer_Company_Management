@@ -23,6 +23,18 @@ namespace CCM.Services.Services {
             return Task.FromResult(_mapper.Map<CompanyDTO>(company));
         }
 
+        public override Task<NullableCompanyDTO> GetCompany(GetRequest request, ServerCallContext context)
+        {
+            _companiesRepository.BeginTransaction();
+            var company = _companiesRepository.Get(request.Id);
+            _companiesRepository.CommitTransaction();
+
+            var result = new NullableCompanyDTO();
+            if (company is not null)
+                result.Company = _mapper.Map<CompanyDTO>(company);
+
+            return Task.FromResult(result);
+        }
         public override Task<Empty> UpdateCompany(CompanyDTO request, ServerCallContext context)
         {
             var modifiedCompany = _mapper.Map<CCM.Domain.Entities.Companies.Company>(request);
