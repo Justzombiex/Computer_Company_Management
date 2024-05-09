@@ -11,7 +11,7 @@ namespace CCM.DataAccess.Repositories
 {
     public partial class ApplicationRepository : IMicroprocesorRepository
     {
-        public Microprocesor Create(string model, int processorSpeed, string brand, ConnectionType connectionType)
+        public Microprocesor Create(string model, double processorSpeed, string brand, ConnectionType connectionType)
         {
             Microprocesor microprocesor = new Microprocesor(model, processorSpeed, brand, connectionType);
             _context.Add(microprocesor);

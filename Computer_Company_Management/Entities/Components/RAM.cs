@@ -19,7 +19,7 @@ namespace CCM.Domain.Entities.Persons
         /// <summary>
         /// Tamaño de memoria de la RAM en Gigabytes
         /// </summary>
-        public int MemorySize { get; set; }
+        public double MemorySize { get; set; }
         /// <summary>
         /// Marca de la memoria RAM
         /// </summary>
@@ -47,7 +47,7 @@ namespace CCM.Domain.Entities.Persons
         /// <param name="memorySize"></param>
         /// <param name="brand"></param>
         /// <param name="memoryType"></param>
-        public RAM(int memorySize, string brand, MemoryType memoryType)           
+        public RAM(double memorySize, string brand, MemoryType memoryType)           
         {
             MemorySize = memorySize;
             Brand = brand;
