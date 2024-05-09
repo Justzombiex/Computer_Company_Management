@@ -7,7 +7,7 @@ using CCM.Domain.Abstract;
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Types;
 
-namespace CCM.Domain.Entities.Components
+namespace CCM.Domain.Entities.Persons
 {
     
     /// <summary>

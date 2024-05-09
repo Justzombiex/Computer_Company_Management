@@ -1,12 +1,13 @@
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Companies;
-using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Computers;
 using CCM.Domain.Entities.Orders;
 using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Shops;
 using CCM.DataAccess.FluentConfigurations;
 using Microsoft.EntityFrameworkCore;
+using CCM.DataAccess.FluentConfigurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,6 +72,11 @@ namespace CCM.DataAccess.Concrete
         /// Tabla de los clientes
         /// </summary>
         public DbSet<Client> Clients { get; set; }
+
+        /// <summary>
+        /// Tabla de ubicación geográfica de una entidad.
+        /// </summary>
+        public DbSet<PhysicalLocation> PhysicalLocations { get; set; }
 
         #endregion
 
@@ -142,6 +148,8 @@ namespace CCM.DataAccess.Concrete
 
             modelBuilder.Entity<Client>().ToTable("Clients");
 
+            modelBuilder.Entity<PhysicalLocation>().ToTable("PhysicalLocations");
+
             modelBuilder.Entity<Shop>().ToTable("Shops");
 
             modelBuilder.Entity<Company>().ToTable("Companies");
@@ -153,6 +161,9 @@ namespace CCM.DataAccess.Concrete
             modelBuilder.ApplyConfiguration(new EnterpriseClientFluentConfiguration());
 
             #endregion
+
+            modelBuilder.ApplyConfiguration(new EnterpriseClientFluentConfiguration());
+            modelBuilder.ApplyConfiguration(new PrivateClientFluentConfiguration());
         }
          
         

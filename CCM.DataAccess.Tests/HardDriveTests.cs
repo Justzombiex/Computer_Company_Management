@@ -1,7 +1,7 @@
 ﻿using CCM.DataAccess.Abstract.Components;
 using CCM.DataAccess.Repositories;
 using CCM.DataAccess.Tests.Utilities;
-using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Persons;
 using CCM.Domain.Entities.Types;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
