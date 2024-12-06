@@ -7,7 +7,7 @@ using CCM.Domain.Abstract;
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Types;
 
-namespace CCM.Domain.Entities.Components
+namespace CCM.Domain.Entities.Persons
 {
     /// <summary>
     /// Modela una Motherboard de la PC
@@ -18,19 +18,19 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Modela el modelo de la motherboard
         /// </summary>
-        public string Model { get; }
+        public string Model { get; set; }
         /// <summary>
         /// Marca de la motherboard
         /// </summary>
-        public string Brand { get; }
+        public string Brand { get; set; }
         /// <summary>
         /// Tipo deconexión de la motherboard
         /// </summary>
-        public ConnectionType ConnectionType { get; }
+        public ConnectionType ConnectionType { get; set; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
 
         #endregion
 
@@ -43,10 +43,10 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Inicializa un objeto <see cref="MotherBoard"/>
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="brand"></param>
-        /// <param name="connectionType"></param>
-        MotherBoard(string model, string brand, ConnectionType connectionType) 
+        /// <param name="model">Modelo de la motherboard</param>
+        /// <param name="brand">Marca de la motherboard</param>
+        /// <param name="connectionType">Tipo de conexión de la motherboard</param>
+        public MotherBoard(string model, string brand, ConnectionType connectionType) 
         { 
             Model = model; 
             Brand = brand;

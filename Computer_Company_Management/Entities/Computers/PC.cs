@@ -1,11 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CCM.Domain.Entities.Common;
-using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Persons;
+using CCM.Domain.Entities.Shops;
 
 namespace CCM.Domain.Entities.Computers
 {
@@ -35,25 +36,46 @@ namespace CCM.Domain.Entities.Computers
         /// </summary>
         [NotMapped]
         public RAM RAM { get; set; }
+        /// <summary>
+        /// Precio de la PC.
+        /// </summary>
+        [NotMapped]
+        public Price Price { get; set; }
+        
+        /// <summary>
+        /// Tienda a la que pertenece la PC
+        /// </summary>
+        [NotMapped]
+        public Shop shop { get; set; }
 
+        #endregion
+
+        #region ID
         /// <summary>
         /// Id del disco duro
         /// </summary>
-        public int HardDriveId { get; set; }
+        public int HardDriveId { get; protected set; }
         /// <summary>
         /// Id del disco duro
         /// </summary>
-        public int MicroprocesorId { get; set; }
+        public int MicroprocesorId { get; protected set; }
         /// <summary>
         /// Id de la Motherboard
         /// </summary>
-        public int MotherBoardId { get; set; }
+        public int MotherBoardId { get; protected set; }
         /// <summary>
         /// Id de la RAM
         /// </summary>
-        public int RAMId { get; set; }
+        public int RAMId { get; protected set; }
+        /// <summary>
+        /// Id del precio
+        /// </summary>
+        public int PriceId { get; protected set; }
+        /// ID de la tienda a la que le pertenece
+        /// </summary>
+        public int ShopID { get; protected set; }
 
-        #endregion 
+        #endregion
 
         #region Constructors
         /// <summary>
@@ -64,16 +86,24 @@ namespace CCM.Domain.Entities.Computers
         /// <summary>
         /// Inicializa un objeto <see cref="PC"/>
         /// </summary>
-        /// <param name="rAM"></param>
-        /// <param name="motherBoard"></param>
-        /// <param name="hardDrive"></param>
-        /// <param name="microprocesor"></param>
-        public PC(int hardDriveId, int microprocesorId, int rAMId, int motherBoardId)
+        /// <param name="rAM">RAM de la PC</param>
+        /// <param name="motherBoard">Microprocesador de la PC</param>
+        /// <param name="hardDrive">Disco duro de la PC</param>
+        /// <param name="microprocesor">Microprocesador de la PC</param>
+        /// <param name="price">Precio de la PC</param>
+        public PC(HardDrive hardDrive, Microprocesor microprocesor, RAM rAM, MotherBoard motherBoard, Price price)
         {
-            HardDriveId = hardDriveId;
-            MicroprocesorId = microprocesorId;
-            MotherBoardId = motherBoardId;
-            RAMId = rAMId;
+            HardDrive = hardDrive;
+            Microprocesors = microprocesor;
+            RAM = rAM;
+            MotherBoard = motherBoard;
+            Price = price;
+            HardDriveId = hardDrive.Id;
+            MicroprocesorId = microprocesor.Id;
+            MotherBoardId = motherBoard.Id;
+            RAMId = rAM.Id;
+            PriceId = price.Id;
+            
         }
         
         #endregion

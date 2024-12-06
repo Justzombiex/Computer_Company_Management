@@ -7,7 +7,7 @@ using CCM.Domain.Abstract;
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Types;
 
-namespace CCM.Domain.Entities.Components
+namespace CCM.Domain.Entities.Persons
 {
     
     /// <summary>
@@ -17,21 +17,21 @@ namespace CCM.Domain.Entities.Components
     {
         #region Properties
         /// <summary>
-        /// Tamaño de memoria de la RAM
+        /// Tamaño de memoria de la RAM en Gigabytes
         /// </summary>
-        public int MemorySize { get; set; }
+        public double MemorySize { get; set; }
         /// <summary>
         /// Marca de la memoria RAM
         /// </summary>
-        public string Brand { get; }
+        public string Brand { get; set; }
         /// <summary>
         /// Tipo de memoria RAM 
         /// </summary>
-        public MemoryType MemoryType { get; }
+        public MemoryType MemoryType { get; set; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
 
         #endregion
 
@@ -47,7 +47,7 @@ namespace CCM.Domain.Entities.Components
         /// <param name="memorySize"></param>
         /// <param name="brand"></param>
         /// <param name="memoryType"></param>
-        RAM(int memorySize, string brand, MemoryType memoryType)           
+        public RAM(double memorySize, string brand, MemoryType memoryType)           
         {
             MemorySize = memorySize;
             Brand = brand;

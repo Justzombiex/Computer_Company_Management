@@ -1,22 +1,41 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Concrete\**" />
+    <EmbeddedResource Remove="Concrete\**" />
+    <None Remove="Concrete\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Abtract\" />
-    <Folder Include="Entities\Company\" />
+    <Folder Include="Entities\Companies\" />
     <Folder Include="Entities\Components\" />
     <Folder Include="Entities\Computers\" />
     <Folder Include="Entities\Orders\" />
-    <Folder Include="Entities\Persons\" />
-    <Folder Include="Entities\Shop\" />
+    <Folder Include="Entities\Shops\" />
     <Folder Include="Entities\Common\" />
-    <Folder Include="Utilities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.26.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.62.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.63.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.27">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

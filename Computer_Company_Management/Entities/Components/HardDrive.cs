@@ -7,7 +7,7 @@ using CCM.Domain.Abstract;
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Types;
 
-namespace CCM.Domain.Entities.Components
+namespace CCM.Domain.Entities.Persons
 {
     /// <summary>
     /// Modela el disco duro de la PC
@@ -18,23 +18,23 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Modelo del disco duro
         /// </summary>
-        public string Model { get; }
+        public string Model { get; init; }
         /// <summary>
-        /// Capacidad de almacenamiento del disco duro
+        /// Capacidad de almacenamiento del disco duro en Terabytes
         /// </summary>
-        public float Storage { get; } 
+        public double Storage { get; init; } 
         /// <summary>
         /// Tipo de conexión del disco duro
         /// </summary>
-        public ConnectionHardDriveType ConnectionHardDriveType { get; }
+        public ConnectionHardDriveType ConnectionHardDriveType { get; init; }
         /// <summary>
         /// Marca del disco duro
         /// </summary>
-        public string Brand { get; }
+        public string Brand { get; init; }
         /// <summary>
         /// Identificador de la PC
         /// </summary>
-        public int PCId;
+        public int PCId { get; protected set; }
         
         #endregion
 
@@ -47,11 +47,11 @@ namespace CCM.Domain.Entities.Components
         /// <summary>
         /// Inicializa un objeto <see cref="HardDrive"/>.
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="brand"></param>
-        /// <param name="storage"></param>
-        /// <param name="connectionHardDriveType"></param>
-        public HardDrive(string model, string brand, float storage, ConnectionHardDriveType connectionHardDriveType ) 
+        /// <param name="model">Modelo del disco duro</param>
+        /// <param name="brand">Marca del disco duro</param>
+        /// <param name="storage">Capacidad de almacenamiento del disco duro en TeraBytes</param>
+        /// <param name="connectionHardDriveType">Tipo de conexión del disco duro</param>
+        public HardDrive(string model, string brand, double storage, ConnectionHardDriveType connectionHardDriveType ) 
         { 
             Model = model; 
             Brand = brand; 

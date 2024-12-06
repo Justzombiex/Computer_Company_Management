@@ -1,30 +1,66 @@
 ﻿using CCM.Domain.Entities.Common;
+using CCM.Domain.Entities.Shops;
 using CCM.Domain.Entities.Types;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CCM.Domain.Entities.Persons
 {
-    internal class Worker : Person, Entity
+    /// <summary>
+    /// Modela un Trabajador 
+    /// </summary>
+    public class Worker : Entity
     {
         #region Properties
-        string _WorkerID { get; }
-        JobType Job { get; set; }
-        double Salary { get; set; }
+        /// <summary>
+        /// ID del trabajador
+        /// </summary>
+        public string _WorkerID { get; }
+        /// <summary>
+        /// Ocupacion que esta cubriendo el trabajador
+        /// </summary>
+        public JobType Job { get; set; }
+        /// <summary>
+        /// Salario que se le entrega al trabajador
+        /// </summary>
+        public double Salary { get; set; }
+        [NotMapped]
+        public Shop shop { get; set; }
+        #endregion
+
+        #region IDs
+        /// <summary>
+        /// ID del Trabajador
+        /// </summary>
+        public int WorkerID { get; protected set; }   
+        /// <summary>
+        /// ID del salario
+        /// </summary>
+        public int ShopID { get; protected set; }
         #endregion
 
         #region Constructors
-        protected Worker() { }
-        #endregion
-        public Worker(string cI, string name) : base(cI, name)
-        {
-            _WorkerID = string.Empty;
-            Job = JobType.STORECLERK;
-            Salary = 0;
 
+        /// <summary>
+        /// Para Migraciones
+        /// </summary>
+        protected Worker () {}
+        /// <summary>
+        /// Crea un objeto del tipo trabajador <see cref="Worker"/>
+        /// </summary>
+        /// <param name="workerid">ID del Trabajador</param>
+        /// <param name="job">Ocupacion de la persona</param>
+        /// <param name="salary">Salario que se le paga</param>
+        public Worker(string workerid, JobType job, double salary)
+        {
+            _WorkerID = workerid;
+            Job = job;
+            Salary = salary;        
         }
+        #endregion
     }
 }
