@@ -1,3 +1,4 @@
+
 using CCM.Domain.Entities.Common;
 using CCM.Domain.Entities.Companies;
 using CCM.Domain.Entities.Persons;
@@ -8,6 +9,7 @@ using CCM.Domain.Entities.Shops;
 using CCM.DataAccess.FluentConfigurations;
 using Microsoft.EntityFrameworkCore;
 using CCM.DataAccess.FluentConfigurations;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,6 +84,7 @@ namespace CCM.DataAccess.Concrete
 
    
   
+
         #region Constructors
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.
@@ -110,22 +113,26 @@ namespace CCM.DataAccess.Concrete
             : base(options)  {}
         #endregion
 
+
         #endregion
 
         /// <summary>
         /// Sobrescribimos la función OnConfiguring
         /// </summary>
         /// <param name="optionsBuilder"></param>
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite();
         }
 
+
         /// <summary>
         /// Sobrescribimos la función OnModelCreating
         /// </summary>
         /// <param name="modelBuilder"></param>
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -165,10 +172,7 @@ namespace CCM.DataAccess.Concrete
             modelBuilder.ApplyConfiguration(new EnterpriseClientFluentConfiguration());
             modelBuilder.ApplyConfiguration(new PrivateClientFluentConfiguration());
         }
-         
-        
-            
-            
+
         #region Helpers
         private static DbContextOptions GetOptions(string connectionString)
         {
