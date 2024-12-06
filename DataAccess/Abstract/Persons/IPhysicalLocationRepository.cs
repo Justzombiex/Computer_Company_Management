@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CCM.DataAccess.Abstract.Persons
 {
+
     /// <summary>
     /// Define las operaciones a realizar en BD para las ubicaciones físicas.
     /// </summary>

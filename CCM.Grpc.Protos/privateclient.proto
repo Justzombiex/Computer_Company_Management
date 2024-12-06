@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option csharp_namespace = "CCM.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Client {
+  
+    rpc CreatePrivateClient (CreatePrivateClientRequest) returns (PrivateClientDTO);
+    rpc GetClient (GetRequest) returns (NullableClientDTO);
+    rpc UpdatePrivateClient (UpdatePrivateClientRequest) returns (PrivateClientDTO);
+    rpc DeleteClient(ClientDTO) returns (google.protobuf.Empty);
+}
+
+message ClientDTO{
+	int32 id = 1;
+}
+
+
+message PrivateClientDTO{
+	int32 id = 1;
+	string name = 2;
+	string cI = 3;
+	int age = 4;
+}
+
+message NullableClientDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		ClientDTO client = 2;
+	}
+}
+
+message CreatePrivateClientRequest{
+	string name = 1;
+	string cI = 2;
+	int age = 3;
+}
+

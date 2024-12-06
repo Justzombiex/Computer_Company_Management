@@ -42,7 +42,7 @@ namespace CCM.Services.Services
 
         public override Task<Empty> DeleteHardDrive(HardDriveDTO request, ServerCallContext context)
         {
-            var hardDrive = _mapper.Map<CCM.Domain.Entities.Components.HardDrive>(request);
+            var hardDrive = _mapper.Map<CCM.Domain.Entities.Persons.HardDrive>(request);
             _hardDriveRepository.BeginTransaction();
             _hardDriveRepository.Delete(hardDrive);
             _hardDriveRepository.CommitTransaction();

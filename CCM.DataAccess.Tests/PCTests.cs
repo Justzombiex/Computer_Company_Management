@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CCM.DataAccess.Abstract.Computers;
 using CCM.DataAccess.Abstract.Common;
 using CCM.Domain.Entities.Common;
-using CCM.Domain.Entities.Components;
+using CCM.Domain.Entities.Persons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
